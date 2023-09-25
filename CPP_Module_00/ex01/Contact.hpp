@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:45:38 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 19:43:54 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:19:17 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,18 @@ private:
 	std::string phone_number;
 	std::string darkest_secret;
 public:
-	Contact();
-	~Contact();
-	const void print_contact();
-	const void print_all_contacts();
-	void set_first_name(std::string first_name);
-	void set_last_name(std::string last_name);
-	void set_nickname(std::string nickname);
-	void set_phone_number(std::string phone_number);
-	void set_darkest_secret(std::string darkest_secret);
-	std::string get_first_name();
-	std::string get_last_name();
-	std::string get_nickname();
-	std::string get_phone_number();
-	std::string get_darkest_secret();
+	std::string truncate(std::string str);
+	void print_contact(int i);
+	void setfirst_name(std::string first_name);
+	void setlast_name(std::string last_name);
+	void setnickname(std::string nickname);
+	void setphone_number(std::string phone_number);
+	void setdarkest_secret(std::string darkest_secret);
+	std::string getfirst_name();
+	std::string getlast_name();
+	std::string getnickname();
+	std::string getphone_number();
+	std::string getdarkest_secret();
 };
 
 #endif

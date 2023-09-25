@@ -6,13 +6,13 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:42:45 by elakhfif          #+#    #+#              #
-#    Updated: 2023/09/25 19:16:54 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/09/25 20:37:27 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRC = phonebook.cpp Contact.cpp
+SRC = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
