@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:46:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 19:18:47 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:37:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 
 Contact::Contact()
 {
-}
+	std::cout << "Enter the first name\n";
+};
 
 Contact::~Contact()
 {
-}
+};
 
 void Contact::set_first_name(std::string first_name)
 {

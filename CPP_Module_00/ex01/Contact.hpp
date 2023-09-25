@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:45:38 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 19:18:59 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:43:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ private:
 public:
 	Contact();
 	~Contact();
+	const void print_contact();
+	const void print_all_contacts();
 	void set_first_name(std::string first_name);
 	void set_last_name(std::string last_name);
 	void set_nickname(std::string nickname);
