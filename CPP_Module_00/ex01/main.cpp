@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:24:09 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 20:36:31 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/18 22:38:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	main(void)
 		}
 		else if (command == "SEARCH")
 		{
+			if (i == 0)
+			{
+				std::cout << "[PHONEBOOK] : YOU HAVE NO CONTACTS !\n";
+				continue ;
+			}
 			index = 0;
 			std::cout << std::setw(10) << "index" << "|" << std::setw(10) << "first name" << "|" << std::setw(10) << "last name" << "|" << std::setw(10) << "nickname" << std::endl;
 			while (index < i)
