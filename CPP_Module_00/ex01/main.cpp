@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:24:09 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/10/19 03:56:24 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 03:23:58 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(void)
 				index++;
 			}
 			std::cout << "[PHONEBOOK] : Enter an index : ";
-			std::getline(std::cin, command);
+			std::cin >> index;
 		}
 		else
 			std::cout << "[PHONEBOOK] : STUPID COMMAND DUMBASS !\n";
