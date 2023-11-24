@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 04:07:48 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 05:54:41 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/11/24 07:03:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ class Harl
 	public:
 		Harl();
 		~Harl();
-		void	message(std::string level, std::string message);
-		void	debug(std::string message);
-		void	info(std::string message);
-		void	warning(std::string message);
-		void	error(std::string message);
 		void	complain(std::string level);
 };
 
