@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:31:01 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/10/20 06:38:08 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:00:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 class Zombie
 {
 	std::string _name;
-	std::string _type;
 public:
-	Zombie();
-	Zombie(std::string name, std::string type);
+	Zombie(std::string name);
 	~Zombie();
 	void announce();
 };

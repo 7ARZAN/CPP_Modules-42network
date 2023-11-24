@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 14:44:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/10/22 14:46:13 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/10/23 22:21:58 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 02:28:00 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 int main()
 {
-    Zombie *zombie;
-    int i;
-
-    i = 0;
-    zombie = zombieHorde(10, "Tarzan");
-    while (i < 10)
-    {
-	zombie[i].announce();
-	i++;
-    }
-    delete[] zombie;
+    Zombie *zombies = zombieHorde(10, "zombie");
+    delete [] zombies;
     return (0);
 }
