@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   sedhead.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 03:35:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 03:50:42 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 03:56:41 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 03:59:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef SEDHEAD_HPP
+#define SEDHEAD_HPP
 
-#include "Weapon.hpp"
 #include <iostream>
+#include <fstream>
+#include <string>
 
-class HumanB
-{
+class Sed{
 	private:
-		std::string _name;
-		Weapon *_weapon;
+		std::string _filename;
+		std::string _s1;
+		std::string _s2;
+		std::string _buffer;
 	public:
-		HumanB(std::string name);
-		~HumanB();
-		void attack();
-		void setWeapon(Weapon &weapon);
+		Sed();
+		Sed(std::string filename, std::string s1, std::string s2);
+		~Sed();
+
+		void replace();
+		void replace(std::string filename, std::string s1, std::string s2);
+		void replace(std::string s1, std::string s2);
+		void replace(std::string s2);
 };
 
 #endif
+

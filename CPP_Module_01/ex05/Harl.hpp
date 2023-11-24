@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 03:35:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 03:50:42 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 04:07:48 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 05:54:41 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-#include "Weapon.hpp"
-#include <iostream>
+# include <iostream>
+# include <string>
 
-class HumanB
+class Harl
 {
 	private:
-		std::string _name;
-		Weapon *_weapon;
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 	public:
-		HumanB(std::string name);
-		~HumanB();
-		void attack();
-		void setWeapon(Weapon &weapon);
+		Harl();
+		~Harl();
+		void	message(std::string level, std::string message);
+		void	debug(std::string message);
+		void	info(std::string message);
+		void	warning(std::string message);
+		void	error(std::string message);
+		void	complain(std::string level);
 };
 
 #endif

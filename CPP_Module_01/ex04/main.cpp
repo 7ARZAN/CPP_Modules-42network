@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 03:35:47 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 03:51:02 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 03:56:17 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 04:00:46 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "sedhead.hpp"
 
-HumanB::HumanB(std::string name): _name(name)
-{
-	std::cout << "HumanB created" << std::endl;
-}
-
-HumanB::~HumanB()
-{
-	std::cout << "HumanB destroyed" << std::endl;
-}
-
-void HumanB::attack()
-{
-	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
-}
-
-void HumanB::setWeapon(Weapon &weapon)
-{
-	this->_weapon = &weapon;
+int main(int argc, char **argv){
+	if (argc == 4){
+		Sed sed(argv[1], argv[2], argv[3]);
+		sed.replace();
+	}
+	else
+		std::cout << "Error: wrong number of arguments" << std::endl;
+	return 0;
 }

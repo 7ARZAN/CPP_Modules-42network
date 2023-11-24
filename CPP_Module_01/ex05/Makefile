@@ -5,22 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/24 03:34:42 by elakhfif          #+#    #+#              #
-#    Updated: 2023/11/24 03:52:36 by elakhfif         ###   ########.fr        #
+#    Created: 2023/11/24 04:07:27 by elakhfif          #+#    #+#              #
+#    Updated: 2023/11/24 05:49:06 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
 
-INC = Weapon.hpp HumanA.hpp HumanB.hpp
+INC = Harl.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Weapon
+NAME = Harl
 
 RM = rm -f
 

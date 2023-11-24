@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 03:35:47 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 03:51:02 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 04:07:36 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 05:55:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "Harl.hpp"
 
-HumanB::HumanB(std::string name): _name(name)
+int main(int ac, char **av)
 {
-	std::cout << "HumanB created" << std::endl;
-}
-
-HumanB::~HumanB()
-{
-	std::cout << "HumanB destroyed" << std::endl;
-}
-
-void HumanB::attack()
-{
-	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
-}
-
-void HumanB::setWeapon(Weapon &weapon)
-{
-	this->_weapon = &weapon;
+	if (ac != 2)
+	{
+		std::cout << "Usage: ./harl <level>" << std::endl;
+		return (1);
+	}
+	Harl harl;
+	harl.complain(av[1]);
+	return (0);
 }

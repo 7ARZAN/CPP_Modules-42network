@@ -5,22 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/24 03:34:42 by elakhfif          #+#    #+#              #
-#    Updated: 2023/11/24 03:52:36 by elakhfif         ###   ########.fr        #
+#    Created: 2023/11/24 03:55:32 by elakhfif          #+#    #+#              #
+#    Updated: 2023/11/24 04:02:31 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp sed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
 
-INC = Weapon.hpp HumanA.hpp HumanB.hpp
+INC = sedhead.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Weapon
+NAME = replace
 
 RM = rm -f
 
