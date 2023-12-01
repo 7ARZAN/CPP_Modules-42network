@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:46:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 20:20:49 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/01 07:58:24 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,75 +26,70 @@
 
 std::string Contact::getfirst_name(void)
 {
-    return (this->first_name);
+    return (_first_name);
 }
 
 std::string Contact::getlast_name(void)
 {
-    return (this->last_name);
+    return (_last_name);
 }
 
 std::string Contact::getnickname(void)
 {
-    return (this->nickname);
+    return (_nickname);
 }
 
 std::string Contact::getphone_number(void)
 {
-    return (this->phone_number);
+    return (_phone_number);
 }
 
 std::string Contact::getdarkest_secret(void)
 {
-    return (this->darkest_secret);
+    return (_darkest_secret);
 }
 // -------------------- getters --------------------- //
 
 // -------------------- setters --------------------- //
 // we use setters to set the values of the data members of the class
 
-void	Contact::setfirst_name(std::string first_name)
+void	Contact::setfirst_name(std::string firstname)
 {
-	this->first_name = first_name;
+	if (firstname.length() > 10){
+		firstname = firstname.substr(0,9) + ".";
+	}
+	this->_first_name = firstname;
 }
 
-void	Contact::setlast_name(std::string last_name)
+void	Contact::setlast_name(std::string lastname)
 {
-	this->last_name = last_name;
+	if (lastname.length() > 10){
+		lastname = lastname.substr(0,9) + ".";
+	}
+	this->_last_name = lastname;
 }
 
 void	Contact::setnickname(std::string nickname)
 {
-	this->nickname = nickname;
+	if (nickname.length() > 10)
+	{
+		nickname = nickname.substr(0,9) + ".";
+	}
+	this->_nickname = nickname;
 }
 
-void	Contact::setphone_number(std::string phone_number)
+void	Contact::setphone_number(std::string phonenumber)
 {
-	this->phone_number = phone_number;
+	if ("+212" == phonenumber.substr(0, 4) && phonenumber.length() == 12)
+		this->_phone_number = phonenumber;
+	else
+		std::cout << "u gay? u are from another planet?!" << std::endl;
 }
 
 void	Contact::setdarkest_secret(std::string darkest_secret)
 {
-	this->darkest_secret = darkest_secret;
+	this->_darkest_secret = darkest_secret;
 }
 // -------------------- setters --------------------- //
 
 
-//truncate function is a function that takes a string and returns a string
-//and it truncates the string if it's length is greater than 10 characters
-std::string Contact::truncate(std::string str)
-{
-    if (str.length() > 10)
-	return (str.substr(0, 9) + ".");
-    return (str);
-}
-
-//print_contact function is a function that takes an integer and returns nothing
-//and it prints the contact with the index i in the phonebook in a specific format
-void Contact::print_contact(int i)
-{
-	std::cout << std::setw(10) << i << "|";
-	std::cout << std::setw(10) << truncate(this->getfirst_name()) << "|";
-	std::cout << std::setw(10) << truncate(this->getlast_name()) << "|";
-	std::cout << std::setw(10) << truncate(this->getnickname()) << std::endl;
-}

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:54:29 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 20:29:12 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/01 07:14:38 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 # include "Contact.hpp"
 
-//Class phonebook is a user-defined data type that we can use in our program, and it works as an object constructor, or a "blueprint" for creating objects.
+//PhoneBook class is a container for Contact class objects and it has 3 methods to add, search and print contacts
+//it has an array of 8 contacts and an index to keep track of the number of contacts added to the array!
+//it has a constructor and a destructor
 class PhoneBook
 {
-    public:
-	PhoneBook();
-	~PhoneBook();
-	Contact contacts[8];
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	private:
+		Contact contacts[8];
+		int index;
+	public:
+		void add_contact();
+		void search_contact();
+		void print_contact();
 };
 
 #endif

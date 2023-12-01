@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:45:38 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/25 20:19:17 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/01 07:50:31 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,17 @@
 class Contact
 {
 private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string _first_name;
+	std::string _last_name;
+	std::string _nickname;
+	std::string _phone_number;
+	std::string _darkest_secret;
 public:
-	std::string truncate(std::string str);
-	void print_contact(int i);
-	void setfirst_name(std::string first_name);
-	void setlast_name(std::string last_name);
+	void setfirst_name(std::string firstname);
+	void setlast_name(std::string lastname);
 	void setnickname(std::string nickname);
-	void setphone_number(std::string phone_number);
-	void setdarkest_secret(std::string darkest_secret);
+	void setphone_number(std::string phonenumber);
+	void setdarkest_secret(std::string darkestsecret);
 	std::string getfirst_name();
 	std::string getlast_name();
 	std::string getnickname();
