@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:54:29 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/01 07:14:38 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 00:26:08 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
 		Contact contacts[8];
 		int index;
 	public:
+		PhoneBook();
 		void add_contact();
 		void search_contact();
 		void print_contact();

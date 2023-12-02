@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:46:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/01 07:58:24 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 00:44:03 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,7 @@ void	Contact::setnickname(std::string nickname)
 
 void	Contact::setphone_number(std::string phonenumber)
 {
-	if ("+212" == phonenumber.substr(0, 4) && phonenumber.length() == 12)
-		this->_phone_number = phonenumber;
-	else
-		std::cout << "u gay? u are from another planet?!" << std::endl;
+	this->_phone_number = phonenumber;
 }
 
 void	Contact::setdarkest_secret(std::string darkest_secret)
