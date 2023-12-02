@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:24:09 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 01:51:34 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 07:53:23 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ int	main(void)
 	PhoneBook	phonebook;
 	std::string	input;
 	int			i;
-	int			index;
 
 	i = 0;
-	index = 0;
 	std::cout << "\033[1;32m";
 	std::cout << "\n\n\n";
 	std::cout << std::setw(96);
@@ -73,7 +71,6 @@ int	main(void)
 		if (input == "ADD")
 		{
 			phonebook.add_contact();
-			index = i;
 			i++;
 		}
 		else if (input == "SEARCH")
@@ -90,7 +87,7 @@ int	main(void)
 			std::cout << "\033[1;32m";
 			std::cout << "[TARZAN] : EXITING THE PHONEBOOK GOOD BYE!\n";
 			std::cout << "\033[0m";
-			return (0);
+			break ;
 		}
 		else
 		{
@@ -99,6 +96,5 @@ int	main(void)
 			std::cout << "\033[0m";
 		}
 	}
-
 	return (0);
 }
