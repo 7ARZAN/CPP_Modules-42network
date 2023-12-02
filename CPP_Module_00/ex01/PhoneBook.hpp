@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:54:29 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 00:26:08 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 02:19:01 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class PhoneBook
 {
 	private:
-		Contact contacts[8];
+		Contact contacts[2];
 		int index;
 	public:
 		PhoneBook();

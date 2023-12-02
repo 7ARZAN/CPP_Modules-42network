@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:42:45 by elakhfif          #+#    #+#              #
-#    Updated: 2023/12/01 07:01:36 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/12/02 03:05:42 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 INC = Contact.hpp PhoneBook.hpp
 

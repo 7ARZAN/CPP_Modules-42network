@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:24:09 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 01:14:55 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 01:51:34 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,16 @@ int	check_index(int i, int index)
 			std::cout << std::endl;
 			return (0);
 		}
-		if (input.length() == 1 && input[0] >= '0' && input[0] <= '9')
+		if (input.length() == 1 && input[0] >= '0' && input[0] <= '7')
 		{
 			index = input[0] - '0';
-			if (index >= 0 && index < i)
+			if (index < i)
 				return (1);
-			else
-			{
-				std::cout << "\033[1;31m";
-				std::cout << "[TARZAN] : INDEX NOT FOUND RTFM!\n";
-				std::cout << "\033[0m";
-				break ;
-			}
 		}
 		else
 		{
 			std::cout << "\033[1;31m";
-			std::cout << "[TARZAN] : INDEX NOT FOUND RTFM!\n";
+			std::cout << "[TARZAN] : INDEX NOT FOUND!\n";
 			std::cout << "\033[0m";
 			break ;
 		}
@@ -86,6 +79,8 @@ int	main(void)
 		else if (input == "SEARCH")
 		{
 			phonebook.search_contact();
+			if (i == 8)
+				i = 0;
 			//check_index(i, index);
 			//if (check_index(i, index))
 			phonebook.print_contact();

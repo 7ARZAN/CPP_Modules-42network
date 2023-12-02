@@ -6,11 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:53:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 01:13:34 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/02 02:25:12 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+int lol;
+int trigger;
 
 void	PhoneBook::add_contact(void)
 {
@@ -38,10 +41,21 @@ void	PhoneBook::add_contact(void)
 	this->contacts[this->index].setnickname(buffers[2]);
 	this->contacts[this->index].setphone_number(buffers[3]);
 	this->contacts[this->index].setdarkest_secret(buffers[4]);
+
 	this->index++;
-	if (this->index == 8) {
+	if (this->index < 2 && trigger == 0)
+		lol++;
+	if (this->index >= 2)
+	{
 		this->index = 0;
+		lol = 2;
+		trigger = 1;
+		// int i = -1;
+		// while (++i <= 1)
+		// 	this->contacts[i] = this->contacts[i + 1];
+		// this->index--;
 	}
+	std::cout << "\033[1;31m" << "[TARZAN]: BRAH, CONTACT ADDED" << "\033[0m" << std::endl;
 }
 
 void	PhoneBook::search_contact(void)
@@ -52,13 +66,13 @@ void	PhoneBook::search_contact(void)
 
 	i = 0;
 	j = 0;
-	if (this->index == 0)
+	if (lol == 0)
 	{
 		std::cout << "\033[1;31m" << "[TARZAN]: BRAH, NO CONTACTS TO SEARCH" << "\033[0m" << std::endl;
 		return ;
 	}
 	std::cout << "\033[1;31m" << "     index|first name| last name|  nickname" << "\033[0m" << std::endl;
-	while (i < this->index)
+	while (i < lol)
 	{
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << this->contacts[i].getfirst_name() << "|";
@@ -69,7 +83,7 @@ void	PhoneBook::search_contact(void)
 	std::cout << "Enter the index of the contact you want to see : ";
 	std::getline(std::cin, input);
 	j = std::atoi(input.c_str());
-	if (j < 0 || j >= this->index)
+	if (j < 0 || j >= lol)
 	{
 		std::cout << "\033[1;31m" << "[TARZAN]: BRUH, INVALID INDEX" << "\033[0m" << std::endl;
 		return ;
@@ -84,7 +98,10 @@ void	PhoneBook::search_contact(void)
 		std::cout << "Do you want to see another contact? [y/n] : ";
 		std::getline(std::cin, input);
 		if (input == "y")
+		{
+			search_contact();
 			break ;
+		}
 		else if (input == "n")
 			return ;
 		else
