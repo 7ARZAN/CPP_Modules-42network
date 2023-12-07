@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 06:02:16 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 06:26:40 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 04:07:52 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/12/07 17:16:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,51 @@
 
 Harl::Harl(){}
 
-Harl::Harl(std::string type, std::string msg): _type(type), _msg(msg){}
-
-Harl::Harl(Harl const &h){*this = h;}
-
 Harl::~Harl(){}
 
-Harl &Harl::operator=(Harl const &h)
+void	Harl::complain(std::string level)
 {
-    this->_type = h._type;
-    this->_msg = h._msg;
-    return *this;
+	int	i;
+
+	std::string levels[4] = {"debug", "info", "warning", "error"};
+	typedef void (Harl::*ptr)(void);
+	ptr functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	i = -1;
+	while (++i < 4)
+	{
+		if (levels[i] == level)
+		{
+			while (i < 4)
+			{
+				(this->*functions[i])();
+				i++;
+			}
+			break ;
+		}
+		else if (i == 3)
+		{
+			std::cout << "[TARZAN]: I dont know what you mean by " << level << ", but m sure its not important :3" << std::endl;
+			break ;
+		}
+	}
 }
 
-std::string Harl::getType() const{return this->_type;}
-
-std::string Harl::getMsg() const{return this->_msg;}
-
-void Harl::setType(std::string type){this->_type = type;}
-
-void Harl::setMsg(std::string msg){this->_msg = msg;}
-
-void	console(std::string const & level, std::string const & message)
+void	Harl::debug(void)
 {
-    Harl h(level, message);
-    std::cout << h.getType() << ": " << h.getMsg() << std::endl;
+	std::cout << "[DEBUG]: If you're seeing this, you're in debug mode, you're a developer, and u should know better." << std::endl;
+}
+
+void	Harl::info(void)
+{
+	std::cout << "[INFO]: Information is power, but like all power, there are those who want to keep it for themselves." << std::endl;
+}
+
+void	Harl::warning(void)
+{
+	std::cout << "[WARNING]: 7adari I know Kung Fu, Karate, and 47 other dangerous words." << std::endl;
+}
+
+void	Harl::error(void)
+{
+	std::cout << "[ERROR]: Really?! Tarzan never make mistakes, bcs Tarzan never do anything." << std::endl;
 }
