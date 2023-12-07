@@ -6,14 +6,11 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:32:46 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/09/15 13:47:21 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:55:13 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
-
-using namespace std;
 
 int main(int ac, char **av)
 {

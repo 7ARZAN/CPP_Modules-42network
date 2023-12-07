@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:53:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 08:01:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:56:18 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	PhoneBook::add_contact(void)
 		std::cout << prompts[i];
 		std::cout << "\033[0m";
 		std::getline(std::cin, buffers[i]);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return;
+		}
 		if (i == 3 && ("+212" != buffers[i].substr(0, 4) || buffers[i].length() != 13))
 		{
 			std::cout << "\033[1;31m" << "BRUH!! from ANOTHER PLANET?!" << "\033[0m" << std::endl;

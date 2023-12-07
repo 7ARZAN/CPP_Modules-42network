@@ -6,40 +6,11 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:24:09 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/02 07:53:23 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:55:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-int	check_index(int i, int index)
-{
-	std::string	input;
-
-	while (1)
-	{
-		std::getline(std::cin, input);
-		if (std::cin.eof())
-		{
-			std::cout << std::endl;
-			return (0);
-		}
-		if (input.length() == 1 && input[0] >= '0' && input[0] <= '7')
-		{
-			index = input[0] - '0';
-			if (index < i)
-				return (1);
-		}
-		else
-		{
-			std::cout << "\033[1;31m";
-			std::cout << "[TARZAN] : INDEX NOT FOUND!\n";
-			std::cout << "\033[0m";
-			break ;
-		}
-	}
-	return (0);
-}
 
 int	main(void)
 {
@@ -78,8 +49,6 @@ int	main(void)
 			phonebook.search_contact();
 			if (i == 8)
 				i = 0;
-			//check_index(i, index);
-			//if (check_index(i, index))
 			phonebook.print_contact();
 		}
 		else if (input == "EXIT")
