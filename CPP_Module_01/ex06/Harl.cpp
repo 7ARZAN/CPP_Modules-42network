@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 04:07:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/07 17:16:42 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:23:25 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,23 @@ void	Harl::complain(std::string level)
 	typedef void (Harl::*ptr)(void);
 	ptr functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	i = -1;
-	while (++i < 4)
+	if (level != "debug" && level != "info" && level != "warning" && level != "error"){
+		std::cout << "Harl: Invalid level, please choose one of the following levels: " << std::endl;
+		while (++i < 4)
+			std::cout << levels[i] << std::endl;
+		return ;
+	}
+	switch(level[0])
 	{
-		if (levels[i] == level)
-		{
-			while (i < 4)
-			{
-				(this->*functions[i])();
-				i++;
-			}
+		case 'd':
+			(this->*functions[0])();
+		case 'i':
+			(this->*functions[1])();
+		case 'w':
+			(this->*functions[2])();
+		case 'e':
+			(this->*functions[3])();
 			break ;
-		}
-		else if (i == 3)
-		{
-			std::cout << "[TARZAN]: I dont know what you mean by " << level << ", but m sure its not important :3" << std::endl;
-			break ;
-		}
 	}
 }
 

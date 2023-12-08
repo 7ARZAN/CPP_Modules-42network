@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 03:55:32 by elakhfif          #+#    #+#              #
-#    Updated: 2023/11/24 04:02:31 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/12/08 15:25:36 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,3 +47,4 @@ fclean: clean
 	@echo "$(RED)7ARZAN $(CYAN)GALIK MSA7 $(GREEN)L7ZA9 ✔️"
 
 re : fclean all
+
