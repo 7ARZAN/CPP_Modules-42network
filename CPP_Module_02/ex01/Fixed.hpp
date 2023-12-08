@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 00:07:57 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/09 00:09:42 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/11/24 07:45:36 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/11/24 07:54:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 class Fixed
 {
     private:
-	int                 _fixed_point_value;
-	static const int    _fractional_bits = 8;
+	int                 _fixed_point_value; //fixed point value
+	static const int    _fractional_bits = 8; //fractional bits
     public:
-	Fixed();
-	Fixed(Fixed const &f);
-	Fixed(int const i);
-	Fixed(float const f);
-	~Fixed();
-	Fixed &operator=(Fixed const &f);
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-	float toFloat(void) const;
-	int toInt(void) const;
+	Fixed(); //default constructor
+	Fixed(Fixed const &f); //copy constructor
+	Fixed(int const i); //int constructor
+	Fixed(float const f); //float constructor
+	~Fixed(); //destructor
+	Fixed &operator=(Fixed const &f); //assignation operator overload
+	int getRawBits(void) const; //get raw bits
+	void setRawBits(int const raw); //set raw bits
+	float toFloat(void) const; //convert to float
+	int toInt(void) const; //convert to int
 };
 
-std::ostream &operator<<(std::ostream &o, Fixed const &f);
+void	compare(Fixed const &a, Fixed const &b);
 
 #endif

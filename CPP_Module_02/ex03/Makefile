@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/09 00:08:34 by elakhfif          #+#    #+#              #
-#    Updated: 2023/12/09 00:13:08 by elakhfif         ###   ########.fr        #
+#    Created: 2023/11/24 07:45:21 by elakhfif          #+#    #+#              #
+#    Updated: 2023/12/09 00:23:02 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp bsq.cpp Point.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
+INC = Fixed.hpp Point.hpp
 
-INC = Fixed.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
