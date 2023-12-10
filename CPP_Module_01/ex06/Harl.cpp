@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 04:07:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/08 15:23:25 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/10 22:06:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	Harl::complain(std::string level)
 {
 	int	i;
 
-	std::string levels[4] = {"debug", "info", "warning", "error"};
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	typedef void (Harl::*ptr)(void);
 	ptr functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	i = -1;
-	if (level != "debug" && level != "info" && level != "warning" && level != "error"){
+	if (level != "DEBUG" && level != "INFO" && level != "WARNING" && level != "ERROR"){
 		std::cout << "Harl: Invalid level, please choose one of the following levels: " << std::endl;
 		while (++i < 4)
 			std::cout << levels[i] << std::endl;
@@ -32,13 +32,13 @@ void	Harl::complain(std::string level)
 	}
 	switch(level[0])
 	{
-		case 'd':
+		case 'D':
 			(this->*functions[0])();
-		case 'i':
+		case 'I':
 			(this->*functions[1])();
-		case 'w':
+		case 'W':
 			(this->*functions[2])();
-		case 'e':
+		case 'E':
 			(this->*functions[3])();
 			break ;
 	}
