@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:40:06 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/09 00:42:21 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/10 08:22:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap : ClapTrap
 {
 	private:
    	 	int         _hit_points;
