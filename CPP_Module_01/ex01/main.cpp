@@ -6,14 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:21:58 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/10 23:01:33 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:28:24 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main(){
-	Zombie *zombies = zombieHorde(10, "zombie");
+	Zombie *zombies = zombieHorde(5, "zombie");
 	delete [] zombies;
 	return (0);
 }
