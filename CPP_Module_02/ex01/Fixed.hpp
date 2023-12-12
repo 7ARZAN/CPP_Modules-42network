@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 07:45:36 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/11/24 07:54:45 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/12 22:22:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 class Fixed
 {
     private:
-	int                 _fixed_point_value; //fixed point value
-	static const int    _fractional_bits = 8; //fractional bits
+	int                 _fixed_point_value; //fixed point value "integer part"
+	static const int    _fractional_bits = 8; //fractional bits "fractional part"
     public:
-	Fixed(); //default constructor
-	Fixed(Fixed const &f); //copy constructor
-	Fixed(int const i); //int constructor
-	Fixed(float const f); //float constructor
-	~Fixed(); //destructor
-	Fixed &operator=(Fixed const &f); //assignation operator overload
-	int getRawBits(void) const; //get raw bits
-	void setRawBits(int const raw); //set raw bits
-	float toFloat(void) const; //convert to float
-	int toInt(void) const; //convert to int
+	Fixed(); //default constructor "initializing"
+	Fixed(Fixed const &f); //copy constructor "copying"
+	Fixed(int const i); //int constructor "int to fixed point value"
+	Fixed(float const f); //float constructor "float to fixed point value"
+	~Fixed(); //destructor "destroying"
+	Fixed &operator=(Fixed const &f); //assignation operator overload "copying"
+	int getRawBits(void) const; //get raw bits "fixed point value"
+	void setRawBits(int const raw); //set raw bits "fixed point value"
+	float toFloat(void) const; //convert to float "fixed point value"
+	int toInt(void) const; //convert to int "fixed point value"
 };
 
-void	compare(Fixed const &a, Fixed const &b);
+void	compare(Fixed const &a, Fixed const &b); //compare two fixed point values
 
 #endif
