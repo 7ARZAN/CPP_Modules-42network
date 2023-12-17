@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 07:45:36 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/12 22:22:45 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/17 06:27:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Fixed
 	int toInt(void) const; //convert to int "fixed point value"
 };
 
-void	compare(Fixed const &a, Fixed const &b); //compare two fixed point values
+//void	compare(Fixed const &a, Fixed const &b); //compare two fixed point values
+std::ostream &operator<<(std::ostream &out, Fixed const &f); //output operator overload "printing"
 
 #endif
