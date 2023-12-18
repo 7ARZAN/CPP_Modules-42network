@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 07:45:46 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/12 22:38:27 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/17 06:26:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ int	Fixed::toInt(void) const{
     return this->_fixed_point_value >> this->_fractional_bits;
 }
 
-void	compare(Fixed const &a, Fixed const &b){
-	if (a.getRawBits() > b.getRawBits())
-		std::cout << "a is greater than b" << std::endl;
-	else if (a.getRawBits() < b.getRawBits())
-		std::cout << "a is less than b" << std::endl;
-	else
-		std::cout << "a is equal to b" << std::endl;
-}
+// void	compare(Fixed const &a, Fixed const &b){
+// 	if (a.getRawBits() > b.getRawBits())
+// 		std::cout << "a is greater than b" << std::endl;
+// 	else if (a.getRawBits() < b.getRawBits())
+// 		std::cout << "a is less than b" << std::endl;
+// 	else
+// 		std::cout << "a is equal to b" << std::endl;
+// }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &f){
 	out << f.toFloat();
