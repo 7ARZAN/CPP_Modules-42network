@@ -6,8 +6,12 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:24:57 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/09 00:24:58 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/18 07:45:49 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Point.hpp"
 
+Point::Point(): x(0), y(0){}
+
+Point::~Point(){}
