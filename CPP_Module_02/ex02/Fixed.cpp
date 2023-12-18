@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:18:22 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/18 06:46:32 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/18 06:51:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,20 @@ Fixed Fixed::operator--(int){
 	Fixed tmp = *this;
 	this->setRawBits(this->getRawBits() - 1);
 	return (tmp);
+}
+
+Fixed& Fixed::min(Fixed &f1, Fixed &f2){
+	return (f1 < f2 ? f1 : f2);
+}
+
+Fixed const &Fixed::min(Fixed const &f1, Fixed const &f2){
+	return (f1 < f2 ? f1 : f2);
+}
+
+Fixed& Fixed::max(Fixed &f1, Fixed &f2){
+	return (f1 > f2 ? f1 : f2);
+}
+
+Fixed const &Fixed::max(Fixed const &f1, Fixed const &f2){
+	return (f1 > f2 ? f1 : f2);
 }

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:18:31 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/18 06:46:52 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/18 06:51:17 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ class Fixed
 	    Fixed operator++(int); //postfix increment operator
 	    Fixed &operator--(); //prefix decrement operator
 	    Fixed operator--(int); //postfix decrement operator
-	    // static Fixed &min(Fixed &f1, Fixed &f2); //static member function to find the minimum of two Fixed values
-	    // static Fixed &max(Fixed &f1, Fixed &f2); //static member function to find the maximum of two Fixed values
-	    // static Fixed const &min(Fixed const &f1, Fixed const &f2); //static member function to find the minimum of two Fixed values
-	    // static Fixed const &max(Fixed const &f1, Fixed const &f2); //static member function to find the maximum of two Fixed values
+	    static Fixed &min(Fixed &f1, Fixed &f2); //static member function to find the minimum of two Fixed values
+	    static Fixed &max(Fixed &f1, Fixed &f2); //static member function to find the maximum of two Fixed values
+	    static Fixed const &min(Fixed const &f1, Fixed const &f2); //static member function to find the minimum of two Fixed values
+	    static Fixed const &max(Fixed const &f1, Fixed const &f2); //static member function to find the maximum of two Fixed values
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &f); //output stream operator overload to print Fixed values.
