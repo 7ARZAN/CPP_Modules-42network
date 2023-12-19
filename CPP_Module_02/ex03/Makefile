@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 07:45:21 by elakhfif          #+#    #+#              #
-#    Updated: 2023/12/19 01:21:58 by elakhfif         ###   ########.fr        #
+#    Updated: 2023/12/19 01:43:42 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC = Fixed.hpp Point.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = bsq
+NAME = bsp
 
 RM = rm -f
 
