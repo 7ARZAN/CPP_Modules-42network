@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 00:40:06 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/10 08:22:48 by elakhfif         ###   ########.fr       */
+/*   Created: 2023/12/20 08:26:32 by elakhfif          #+#    #+#             */
+/*   Updated: 2023/12/20 08:27:01 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,9 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
-#include "ClapTrap.hpp"
+#include <ctime>
 
-class ScavTrap : ClapTrap
-{
-	private:
-   	 	int         _hit_points;
-   		int         _max_hit_points;
-    		int         _energy_points;
-    		int         _max_energy_points;
-    		int         _level;
-    		std::string _name;
-    		int         _melee_attack_damage;
-    		int         _ranged_attack_damage;
-    		int         _armor_damage_reduction;
-	public:
-    		ScavTrap();
-    		ScavTrap(std::string const name);
-    		ScavTrap(ScavTrap const &f);
-    		ScavTrap &operator=(ScavTrap const &f);
-    		~ScavTrap();
-    		void        rangedAttack(std::string const &target);
-    		void        meleeAttack(std::string const &target);
-    		void        takeDamage(unsigned int amount);
-    		void        beRepaired(unsigned int amount);
-    		void        challengeNewcomer(std::string const &target);
-    		std::string get_name() const;
-    		int         get_melee_attack_damage() const;
-    		int         get_ranged_attack_damage() const;
-    		int         get_hit_points() const;
-    		int         get_max_hit_points() const;
-    		int         get_energy_points() const;
-    		int         get_max_energy_points() const;
-    		int         get_level() const;
-    		int         get_armor_damage_reduction() const;
+class ScavTrap{
 };
 
 #endif
