@@ -13,10 +13,10 @@
 #include "Point.hpp"
 
 int main(){
-	Point a(10,10);
-	Point b(30,25);
-	Point c(10,30);
-	Point point(20,17.4);
+	Point a(0,0);
+	Point b(10,0);
+	Point c(10,10);
+	Point point(5.1, 4.9);
 	if (bsp(a, b, c, point))
 		std::cout << "Point is inside the triangle" << std::endl;
 	else
