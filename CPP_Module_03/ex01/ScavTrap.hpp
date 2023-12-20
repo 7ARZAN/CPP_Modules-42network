@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:26:32 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/20 08:30:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 00:49:03 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ class ScavTrap : public ClapTrap{
 	ScavTrap(ScavTrap const &f);
 	ScavTrap &operator=(ScavTrap const &f);
 	~ScavTrap();
-	void challengeNewcomer(std::string const & target);
+	void	attack(std::string const & target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	void	challengeNewcomer(std::string const& target);
+	void	guardGate();
 };
+
 
 #endif
