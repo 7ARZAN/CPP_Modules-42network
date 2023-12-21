@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 02:22:21 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/21 05:27:59 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:34:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 class	FragTrap : ClapTrap{
 	public:
-		FragTrap(); // default constructor
-		FragTrap(std::string const name); // constructor
-		FragTrap(FragTrap const &f); // copy constructor
+		FragTrap();
+		FragTrap(std::string const name);
+		FragTrap(FragTrap const &f);
 		FragTrap &operator=(FragTrap const &f);
 		~FragTrap();
 		void	attack(std::string const & target);
