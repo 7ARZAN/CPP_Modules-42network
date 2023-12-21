@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 02:28:12 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/21 02:44:12 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:29:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ FragTrap &FragTrap::operator=(FragTrap const &f){
 		this->_attack_damage = f._attack_damage;
 	}
 	return (*this);
+}
+
+FragTrap::FragTrap(FragTrap const &f):ClapTrap(f._name){
+	std::cout << "FragTrap Copy Constructor Called !" << std::endl;
+	*this = f;
 }
 
 void    FragTrap::attack(const std::string& target){
@@ -90,4 +95,8 @@ void    FragTrap::beRepaired(unsigned int amount){
 		this->_hit_points += amount;
 		this->_energy_points--;
 	}
+}
+
+void	FragTrap::highFivesGuys(){
+	std::cout << " Your palm and my palm create the best moment together when they go for a high five! " << std::endl;
 }
