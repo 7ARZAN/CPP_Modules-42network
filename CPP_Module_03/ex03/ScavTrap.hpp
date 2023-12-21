@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:26:32 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/21 05:34:14 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:57:22 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class	ScavTrap : virtual public ClapTrap{
     public:
 	ScavTrap();
 	ScavTrap(std::string const name);

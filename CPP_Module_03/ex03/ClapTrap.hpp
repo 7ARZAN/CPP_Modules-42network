@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:27:55 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/20 08:28:13 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:57:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include <iostream>
 
-class ClapTrap
-{
+class	ClapTrap{
     protected:
 	std::string _name;
 	unsigned int _hit_points;

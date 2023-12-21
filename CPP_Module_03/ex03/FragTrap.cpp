@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 02:28:12 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/21 05:35:03 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/21 05:58:41 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ FragTrap::~FragTrap(){
 
 FragTrap &FragTrap::operator=(FragTrap const &f){
 	std::cout << "FragTrap Assignation operator called" << std::endl;
-	if (this != &f)
-	{
+	if (this != &f){
 		this->_name = f._name;
 		this->_hit_points = f._hit_points;
 		this->_energy_points = f._energy_points;
@@ -50,8 +49,7 @@ void    FragTrap::attack(const std::string& target){
 		std::cout << "FragTrap " << this->_name << " is already dead!" << std::endl;
 		return ;
 	}
-	else if (this->_energy_points == 0)
-	{
+	else if (this->_energy_points == 0){
 		std::cout << "FragTrap " << this->_name << " has no energy points!" << std::endl;
 		return ;
 	}
@@ -66,8 +64,7 @@ void    FragTrap::takeDamage(unsigned int amount){
 		std::cout << "FragTrap " << this->_name << " is already dead!" << std::endl;
 		return ;
 	}
-	else if (this->_hit_points <= amount)
-	{
+	else if (this->_hit_points <= amount){
 		std::cout << "FragTrap " << this->_name << " take " << amount << " points of damage!" << std::endl;
 		this->_hit_points = 0;
 		std::cout << "FragTrap " << this->_name << " is dead!" << std::endl;
@@ -83,8 +80,7 @@ void    FragTrap::beRepaired(unsigned int amount){
 		std::cout << "FragTrap " << this->_name << " is already dead!" << std::endl;
 		return ;
 	}
-	else if (this->_hit_points + amount >= 100)
-	{
+	else if (this->_hit_points + amount >= 100){
 		std::cout << "FragTrap " << this->_name << " be repaired " << amount << " points of damage!" << std::endl;
 		this->_hit_points = 100;
 		this->_energy_points--;
