@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 05:37:43 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/22 05:27:45 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/22 05:49:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &d)
     return *this;
 }
 
-void    DiamondTrap::attack(std::string const &target)
-{
+void    DiamondTrap::attack(const std::string& target){
 	ScavTrap::attack(target);
 }
 
