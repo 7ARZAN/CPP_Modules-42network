@@ -6,35 +6,36 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:38:46 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/22 05:24:44 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/22 07:52:09 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
-    std::cout << "ScavTrap Default constructor called" << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string const name): ClapTrap(name){
-	std::cout << "ScavTrap Parametric constructor called" << std::endl;
-	this->_hit_points = 100;
+	_name = "ScavTrap";
 	this->_energy_points = 50;
-	this->_attack_damage = 20;
+    std::cout << "ScavTrap Default constructor called !!" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &f): ClapTrap(f){
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
+ScavTrap::ScavTrap(std::string const name){
+	std::cout << "ScavTrap Parametric constructor called !!" << std::endl;
+	this->_name = name;
+	this->_energy_points = 50;
+}
+
+ScavTrap::ScavTrap(ScavTrap const &f){
+	std::cout << "ScavTrap Copy constructor called !!" << std::endl;
+		this->_name = f._name;
+		this->_energy_points = 50;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &f){
-	std::cout << "ScavTrap Assignation operator called" << std::endl;
+	std::cout << "ScavTrap Assignation operator called !!" << std::endl;
 	if (this != &f){
 		this->_name = f._name;
-		this->_hit_points = f._hit_points;
 		this->_energy_points = f._energy_points;
-		this->_attack_damage = f._attack_damage;
 	}
 	return (*this);
 }
@@ -54,12 +55,7 @@ void    ScavTrap::attack(const std::string& target){
 }
 
 ScavTrap::~ScavTrap(){
-    std::cout << "ScavTrap Destructor called" << std::endl;
-}
-
-void ScavTrap::challengeNewcomer(std::string const & target){
-	std::string challenges[5] = {"challenge1", "challenge2", "challenge3", "challenge4", "challenge5"};
-	std::cout << "ScavTrap " << this->_name << " challenges " << target << " with " << challenges[rand() % 5] << std::endl;
+    std::cout << "ScavTrap Destructor called !!" << std::endl;
 }
 
 void	ScavTrap::guardGate(){

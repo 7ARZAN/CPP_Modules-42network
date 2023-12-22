@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp ClapTrap.cpp DiamondTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp DiamondTrap.cpp FragTrap.cpp ScavTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CPP = c++
 
-INC = ClapTrap.hpp DiamondTrap.hpp FragTrap.hpp
+INC = ClapTrap.hpp DiamondTrap.hpp FragTrap.hpp ScavTrap.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wshadow and -Wno-shadow
 

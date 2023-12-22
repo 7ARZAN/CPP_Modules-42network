@@ -13,6 +13,10 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
+	this->_name = "CT__";
+	this->_hit_points = 10;
+	this->_energy_points = 10;
+	this->_attack_damage = 0;
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 

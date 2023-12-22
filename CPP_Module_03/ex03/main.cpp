@@ -17,10 +17,10 @@ int main()
     
     DiamondTrap tarzan("tarzan");
     tarzan.attack("jane");
-    tarzan.takeDamage(10);
-    tarzan.beRepaired(10);
-    tarzan.guardGate();
-    tarzan.highFivesGuys();
+    // tarzan.takeDamage(10);
+    // tarzan.beRepaired(10);
+    // tarzan.guardGate();
+    // tarzan.highFivesGuys();
     tarzan.whoAmI();
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:26:32 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/22 05:47:30 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/22 07:50:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ class	ScavTrap : public virtual ClapTrap{
 		ScavTrap(const ScavTrap &f);
 		ScavTrap &operator=(ScavTrap const &f);
 		~ScavTrap();
-		virtual void	attack(std::string const & target);
-		void	challengeNewcomer(std::string const& target);
+		void	attack(std::string const & target);
 		void	guardGate();
 };
 
