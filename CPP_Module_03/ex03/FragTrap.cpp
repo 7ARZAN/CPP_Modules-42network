@@ -6,13 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 02:28:12 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/22 07:42:08 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/24 06:52:06 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(){
+	this->_name = "FT__";
 	this->_hit_points = 100;
 	this->_attack_damage = 30;
 	std::cout << "FragTrap Default Constructor Called !" << std::endl;

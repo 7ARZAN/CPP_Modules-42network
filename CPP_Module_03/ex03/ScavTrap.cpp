@@ -6,15 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:38:46 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/22 07:52:09 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/24 06:52:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
-{
-	_name = "ScavTrap";
+ScavTrap::ScavTrap(){
+	this->_name = "ST__";
 	this->_energy_points = 50;
     std::cout << "ScavTrap Default constructor called !!" << std::endl;
 }

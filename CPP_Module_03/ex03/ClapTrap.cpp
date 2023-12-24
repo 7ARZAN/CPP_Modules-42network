@@ -6,13 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:28:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/20 08:23:02 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/24 06:51:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
+	this->_name = "CT__";
 	this->_hit_points = 10;
 	this->_energy_points = 10;
 	this->_attack_damage = 0;
