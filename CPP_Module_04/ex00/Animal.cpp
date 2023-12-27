@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:23:20 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 10:35:40 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:04:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,20 @@
 
 Animal::Animal(): _type("Animal"){
 	std::cout << "Animal Constructor called" << std::endl;
+}
+
+Animal::Animal(Animal const& src){
+	std::cout << "Animal Copy Constructor called" << std::endl;
+	*this = src;
+}
+
+Animal& Animal::operator=(Animal const& src){
+	std::cout << "Animal Assignation operator called" << std::endl;
+	if (this != &src)
+		this->_type = src._type;
+	return *this;
+}
+
+Animal::~Animal(){
+	std::cout << "Animal Destructor called" << std::endl;
 }
