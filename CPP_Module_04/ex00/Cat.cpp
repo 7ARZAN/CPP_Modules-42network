@@ -6,11 +6,12 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:22:18 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 11:57:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:18:03 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include <iostream>
 
 Cat::Cat(){
 	this->_type = "Cat";
@@ -31,4 +32,8 @@ Cat& Cat::operator=(Cat const& src){
 
 Cat::~Cat(){
 	std::cout << "Cat Destructor called" << std::endl;
+}
+
+void	Cat::makeSound() const{
+	std::cout << "Cat sound: Meow Meow" << std::endl;
 }

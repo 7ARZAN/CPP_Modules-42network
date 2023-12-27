@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:16:02 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 10:21:51 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:53:30 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	WrongCat: public WrongAnimal{
 		WrongCat();
 		WrongCat(WrongCat const &);
 		WrongCat &operator=(WrongCat const &);
-		virtual ~WrongCat();
+		~WrongCat();
 		void makeSound() const;
 };
 

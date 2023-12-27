@@ -6,11 +6,12 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:23:20 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 12:04:11 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:17:55 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include <iostream>
 
 Animal::Animal(): _type("Animal"){
 	std::cout << "Animal Constructor called" << std::endl;
@@ -30,4 +31,12 @@ Animal& Animal::operator=(Animal const& src){
 
 Animal::~Animal(){
 	std::cout << "Animal Destructor called" << std::endl;
+}
+
+std::string Animal::getType() const{
+	return this->_type;
+}
+
+void	Animal::makeSound() const{
+	std::cout << "Animal makeSound called" << std::endl;
 }

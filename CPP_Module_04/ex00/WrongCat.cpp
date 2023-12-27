@@ -6,11 +6,12 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:23:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 12:02:32 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:19:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+#include <iostream>
 
 WrongCat::WrongCat(){
 	this->_type = "WrongCat";
@@ -33,3 +34,6 @@ WrongCat::~WrongCat(){
 	std::cout << "WrongCat Destructor called" << std::endl;
 }
 
+void	WrongCat::makeSound() const{
+	std::cout << "WrongCat sound: MEOW HUFF" << std::endl;
+}
