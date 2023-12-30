@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:17:34 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/28 16:40:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:56:22 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ int ft_main(){
 	std::cout << "Cat type: " << c->getType() << std::endl;
 	c->makeSound();
 	delete c;
+	std::cout << "-------------------------------------" << std::endl;
+	Animal *animal[10];
+	for (int i = 0; i < 10; i++){
+		if (i % 2 == 0)
+			animal[i] = new Dog();
+		else
+			animal[i] = new Cat();
+	}
+	for (int i = 0; i < 10; i++){
+		std::cout << "Animal type: " << animal[i]->getType() << std::endl;
+		animal[i]->makeSound();
+		delete animal[i];
+	}
+	std::cout << "-------------------------------------" << std::endl;
 	return 0;
 }
 
