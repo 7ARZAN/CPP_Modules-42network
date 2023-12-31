@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:22:49 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 13:21:47 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/31 16:20:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Dog::Dog(){
 	this->_type = "Dog";
 	this->brain = new Brain();
+	this->brain->set_ideas(0, "ALA MAT7M9NICH");
 	std::cout << "Dog Constructor called" << std::endl;
 }
 

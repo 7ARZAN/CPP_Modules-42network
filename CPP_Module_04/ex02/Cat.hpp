@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:40 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/28 23:28:18 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/31 16:38:22 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Cat: public Animal{
 		Cat &operator=(Cat const &);
 		~Cat(); //destructor should be virtual!
 		void makeSound() const;
+		//void	read_ideas() const;
 };
 
 #endif

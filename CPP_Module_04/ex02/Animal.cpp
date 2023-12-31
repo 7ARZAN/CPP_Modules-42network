@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:23:20 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/28 16:41:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/31 16:38:29 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,7 @@ std::string Animal::getType() const{
 void	Animal::makeSound() const{
 	std::cout << "Animal makeSound called" << std::endl;
 }
+
+// void	Animal::read_ideas() const{
+// 	std::cout << "I HAVE KHIKHI no brain found!" << std::endl;
+// }

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:13 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/28 23:25:28 by elakhfif         ###   ########.fr       */
+/*   Updated: 2023/12/31 16:38:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Animal{
 		virtual ~Animal();
 		std::string getType() const;
 		virtual void makeSound() const;
+		//virtual void	read_ideas() const;
 };
 
 #endif
