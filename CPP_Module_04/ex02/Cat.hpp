@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:40 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/31 16:38:22 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:25:57 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class	Cat: public Animal{
+class	Cat: public AAnimal{
 	private:
 		Brain *brain;
 	public:

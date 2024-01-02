@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:13 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/31 16:38:36 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:24:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 # include <string>
 
-class	Animal{
+class	AAnimal{
 	protected:
 		std::string _type;
 	public:
-		Animal();
-		Animal(Animal const &);
-		Animal &operator=(Animal const &);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(AAnimal const &);
+		AAnimal &operator=(AAnimal const &);
+		virtual ~AAnimal();
 		std::string getType() const;
-		virtual void makeSound() const;
+		virtual void	makeSound() const = 0;
 		//virtual void	read_ideas() const;
 };
 
