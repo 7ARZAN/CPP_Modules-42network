@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:13 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 12:17:45 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:57:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class	Animal{
 		Animal();
 		Animal(Animal const &);
 		Animal &operator=(Animal const &);
-		virtual ~Animal(); //should be virtual because we have a polymorphic class (Animal)
+		virtual ~Animal();
 		std::string getType() const;
-		virtual void makeSound() const; //virtual because we have a polymorphic class (Animal)
+		virtual void makeSound() const;
 };
 
 #endif

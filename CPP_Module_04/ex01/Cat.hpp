@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:40 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 13:20:13 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:56:34 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class	Cat: public Animal{
 		Cat();
 		Cat(Cat const &);
 		Cat &operator=(Cat const &);
-		~Cat(); //destructor should be virtual!
-		void makeSound() const; //should be virtual because we have a polymorphic class (Animal)
+		~Cat();
+		void makeSound() const;
 };
 
 #endif
