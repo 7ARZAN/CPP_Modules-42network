@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:22:49 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/02 22:46:33 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:29:22 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,27 @@ Dog::Dog(Dog const& src){
 	*this = src;
 }
 
+Dog::Dog(Brain *brain){
+	this->brain = new Brain(*brain);
+	std::cout << "Dog Parametric Constructor called" << std::endl;
+}
+
+
 Dog& Dog::operator=(Dog const& src){
 	std::cout << "Dog Assignation operator called" << std::endl;
 	if (this != &src){
 
 		this->_type = src._type;
-		// if (this->brain)
-		// 	delete this->brain;
-		// this->brain = new Brain(*src.brain);
+		if (this->brain)
+			delete this->brain;
+		this->brain = new Brain(*src.brain);
 	}
 	return *this;
 }
 
 Dog::~Dog(){
-	// if (this->brain)
-	// 	delete this->brain;
+	if (this->brain)
+		delete this->brain;
 	std::cout << "Dog Destructor called" << std::endl;
 }
 

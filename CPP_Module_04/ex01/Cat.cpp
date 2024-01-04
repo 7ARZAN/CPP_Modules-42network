@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:22:18 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/02 22:44:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:30:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ Cat::Cat(Cat const& src){
 	*this = src;
 }
 
+Cat::Cat(Brain *brain){
+	this->brain = new Brain(*brain);
+	std::cout << "Cat Parametric Constructor called" << std::endl;
+}
+
+
 Cat& Cat::operator=(Cat const& src){
 	std::cout << "Cat Assignation operator called" << std::endl;
 	if (this != &src){
@@ -37,7 +43,8 @@ Cat& Cat::operator=(Cat const& src){
 }
 
 Cat::~Cat(){
-	delete this->brain;
+	if(this->brain)
+		delete this->brain;
 	std::cout << "Cat Destructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:11:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/02 21:56:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:27:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	Dog: public Animal{
 		Brain *brain;
 	public:
 		Dog();
+		Dog(Brain *brain);
 		Dog(Dog const &);
 		Dog &operator=(Dog const &);
 		~Dog();
