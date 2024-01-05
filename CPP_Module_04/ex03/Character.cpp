@@ -6,17 +6,19 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 08:02:11 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 08:10:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <iostream>
 
 Character::Character(){
 	this->_name = "default";
 	this->_count = -1;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
+	std::cout << "Character default constructor called" << std::endl;
 }
 
 Character::Character(std::string const &name){
@@ -24,16 +26,19 @@ Character::Character(std::string const &name){
 	this->_count = -1;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
+	std::cout << "Character constructor called" << std::endl;
 }
 
 Character::Character(Character const &src){
 	*this = src;
+	std::cout << "Character copy constructor called" << std::endl;
 }
 
 Character::~Character(){
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
+	std::cout << "Character destructor called" << std::endl;
 }
 
 Character &Character::operator=(Character const& src){
@@ -41,6 +46,7 @@ Character &Character::operator=(Character const& src){
 	this->_count = src._count;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = src._inventory[i];
+	std::cout << "Character assignation operator called" << std::endl;
 	return *this;
 }
 

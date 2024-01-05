@@ -6,25 +6,29 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 05:22:23 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 05:27:54 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 08:12:40 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include <iostream>
 
 MateriaSource::MateriaSource() : _nb_materia(0){
 	for(int i = 0; i < 4; i++)
 		this->_materia[i] = NULL;
+	std::cout << "MateriaSource default constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const& src) : _nb_materia(src._nb_materia){
 	for(int i = 0; i < this->_nb_materia; i++)
 		this->_materia[i] = src._materia[i]->clone();
+	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource(){
 	for(int i = 0; i < this->_nb_materia; i++)
 		delete this->_materia[i];
+	std::cout << "MateriaSource destructor called" << std::endl;
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const& src){
@@ -36,6 +40,7 @@ MateriaSource & MateriaSource::operator=(MateriaSource const& src){
 		for(int i = 0; i < this->_nb_materia; i++)
 			this->_materia[i] = src._materia[i]->clone();
 	}
+	std::cout << "MateriaSource assignation operator called" << std::endl;
 	return (*this);
 }
 
