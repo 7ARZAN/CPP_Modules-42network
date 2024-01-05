@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 06:39:20 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 08:02:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,14 @@ std::string const &Character::getName() const{
 	return this->_name;
 }
 
+
+
 void Character::equip(AMateria* m){
-	if (this->_count < 3 && m){
-		this->_count++;
+	this->_count++;
+	if (this->_count >= 0 && this->_count <= 3)
 		this->_inventory[this->_count] = m;
-	}
-	else if (this->_count == 3)
-		std::cout << "You can't equip more than 4 materia" << std::endl;
+	else
+		this->_count = 3;
 }
 
 void Character::unequip(int idx){

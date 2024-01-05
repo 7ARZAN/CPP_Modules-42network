@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:56:22 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 04:14:58 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 07:30:50 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std::string const &AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter &target){
-	(void)target;
+	(void)target; // to avoid the warning
 }
 
 AMateria::AMateria(AMateria const &src){

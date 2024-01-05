@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 06:41:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 08:03:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,48 +51,31 @@ int main(){
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->equip(tmp);
+	me->unequip(0);
+	me->unequip(1);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	me->unequip(0);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(0);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	me->unequip(1);
-	ICharacter* bob = new Character("bob");
+	me->use(0, *me);
+	me->use(1, *me);
+	me->use(2, *me);
+	me->use(3, *me);
 
-	me->use(0, *bob); // ICE
-	me->use(1, *bob); // CURE
-	me->use(2, *bob); //nope
-	me->use(3, *bob);  //nope	
-	delete bob;
-	delete me;
-	delete src;
+	std::cout << " ------------------------------------ " << std::endl;
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+
 
 	system("leaks Interface");
-    return 0;
+	return 0;
 }
 
 // int ft_main(){
