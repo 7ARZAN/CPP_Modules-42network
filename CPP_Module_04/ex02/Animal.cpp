@@ -6,41 +6,33 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:23:20 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/02 22:25:27 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 03:43:37 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include <iostream>
 
-AAnimal::AAnimal(): _type("AAnimal"){
-	std::cout << "AAnimal Constructor called" << std::endl;
+Animal::Animal(): _type("Animal"){
+	std::cout << "Animal Constructor called" << std::endl;
 }
 
-AAnimal::AAnimal(AAnimal const& src){
+Animal::Animal(Animal const& src){
 	std::cout << "Animal Copy Constructor called" << std::endl;
 	*this = src;
 }
 
-AAnimal& AAnimal::operator=(AAnimal const& src){
-	std::cout << "AAnimal Assignation operator called" << std::endl;
+Animal& Animal::operator=(Animal const& src){
+	std::cout << "Animal Assignation operator called" << std::endl;
 	if (this != &src)
 		this->_type = src._type;
 	return *this;
 }
 
-AAnimal::~AAnimal(){
-	std::cout << "AAnimal Destructor called" << std::endl;
+Animal::~Animal(){
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
-std::string AAnimal::getType() const{
+std::string Animal::getType() const{
 	return this->_type;
 }
-
-void	AAnimal::makeSound() const{
-	std::cout << "AAnimal makeSound called" << std::endl;
-}
-
-// void	Animal::read_ideas() const{
-// 	std::cout << "I HAVE KHIKHI no brain found!" << std::endl;
-// }

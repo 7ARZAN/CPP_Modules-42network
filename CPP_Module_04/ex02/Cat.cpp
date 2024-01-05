@@ -6,7 +6,7 @@
 /*   By: elakhfif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:22:18 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/31 16:38:15 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:30:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 Cat::Cat(){
 	this->_type = "Cat";
 	this->brain = new Brain();
-
 	std::cout << "Cat Constructor called" << std::endl;
 }
 
@@ -25,26 +24,30 @@ Cat::Cat(Cat const& src){
 	*this = src;
 }
 
+Cat::Cat(Brain *brain){
+	this->brain = new Brain(*brain);
+	std::cout << "Cat Parametric Constructor called" << std::endl;
+}
+
+
 Cat& Cat::operator=(Cat const& src){
 	std::cout << "Cat Assignation operator called" << std::endl;
-	if (this != &src)
+	if (this != &src){
+
 		this->_type = src._type;
+		if (this->brain)
+			delete this->brain;
+		this->brain = new Brain(*src.brain);
+	}
 	return *this;
 }
 
 Cat::~Cat(){
-	delete this->brain;
+	if(this->brain)
+		delete this->brain;
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
 void	Cat::makeSound() const{
 	std::cout << "Cat sound: Meow Meow" << std::endl;
 }
-
-// void	Cat::read_ideas() const{
-// 	int	i;
-//
-// 	i = -1;
-// 	for (i = 0; i < 100; i++)
-// 		std::cout << this->brain->get_ideas(i) << " ZABA W CHTA SABA" << std::endl;
-// }

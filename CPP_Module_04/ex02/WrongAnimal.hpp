@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:15:57 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 12:12:29 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 03:45:12 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	WrongAnimal{
 		WrongAnimal &operator=(WrongAnimal const &);
 		virtual ~WrongAnimal();
 		std::string getType() const;
-		void makeSound() const;
+		virtual void makeSound() const = 0;
 };
 
 #endif

@@ -6,45 +6,92 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 08:17:34 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/02 22:27:35 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 03:46:14 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
-int main()
-{
-	//const Animal* meta = new Animal();
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+/* nt ft_main(){ */
+	// Brain *b = new Brain();
+	// Animal *a = new Animal();	
+	// std::cout << "Animal type: " << a->getType() << std::endl;
+	// a->makeSound();
+	// delete a;
+	// delete b;
+	// std::cout << "-------------------------------------" << std::endl;
+	// Dog *d = new Dog();
+	// std::cout << "Dog type: " << d->getType() << std::endl;
+	// d->makeSound();
+	// delete d;
+	// std::cout << "-------------------------------------" << std::endl;
+	// Cat *c = new Cat();
+	// Cat *s = new Cat();
+	//
+	//
+	// std::cout << "Cat type: " << c->getType() << std::endl;
+	// c->makeSound();
+	// s = c;
+	// delete c;
+	// delete s;
+	// 
+	// std::cout << "-------------------------------------" << std::endl;
+	// Animal *animal[10];
+	// for (int i = 0; i < 10; i++){
+	// 	if (i % 2 == 0)
+	// 		animal[i] = new Dog();
+	// 	else
+	// 		animal[i] = new Cat();
+	// }
+	// for (int i = 0; i < 10; i++){
+	// 	std::cout << "Animal type: " << animal[i]->getType() << std::endl;
+	// 	animal[i]->makeSound();
+	// 	delete animal[i];
+	// }
+	// std::cout << "-------------------------------------" << std::endl;
+	//Dog *dog = new Dog();
+	//Dog *dog2 = new Dog();
 
-	//std::cout << "meta->getType(): " << meta->getType() << std::endl;
-	std::cout << "j->getType(): " << j->getType() << std::endl;
-	std::cout << "i->getType(): " << i->getType() << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	//meta->makeSound();
-	//delete meta;
-	delete j;
-	delete i;
-	std::cout << "----------------------------------------" << std::endl;
-	AAnimal *animals[10];
-	for (int i = 0; i < 5; i++)
-		animals[i] = new Dog();
-	for (int i = 5; i < 10; i++)
-		animals[i] = new Cat();
-	for (int i = 0; i < 10; i++)
-		delete animals[i];
-	std::cout << "----------------------------------------" << std::endl;
-	const AAnimal* dog = new Dog();
-	const AAnimal* cat = new Cat();
-	std::cout << "dog->getType(): " << dog->getType() << std::endl;
-	std::cout << "cat->getType(): " << cat->getType() << std::endl;
-	delete dog;//should not create a leak
-	delete cat;
-	std::cout << "----------------------------------------" << std::endl;
+	//dog = dog2;
+
+	//delete dog;
+	//delete dog2;
+	//Brain *b = new Brain();
+// 	Animal *a = new Dog();
+// 	Animal *d = new Dog();
+//
+// 	a = d;
+// 	delete a;
+// 	delete d;
+//
+// 	return 0;
+// }
+//
+// int main(){
+// 	ft_main();
+// 	//while (1);
+// 	return 0;
+// }
+//
+int ft_main()
+{    
+    Dog *d = new Dog();
+    Brain b;
+    Dog *c = new Dog(&b);
+    
+    *d = *c;
+    delete c;
+    delete d;
+    return 0;
+}
+
+int	main()
+{
+	ft_main();
+	while (1);
 	return 0;
 }
