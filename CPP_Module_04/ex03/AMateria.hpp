@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:49:21 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 04:14:46 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 05:42:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define AMATERIA_HPP
 
 # include <string>
+# include "ICharacter.hpp"
 
-class ICharacter;
 class	AMateria{
 	protected:
 		std::string	_type;

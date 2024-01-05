@@ -6,17 +6,17 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 08:16:25 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/05 03:47:54 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/05 05:42:11 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp 
+SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CXX = c++
 
-INC = 
+INC = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
