@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 08:14:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 20:13:23 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,38 @@ int main(){
 
 
     
-	IMateriaSource* src = new MateriaSource();
-
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("tarzan");
-	AMateria* tmp;
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	me->use(0, *me);
-	me->use(1, *me);
-	me->use(2, *me);
-	me->use(3, *me);
-
-	std::cout << " ------------------------------------ " << std::endl;
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-
-
-
-	system("leaks Interface");
+	// IMateriaSource* src = new MateriaSource();
+	//
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
+	// ICharacter* me = new Character("tarzan");
+	// AMateria* tmp;
+	// tmp = src->createMateria("cure");
+	// me->equip(tmp);
+	// tmp = src->createMateria("ice");
+	// me->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// me->equip(tmp);
+	// tmp = src->createMateria("ice");
+	// me->equip(tmp);
+	// me->use(0, *me);
+	// me->use(1, *me);
+	// me->use(2, *me);
+	// me->use(3, *me);
+	//
+	// std::cout << " ------------------------------------ " << std::endl;
+	// ICharacter* bob = new Character("bob");
+	// me->use(0, *bob);
+	// me->use(1, *bob);
+	//
+	//
+	//
+	// system("leaks Interface");
+	
 	return 0;
 }
 
