@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/06 21:42:05 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/07 07:07:16 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,24 @@
 
 int ft_main(){
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
+	ICharacter* me = new Character("tarzan");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	me->unequip(0);
+	//me->equip(tmp);
+	me->use(0, *me);
+	me->use(0, *me);
+	me->use(0, *me);
+	me->use(0, *me);
+	me->use(0, *me);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
-	me->use(1, *bob);
+
+	delete src;
 	delete bob;
 	delete me;
-	delete src;
  	//system("leaks Interface");
 	return 0;
 }
