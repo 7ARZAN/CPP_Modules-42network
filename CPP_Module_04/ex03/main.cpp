@@ -6,11 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2024/01/07 07:47:25 by elakhfif         ###   ########.fr       */
-=======
-/*   Updated: 2024/01/07 07:07:16 by elakhfif         ###   ########.fr       */
->>>>>>> 3df3c408951c482a176ef54c9433f4f375c1547b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +77,6 @@
 
 int ft_main(){
 	IMateriaSource* src = new MateriaSource();
-<<<<<<< HEAD
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
@@ -95,26 +90,6 @@ int ft_main(){
 	delete bob;
 	delete me;
 	delete src;
-=======
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("tarzan");
-	AMateria* tmp;
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	me->unequip(0);
-	//me->equip(tmp);
-	me->use(0, *me);
-	me->use(0, *me);
-	me->use(0, *me);
-	me->use(0, *me);
-	me->use(0, *me);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-
-	delete src;
-	delete bob;
-	delete me;
->>>>>>> 3df3c408951c482a176ef54c9433f4f375c1547b
  	//system("leaks Interface");
 	return 0;
 }

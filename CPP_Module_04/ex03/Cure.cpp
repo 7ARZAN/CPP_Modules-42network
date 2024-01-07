@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 05:28:22 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/07 06:38:58 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/05 08:10:56 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cure::~Cure(){
 }
 
 Cure& Cure::operator=(Cure const& src){
-	this->_type = src._type;
+	AMateria::operator=(src);
 	std::cout << "Cure assignation operator called" << std::endl;
 	return *this;
 }
