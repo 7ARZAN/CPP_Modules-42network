@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/07 07:47:25 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/08 05:52:02 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,10 @@ int ft_main(){
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	me->unequip(0);
+	me->equip(tmp);
+	me->unequip(4);
 	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
+	me->use(1, *bob);
 	me->use(1, *bob);
 	delete bob;
 	delete me;
