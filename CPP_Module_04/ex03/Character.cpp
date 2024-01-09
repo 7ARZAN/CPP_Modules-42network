@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/08 05:50:08 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/09 05:55:21 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,30 @@ void Character::equip(AMateria* m){
 		this->_count = 3;
 }
 
+// void    Character::unequip(int idx)
+// {
+//     AMateria    **tmp;
+//
+//     if (idx > 4 || idx < 0)
+// 	    return;
+//     if (!_items[index])
+// 	    return;
+//     tmp = new AMateria*[_garbage_length + 1];
+//     for (int i = 0; i < _garbage_length; i++)
+//         tmp[i] = _garbage[i];
+//     tmp[_garbage_length++] = _items[index];
+//     delete [] _garbage;
+//     _garbage = tmp;
+//     _items[index] = NULL;
+// }
+
 void Character::unequip(int idx){
 	if (idx >= 0 && idx <= 3)
 		this->_inventory[idx] = NULL;
-	this->_inventory[idx] = tmp[idx];
+	this->_inventory[idx] = _tmp[idx];
 	this->_count--;
 	this->_inventory[this->_count] = NULL;
-	delete tmp[idx];
+	delete _tmp[idx];
 }
 
 void Character::use(int idx, ICharacter& target){
