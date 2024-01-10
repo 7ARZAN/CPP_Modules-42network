@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:00:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/10 03:51:00 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/10 05:59:40 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ class	Character : public ICharacter{
 		std::string _name;
 		AMateria *_inventory[4];
 		AMateria *_tmp[4];
-		//AMateria *_items[4];
-		//AMateria	**_garbage;
-		//int	_garbage_length;
 		int _count;
 	public:
 		Character();
@@ -36,7 +33,6 @@ class	Character : public ICharacter{
 		void equip(AMateria *m);
 		void unequip(int idx);
 		void use(int idx, ICharacter &target);
-		//void print_garbage(void);
 };
 
 std::ostream &operator<<(std::ostream &o, Character const &rhs);
