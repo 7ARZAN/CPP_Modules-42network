@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/10 02:24:33 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/10 03:51:24 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,30 +64,30 @@ void Character::equip(AMateria* m){
 		this->_count = 3;
 }
 
-void    Character::unequip(int idx){
-    AMateria    **tmp;
-
-    if (idx > 4 || idx < 0)
-	    return;
-    if (!_items[idx])
-	    return;
-    tmp = new AMateria*[_garbage_length + 1];
-    for (int i = 0; i < _garbage_length; i++)
-        tmp[i] = _garbage[i];
-    tmp[_garbage_length++] = _items[idx];
-    delete [] _garbage;
-    _garbage = tmp;
-    _items[idx] = NULL;
-}
-
-// void Character::unequip(int idx){
-// 	if (idx >= 0 && idx <= 3)
-// 		this->_inventory[idx] = NULL;
-// 	this->_inventory[idx] = _tmp[idx];
-// 	this->_count--;
-// 	this->_inventory[this->_count] = NULL;
-// 	delete _tmp[idx];
+// void    Character::unequip(int idx){
+//     AMateria    **tmp;
+//
+//     if (idx > 4 || idx < 0)
+// 	    return;
+//     if (!_items[idx])
+// 	    return;
+//     tmp = new AMateria*[_garbage_length + 1];
+//     for (int i = 0; i < _garbage_length; i++)
+//         tmp[i] = _garbage[i];
+//     tmp[_garbage_length++] = _items[idx];
+//     delete [] _garbage;
+//     _garbage = tmp;
+//     _items[idx] = NULL;
 // }
+
+void Character::unequip(int idx){
+	if (idx >= 0 && idx <= 3)
+		this->_inventory[idx] = NULL;
+	this->_inventory[idx] = _tmp[idx];
+	this->_count--;
+	this->_inventory[this->_count] = NULL;
+	delete _tmp[idx];
+}
 
 void Character::use(int idx, ICharacter& target){
 	if (idx >= 0 && idx <= 3 && this->_inventory[idx])
@@ -99,9 +99,9 @@ std::ostream &operator<<(std::ostream &o, Character const &rhs){
 	return o;
 }
 
-void	Character::print_garbage(){
-	std::cout << "Garbage: ";
-	for (int i = 0; i < _garbage_length; i++)
-		std::cout << _garbage[i]->getType() << " "<< std::endl;
-	std::cout << std::endl;
-}
+// void	Character::print_garbage(){
+// 	std::cout << "Garbage: ";
+// 	for (int i = 0; i < _garbage_length; i++)
+// 		std::cout << _garbage[i]->getType() << " "<< std::endl;
+// 	std::cout << std::endl;
+// }
