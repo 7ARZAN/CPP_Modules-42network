@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:48:00 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/08 05:52:02 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/10 02:23:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,33 @@
 // }
 
 int ft_main(){
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	me->equip(tmp);
-	me->unequip(4);
-	ICharacter* bob = new Character("bob");
-	me->use(1, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
- 	//system("leaks Interface");
-	return 0;
+	Ice * meme = new Ice();
+	printf("new ice[a] ptr %p\n", meme);
+	delete meme;
+	Ice * khtek = new Ice();
+	printf("new ice[b] ptr %p\n", khtek);
+	delete khtek;
+	return (0);
+	// IMateriaSource* src = new MateriaSource();
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
+	// {
+	// 	ICharacter* me = new Character("me");
+	// 	AMateria* tmp;
+	// 	tmp = src->createMateria("ice");
+	// 	me->equip(tmp);
+	// 	me->unequip(0);
+	// 	me->equip(tmp);
+	// 	me->unequip(0);
+	// 	delete me;
+	// }
+	// ICharacter* bob = new Character("bob");
+	// // me->use(1, *bob);
+	// // me->use(1, *bob);
+	// delete bob;
+	// delete src;
+ // 	//system("leaks Interface");
+	// return 0;
 }
 
 int	main(){
