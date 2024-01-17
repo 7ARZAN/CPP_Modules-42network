@@ -6,8 +6,35 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/17 09:05:50 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:56:46 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+int	main(){
+	try
+	{
+		Bureaucrat b("elakhfif", 0);
+		std::cout << b;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Problem is: " << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat b("elakhfif", 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Problem is: " << e.what() << '\n';
+	}
+	// Bureaucrat b("elakhfif", 150);
+	// std::cout << b;
+	// b.incrementGrade();
+	// std::cout << b;
+	// b.decrementGrade();
+	// std::cout << b;
+	return 0;
+}
