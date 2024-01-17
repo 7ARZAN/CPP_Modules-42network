@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 05:22:23 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 08:12:40 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/11 01:30:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ MateriaSource & MateriaSource::operator=(MateriaSource const& src){
 }
 
 void MateriaSource::learnMateria(AMateria* m_ptr){
+	if (!m_ptr)
+		return ;
 	if (this->_nb_materia < 4){
-		this->_materia[this->_nb_materia] = m_ptr;
+		this->_materia[this->_nb_materia] = m_ptr->clone();
 		this->_nb_materia++;
 	}
+	delete m_ptr;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){

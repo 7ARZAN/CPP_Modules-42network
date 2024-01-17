@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:00:52 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/08 05:50:36 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/10 05:59:40 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Character : public ICharacter{
 	private:
 		std::string _name;
 		AMateria *_inventory[4];
-		AMateria *tmp[4];
+		AMateria *_tmp[4];
 		int _count;
 	public:
 		Character();
