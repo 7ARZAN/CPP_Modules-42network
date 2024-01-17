@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/11 01:35:18 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/11 07:15:10 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void Character::equip(AMateria* m){
 	this->_count++;
 	if (this->_count >= 0 && this->_count <= 3)
 		this->_inventory[this->_count] = m->clone();
-	delete m;
+	//delete m;
 }
 
 void Character::unequip(int idx){
@@ -85,9 +85,9 @@ void Character::unequip(int idx){
 	if (_tmp[idx])
 		delete (this->_tmp[idx]);
 	this->_tmp[idx] = this->_inventory[idx];
+	std::cout << "unequip " << this->_tmp[idx]->getType() << std::endl;
 	this->_inventory[idx] = NULL;
 	this->_count--;
-	//this->_inventory[this->_count] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target){
