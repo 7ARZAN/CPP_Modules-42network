@@ -6,17 +6,17 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:53 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/21 14:28:43 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:45:56 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include <iostream>
-# include "Bureaucrat.hpp"
-
 class	Bureaucrat;
+# include "Bureaucrat.hpp"
+# include <iostream>
+
 class	Form{
 	private:
 		std::string const	_name;
@@ -29,7 +29,6 @@ class	Form{
 		Form(Form const &);
 		Form	&operator=(Form const &);
 		~Form();
-
 		std::string const	getName() const;
 		bool				getSigned() const;
 		int					getGradeToSign() const;

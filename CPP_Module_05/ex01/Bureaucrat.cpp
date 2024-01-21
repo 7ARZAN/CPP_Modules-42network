@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:17 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/20 17:03:43 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:42:50 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,17 @@ void	Bureaucrat::decrementGrade(){
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+}
+
+//sign form
+void	Bureaucrat::SignForm(Form& form){
+	try{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch (std::exception &e){
+		std::cout << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream	&operator<<(std::ostream & o, Bureaucrat const & rhs){
