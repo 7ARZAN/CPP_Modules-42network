@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:53 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/20 17:06:22 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:28:43 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ class	Form{
 		int					getGradeToExecute() const;
 		void				beSigned(Bureaucrat const &);
 		class	GradeTooHighException: public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+		class	AlreadySignedException: public std::exception{
 			public:
 				virtual const char* what() const throw();
 		};
