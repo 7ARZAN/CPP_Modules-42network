@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:17 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/21 16:42:50 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:38:57 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ Bureaucrat::Bureaucrat(std::string const name, int grade): _name(name), _grade(g
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src): _name(src._name), _grade(src._grade){}
+Bureaucrat::Bureaucrat(Bureaucrat const & src): _name(src._name), _grade(src._grade){
+	if (src._grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (src._grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	*this = src;
+}
 
 Bureaucrat::~Bureaucrat(){}
 
@@ -36,7 +42,12 @@ std::string const Bureaucrat::getName() const{
 }
 
 int	Bureaucrat::getGrade() const{
-	return (this->_grade);
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		return (this->_grade);
 }
 
 void	Bureaucrat::incrementGrade(){
@@ -54,7 +65,7 @@ void	Bureaucrat::decrementGrade(){
 }
 
 //sign form
-void	Bureaucrat::SignForm(Form& form){
+void	Bureaucrat::signForm(Form& form){
 	try{
 		form.beSigned(*this);
 		std::cout << this->_name << " signs " << form.getName() << std::endl;

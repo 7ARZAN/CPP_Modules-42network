@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:23 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/21 16:45:12 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:34:40 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat{
 		int	getGrade() const;
 		void	incrementGrade();
 		void	decrementGrade();
-		void	SignForm(Form& form);
+		void	signForm(Form& form);
 		class GradeTooHighException: public std::exception{
 			public:
 				virtual const char* what() const throw();

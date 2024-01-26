@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/26 06:34:50 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/26 08:44:51 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Form
+NAME = BRAP
 
-SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotmyRequestForm.cpp
+SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotmyRequestForm.cpp PresidentialPardonForm.cpp
 
-HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotmyRequestForm.hpp
+HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotmyRequestForm.hpp PresidentialPardonForm.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
