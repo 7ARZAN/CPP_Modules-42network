@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:12:48 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 06:09:50 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 06:33:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ROBOTMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
-# include <iostream>
+# include "Bureaucrat.hpp"
 
 class RobotmyRequestForm : public AForm{
 	private:

@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/26 06:03:54 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/26 06:34:50 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Form
 
-SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp
+SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotmyRequestForm.cpp
 
-HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
+HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotmyRequestForm.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
