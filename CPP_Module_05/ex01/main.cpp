@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/21 16:46:50 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 05:25:25 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,18 @@ int	main( void )
 		std::cerr << "[+] Exception catched.\n";
 		std::cerr << e.what();
 	}
-	Form	form("chahadat zawaj", 5, 50);
-	std::cout << form;
-	tarzan.SignForm(form);
-	std::cout << form;
+	try
+	{
+		Form	form("chahadat zawaj", 5, 50);
+		std::cout << form;
+		tarzan.SignForm(form);
+		std::cout << form;
+	}
+	catch ( std::exception &e )
+	{
+		std::cerr << "[+] Exception catched.\n";
+		std::cerr << e.what();
+	}
 
 	return (0);
 }

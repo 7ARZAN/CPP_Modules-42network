@@ -6,11 +6,12 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 07:45:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 07:56:01 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 07:59:31 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PresidentialPardonForm.hpp"
+# include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5), _target("default"){}
 
@@ -33,14 +34,14 @@ std::string	PresidentialPardonForm::getTarget() const{
 
 void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 	if (this->getSigned() == false)
-		throw Form::FormNotSignedException();
-	else if (executor.getGrade() > this->getGradeExec())
-		throw Form::GradeTooLowException();
+		throw AForm::FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
 	else
 		std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &src){
-	o << src.getName() << " form, grade required to sign it " << src.getGradeSign() << ", grade required to execute it " << src.getGradeExec() << ", it is " << (src.getSigned() ? "signed" : "not signed") << std::endl;
+	o << src.getName() << " form, grade required to sign it " << src.getGradeToSign() << ", grade required to execute it " << src.getGradeToExecute() << ", it is " << (src.getSigned() ? "signed" : "not signed") << std::endl;
 	return (o);
 }

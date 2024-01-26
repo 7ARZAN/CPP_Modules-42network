@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/17 10:56:46 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/01/26 05:03:19 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	main(){
 	{
 		std::cerr << "Problem is: " << e.what() << '\n';
 	}
-	// Bureaucrat b("elakhfif", 150);
-	// std::cout << b;
-	// b.incrementGrade();
-	// std::cout << b;
-	// b.decrementGrade();
-	// std::cout << b;
+	Bureaucrat b("elakhfif", 150);
+	std::cout << b;
+	b.incrementGrade();
+	std::cout << b;
+	b.decrementGrade();
+	std::cout << b;
 	return 0;
 }

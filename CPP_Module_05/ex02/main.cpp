@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 06:46:41 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 07:58:46 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotmyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main( void )
 {
@@ -22,6 +23,7 @@ int	main( void )
 	{
 		ShrubberyCreationForm	form("home");
 		RobotmyRequestForm	messi("hero");
+		PresidentialPardonForm	pardon("pardon");
 		std::cout << form;
 		tarzan.signForm(form);
 		std::cout << form;
@@ -31,6 +33,10 @@ int	main( void )
 		tarzan.signForm(messi);
 		std::cout << messi;
 		messi.execute(tarzan);
+		std::cout << "-------------------------------------\n";
+		std::cout << pardon;
+		tarzan.signForm(pardon);
+		std::cout << pardon;
 	}
 	catch ( std::exception &e )
 	{

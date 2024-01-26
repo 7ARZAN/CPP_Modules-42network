@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:39 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/21 14:35:09 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 05:06:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ const char*	Form::FormNotSignedException::what() const throw(){
 }
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs){
-	o << "Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
+	o << " Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
 	return o;
 }
