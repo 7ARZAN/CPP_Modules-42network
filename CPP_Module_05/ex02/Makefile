@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/21 14:37:27 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/26 06:03:54 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Form
 
-SRC = Bureaucrat.cpp Form.cpp main.cpp
+SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp
 
-HEADER = Bureaucrat.hpp Form.hpp
+HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -28,6 +28,7 @@ $(NAME): $(OBJ) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
+	find . -name "*_shrubbery" -type f -delete
 	rm -rf $(OBJ)
 
 fclean: clean

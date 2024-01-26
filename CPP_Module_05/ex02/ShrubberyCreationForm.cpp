@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:08:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 00:12:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 06:06:28 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,31 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	return *this;
 }
 
-//create file with target name and write ascii tree in it
-
 std::string ShrubberyCreationForm::getTarget() const{
 	return this->_target;
+}
+
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
+	if (this->getSigned() == false)
+		throw AForm::FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	else{
+		std::ofstream file;
+		file.open(this->_target + "_shrubbery", std::ios::out | std::ios::app);
+		file << " this is a tree" << std::endl;
+		file << "       _-_" << std::endl;
+		file << "       _-_" << std::endl;
+		file << "    /~~   ~~\\" << std::endl;
+		file << " /~~         ~~\\" << std::endl;
+		file << "{               }" << std::endl;
+		file << " \\  _-     -_  /" << std::endl;
+		file << "   ~  \\\\ //  ~" << std::endl;
+		file << "_- -   | | _- _" << std::endl;
+		file << "  _ -  | |   -_" << std::endl;
+		file << "      // \\\\" << std::endl;
+		file << "    /~~~~~~~\\" << std::endl;
+		file << " eof shrubbery" << std::endl;
+		file.close();
+	}
 }

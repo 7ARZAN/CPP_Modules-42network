@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:23 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 00:03:54 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 05:49:01 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Form;
+class AForm;
 # include "AForm.hpp"
 
 class Bureaucrat{
@@ -34,7 +34,8 @@ class Bureaucrat{
 		int	getGrade() const;
 		void	incrementGrade();
 		void	decrementGrade();
-		void	SignForm(Form& form);
+		void	signForm(AForm& form);
+		void	executeForm(AForm const &form);
 		class GradeTooHighException: public std::exception{
 			public:
 				virtual const char* what() const throw();

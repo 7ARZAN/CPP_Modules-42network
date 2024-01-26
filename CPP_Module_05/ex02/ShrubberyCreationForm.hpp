@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:07:26 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 00:08:20 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 05:43:13 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <fstream>
-# include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
 class	ShrubberyCreationForm: public AForm{
 	private:
@@ -26,8 +26,8 @@ class	ShrubberyCreationForm: public AForm{
 		ShrubberyCreationForm(ShrubberyCreationForm const &);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
 		virtual ~ShrubberyCreationForm();
-		virtual void execute(Bureaucrat const &executor) const;
-		std::string getTarget() const;
+		virtual void	execute(Bureaucrat const &executor) const;
+		std::string	getTarget() const;
 };
 
 #endif

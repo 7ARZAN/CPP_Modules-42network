@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:57:28 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 00:04:28 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 05:44:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class	AForm{
 		int	getGradeToSign() const;
 		int	getGradeToExecute() const;
 		void	beSigned(Bureaucrat const &bureaucrat);
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 		class	AlreadySignedException : public std::exception{
 			public:
 				virtual const char*	what() const throw();
