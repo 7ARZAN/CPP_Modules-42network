@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:17 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:41:40 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:52:35 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade): _name(name), _grade(g
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src): _name(src._name), _grade(src._grade){
-	if (src._grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (src._grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	*this = src;
-}
+Bureaucrat::Bureaucrat(Bureaucrat const & src): _name(src._name), _grade(src._grade){}
 
 Bureaucrat::~Bureaucrat(){}
 
@@ -75,22 +69,10 @@ std::ostream	&operator<<(std::ostream & o, Bureaucrat const & rhs){
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw(){
-	try{
-		throw std::exception();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
 	return ("Grade too high");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what() const throw(){
-	try{
-		throw std::exception();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
 	return ("Grade too low");
 }
 

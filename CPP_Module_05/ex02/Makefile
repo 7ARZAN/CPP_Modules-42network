@@ -6,11 +6,11 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/26 08:44:51 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/26 08:53:38 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BRAP
+NAME = AForm
 
 SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotmyRequestForm.cpp PresidentialPardonForm.cpp
 

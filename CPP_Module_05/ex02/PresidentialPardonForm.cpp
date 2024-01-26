@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 07:45:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 07:59:31 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:51:30 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 	else if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else
-		std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+		std::cout << this->_target << " has been pardoned by dandan tarzan." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &src){
