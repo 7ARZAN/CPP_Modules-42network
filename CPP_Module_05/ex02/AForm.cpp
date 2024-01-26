@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:01:05 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:44:19 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:01:31 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ std::string const	AForm::getName() const{
 }
 
 const char*	AForm::GradeTooHighException::what() const throw(){
-	return "the Grade is too high [ grade < 1 ]";
+	return "the Grade is too high";
 }
 
 const char*	AForm::GradeTooLowException::what() const throw(){
-	return "the Grade is too low [ grade > 150 ]";
+	return "the Grade is too low";
 }
 
 const char*	AForm::AlreadySignedException::what() const throw(){
