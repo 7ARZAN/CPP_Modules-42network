@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/28 02:48:14 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:44:03 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,20 @@ void	ScalarConverter::convert(){
 }
 
 void	ScalarConverter::toChar(){
-	char	c;
+	int	i;
 	std::stringstream ss;
 
 	ss << this->_str;
-	ss >> c;
+	ss >> i;
 	std::cout << "char: ";
-	if (ss.fail())
+	if (ispseudoLiteral(this->_str) == true)
+		std::cout << this->_str << std::endl;
+	else if (ss.fail() || i > 127 || i < 0)
 		throw ImpossibleException();
-	c = static_cast<char>(c);
-	if (c < 32 || c > 126)
-		throw NonDisplayableException();
+	else if (i < 32 || i == 127)
+		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << "'" << c << "'" << std::endl;
+		std::cout << static_cast<char>(i) << std::endl;
 }
 
 void	ScalarConverter::toInt(){
@@ -78,7 +79,9 @@ void	ScalarConverter::toInt(){
 	ss << this->_str;
 	ss >> i;
 	std::cout << "int: ";
-	if (ss.fail())
+	if (ispseudoLiteral(this->_str) == true)
+		std::cout << this->_str << std::endl;
+	else if (ss.fail() || i > 2147483647 || i < -2147483648)
 		throw ImpossibleException();
 	else
 		std::cout << static_cast<int>(i) << std::endl;
@@ -91,7 +94,9 @@ void	ScalarConverter::toFloat(){
 	ss << this->_str;
 	ss >> f;
 	std::cout << "float: ";
-	if (ss.fail())
+	if (ispseudoLiteral(this->_str) == true)
+		std::cout << this->_str << std::endl;
+	else if (ss.fail() || f > 2147483647 || f < -2147483648)
 		throw ImpossibleException();
 	else
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << "f" << std::endl;
@@ -104,10 +109,20 @@ void	ScalarConverter::toDouble(){
 	ss << this->_str;
 	ss >> d;
 	std::cout << "double: ";
-	if (ss.fail())
+	if (ispseudoLiteral(this->_str) == true)
+		std::cout << this->_str << std::endl;
+	else if (ss.fail() || d > 2147483647 || d < -2147483648)
 		throw ImpossibleException();
 	else
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
+}
+
+bool	ScalarConverter::ispseudoLiteral(std::string str){
+	std::string	pseudoLiterals[8] = {"nan", "nanf", "inf", "inff", "+inf", "+inff", "-inf", "-inff"};
+	for (int i = 0; i < 8; i++)
+		if (str == pseudoLiterals[i])
+			return true;
+	return false;
 }
 
 const char	*ScalarConverter::NonDisplayableException::what() const throw(){
