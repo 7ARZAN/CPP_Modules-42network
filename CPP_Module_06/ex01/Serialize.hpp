@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Serialize.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:52:34 by tarzan            #+#    #+#             */
-/*   Updated: 2024/01/28 19:53:18 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/01/29 01:13:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef SERIALIZE_HPP
+# define SERIALIZE_HPP
 
 # include <iostream>
 
-struct Data
+struct	Data
 {
     int	X, Y;
+};
+
+class	Serialize{
+	private:
+		Serialize &operator=(Serialize const& rhs);
+		Serialize();
+	public:
+		Serialize(Serialize const& src);
+		~Serialize();
+		static Data	*deserialize(uintptr_t raw);
+		static uintptr_t	serialize(Data *ptr);
 };
 
 #endif

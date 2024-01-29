@@ -3,39 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 19:52:21 by tarzan            #+#    #+#             */
-/*   Updated: 2024/01/28 20:06:50 by tarzan           ###   ########.fr       */
+/*   Created: 2024/01/29 01:01:22 by elakhfif          #+#    #+#             */
+/*   Updated: 2024/01/29 01:17:11 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
-
-uintptr_t	serialize(Data *ptr){
-	return (reinterpret_cast<uintptr_t>(ptr));
-	// char	*raw = new char[20];
-	// char	alphanum[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	// int		i = -1;
-	//
-	// srand(time(NULL));
-	// while (++i < 8)
-	// 	raw[i] = alphanum[rand() % 62];
-	// *reinterpret_cast<int *>(raw + 8) = rand();
-	// i = 11;
-	// while (++i < 20)
-	// 	raw[i] = alphanum[rand() % 62];
-	// return (raw);
-}
-
-Data	*deserialize(uintptr_t raw){
-	return (reinterpret_cast<Data *>(raw));
-}
+#include "Serialize.hpp"
 
 int main(void) {
-    Data data = {0, 1};
+    Data	data = {0, 1};
+    Data	*ptr;
 
-    Data *ptr = deserialize(serialize(&data));
+    ptr = Serialize::deserialize(Serialize::serialize(&data));
     
 
     std::cout << ptr << " | " << &data << std::endl;
@@ -43,12 +24,20 @@ int main(void) {
 
     std::cout << "x: " << ptr->X << std::endl;
     std::cout << "y: " << ptr->Y << std::endl;
+    std::cout << "-------------------------" << std::endl;
+    Data	*X = new Data;
+    Data	*Y = new Data;
 
-    serialize(ptr);
-    std::cout << "we serialize the pointer" << std::endl;
-    ptr->X = 42;
-    ptr->Y = 21;
-    std::cout << "x: " << ptr->X << std::endl;
-    std::cout << "y: " << ptr->Y << std::endl;
+    X->X = 10;
+    X->Y = 20;
+    Y->X = 30;
+    Y->Y = 40;
+    uintptr_t	raw = Serialize::serialize(X);
+    std::cout << "raw: " << raw << std::endl;
+    Data	*Z = Serialize::deserialize(raw);
+    std::cout << "Z: " << Z << std::endl;
+    std::cout << "Z->X: " << Z->X << std::endl;
+    std::cout << "Z->Y: " << Z->Y << std::endl;
+    std::cout << "-------------------------" << std::endl;
     return 0;
 }

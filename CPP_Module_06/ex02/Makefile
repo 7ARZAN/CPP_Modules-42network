@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 02:26:22 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/29 01:17:47 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/01/29 01:29:59 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serializer
+NAME = ABC
 
-SRC = Serialize.cpp main.cpp
+SRC = main.cpp func.cpp
 
-HEADER = Serialize.hpp
+HEADER = Base.hpp ABClasses.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
