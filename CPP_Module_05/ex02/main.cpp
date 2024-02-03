@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:50:49 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/30 03:18:16 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main( void )
 	{
 		ShrubberyCreationForm	form("home");
 		RobotmyRequestForm	messi("hero");
-		PresidentialPardonForm	pardon("pardon");
+		PresidentialPardonForm	pardon("elakhfif");
 		std::cout << form;
 		tarzan.signForm(form);
 		std::cout << form;

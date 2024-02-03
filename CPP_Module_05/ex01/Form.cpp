@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:39 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 05:06:33 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/30 03:17:27 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ std::string const	Form::getName() const{
 }
 
 const char*	Form::GradeTooHighException::what() const throw(){
-	return "OH NO! the Grade is too high";
+	return " the Grade is too high";
 }
 
 const char*	Form::GradeTooLowException::what() const throw(){
-	return "OH NO! the Grade is too low";
+	return " the Grade is too low";
 }
 
 const char*	Form::AlreadySignedException::what() const throw(){
-	return "OH SHEESH Already exist :3";
+	return "already exist :3";
 }
 
 const char*	Form::FormNotSignedException::what() const throw(){
-	return "daaaaaaaamn! the Form not signed";
+	return " the Form not signed";
 }
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs){

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:34 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/01/30 03:19:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(){
 	Intern		ruki;
 	AForm		*form;
 
-	form = ruki.makeForm("shrubbery creation", "Home");
+	form = ruki.makeForm("shrubbery creation", "home");
 	tarzan.signForm(*form);
 	tarzan.executeForm(*form);
 	delete form;

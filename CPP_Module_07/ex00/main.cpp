@@ -5,37 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/30 03:16:33 by elakhfif         ###   ########.fr       */
+/*   Created: 2024/01/29 02:24:05 by elakhfif          #+#    #+#             */
+/*   Updated: 2024/02/03 08:22:35 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+# include "whatever.hpp"
 
-int	main( void )
-{
-	Bureaucrat	tarzan("DANDAN", 150);
-	try
-	{
-		Form	form("chahada dlwafat RIP", 10, 0);
-	}
-	catch ( std::exception &e )
-	{
-		std::cerr << "[+] Exception catched.\n";
-		std::cerr << e.what();
-	}
-	try
-	{
-		Form	form("chahadat zawaj", 5, 50);
-		std::cout << form;
-		tarzan.signForm(form);
-		std::cout << form;
-	}
-	catch ( std::exception &e )
-	{
-		std::cerr << "[+] Exception catched.\n";
-		std::cerr << e.what();
-	}
-
-	return (0);
+int	main(){
+	int a = 2;
+	int b = 3;
+	::swap(a, b);
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }
