@@ -6,13 +6,16 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/30 04:47:04 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:08:42 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(std::string str): _str(str), _precision(1){}
+ScalarConverter::ScalarConverter(std::string str): _str(str){
+	if (str.find('.') != std::string::npos)
+		this->_precision = str.length() - str.find('.') - 1;
+}
 
 ScalarConverter::ScalarConverter(ScalarConverter const& src){
 	*this = src;
@@ -105,6 +108,8 @@ void	ScalarConverter::toFloat(){
 		std::cout << this->_str << std::endl;
 	else if (this->_str.length() == 1 && isalpha(c) == true)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
+	else if (this->_str.find('f') != std::string::npos)
+		std::cout << this->_str.substr(0, this->_str.find('f') + 1) << std::endl;
 	else if (ss.fail() || f > 2147483647 || f < -2147483648)
 		throw ImpossibleException();
 	else
@@ -123,6 +128,8 @@ void	ScalarConverter::toDouble(){
 		std::cout << this->_str << std::endl;
 	else if (this->_str.length() == 1 && isalpha(c) == true)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
+	else if (this->_str.find('f') != std::string::npos)
+		std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (ss.fail() || d > 2147483647 || d < -2147483648)
 		throw ImpossibleException();
 	else
