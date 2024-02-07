@@ -6,14 +6,14 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 02:24:05 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/07 01:09:51 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/07 03:40:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "iter.hpp"
 
 int	main(){
-	char		tab[] = {};
+	char		tab[] = {'a', 'b', 'c', 'd', 'e'};
 	iter(tab, 5, print);
 	iter(tab, 5, add);
 	return 0;
