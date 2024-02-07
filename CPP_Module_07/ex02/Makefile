@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/02/06 08:34:32 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/02/07 05:32:26 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = Array
 
 SRC = main.cpp
 
-HEADER = iter.hpp
+HEADER = Array.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
