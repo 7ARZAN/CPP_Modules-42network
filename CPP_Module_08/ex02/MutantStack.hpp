@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 14:50:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/10 15:17:41 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/10 18:25:40 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ class	MutantStack : public std::stack<T>
 					return (*this);
 				};
 				iterator &operator++(){
-					if (_it != std::stack<T>::c.end())
+					//if (_it != std::stack<T>::c.end())
 						_it++;
 					return (*this);
 				};
 				iterator &operator--(){
-					if (_it != std::stack<T>::c.begin())
+					//if (_it != std::stack<T>::c.begin())
 						_it--;
 					return (*this);
 				};
 				T &operator*(){
-					if (_it != std::stack<T>::c.end())
+					//if (_it != std::stack<T>::c.end())
 						return (*_it);
-					return (std::stack<T>::c.back());
+					//return (std::stack<T>::c.back());
 				};
 				bool operator!=(const iterator &src){
 					if (_it != src._it)

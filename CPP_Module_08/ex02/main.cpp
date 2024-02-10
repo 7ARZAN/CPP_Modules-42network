@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:36:57 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/10 15:16:01 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/10 18:26:22 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	main(){
 	std::cout << "Top: " << mstack.top() << std::endl;
 	std::cout << "Size: " << mstack.size() << std::endl;
 	std::cout << "Empty: " << mstack.empty() << std::endl;
-	mstack.pop();
-	mstack.pop();
 	mstack.pop();
 	mstack.pop();
 	mstack.pop();
