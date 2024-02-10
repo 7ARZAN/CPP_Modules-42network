@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/02/03 08:23:44 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/02/10 12:54:43 by tarzan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = whatever
+NAME = Span
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
-HEADER = whatever.hpp
+HEADER = Span.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

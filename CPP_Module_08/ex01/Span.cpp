@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 12:36:57 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/10 12:56:39 by tarzan           ###   ########.fr       */
+/*   Created: 2024/02/10 12:44:58 by tarzan            #+#    #+#             */
+/*   Updated: 2024/02/10 12:56:26 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <vector>
 
-int main(){
-	Span sp = Span(5);
-	sp.addNumber(5);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-	return 0;
+Span::Span(unsigned int n) : _n(n){
+	arr = new int[n];
+	index = 0;
 }
+
+Span::Span(const Span &src){
+	*this = src;
+}
+
+Span::~Span(){
+	delete [] arr;
+}
+
+Span &Span::operator=(const Span &src) {
+}
+
+void	Span::addNumber(int number){
+}
+
+int	Span::shortestSpan(){
+}
+
+int	Span::longestSpan(){
+}
+
