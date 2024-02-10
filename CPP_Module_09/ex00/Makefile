@@ -6,15 +6,15 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/02/10 14:58:17 by tarzan           ###   ########.fr        #
+#    Updated: 2024/02/10 15:20:26 by tarzan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Mutantstack
+NAME = B1tc01n3xch4ng3
 
 SRC = main.cpp
 
-HEADER = Mutantstack.hpp
+HEADER = BitcoinExchange.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
