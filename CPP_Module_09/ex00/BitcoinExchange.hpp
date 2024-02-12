@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/10 15:35:21 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/12 23:11:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &src) { (void)src; return *this; };
 		~BitcoinExchange() {};
 
-		void	addBitcoin(std::string const &name, double price);
 		void	loadBitcoinList(std::string const &filename);
 		void	displayBitcoinList() const;
 		// void	removeBitcoin(std::string const &name);
