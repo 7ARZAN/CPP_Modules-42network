@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:36:57 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/10 12:56:39 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/12 09:09:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(){
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 	return 0;
 }
