@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/05 14:08:42 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/15 00:56:20 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,12 @@ void	ScalarConverter::toFloat(){
 		std::cout << this->_str.substr(0, this->_str.find('f') + 1) << std::endl;
 	else if (ss.fail() || f > 2147483647 || f < -2147483648)
 		throw ImpossibleException();
-	else
-		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << "f" << std::endl;
+	else{
+		if (f - static_cast<int>(f) == 0)
+			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << ".0f" << std::endl;
+		else
+			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << "f" << std::endl;
+	}
 }
 
 void	ScalarConverter::toDouble(){
@@ -132,8 +136,12 @@ void	ScalarConverter::toDouble(){
 		std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (ss.fail() || d > 2147483647 || d < -2147483648)
 		throw ImpossibleException();
-	else
-		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
+	else{
+		if (d - static_cast<int>(d) == 0)
+			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << ".0" << std::endl;
+		else
+			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
+	}
 }
 
 bool	ScalarConverter::ispseudoLiteral(std::string str){
