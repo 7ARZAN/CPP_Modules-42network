@@ -6,13 +6,13 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/02/10 15:39:24 by tarzan           ###   ########.fr        #
+#    Updated: 2024/02/18 01:00:08 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = R3v3r5_P0l173_n4710n
 
-SRC = main.cpp
+SRC = main.cpp RPN.cpp
 
 HEADER = RPN.hpp
 
