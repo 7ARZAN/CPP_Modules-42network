@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:28:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/18 01:12:09 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/19 03:53:34 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	is_num(std::string str){
 	for (size_t i = 0; i < str.length(); i++)
-		if (!isdigit(str[i]))
+		if (!isdigit(str[i]) || str.length() > 1)
 			return (false);
 	return (true);
 }
