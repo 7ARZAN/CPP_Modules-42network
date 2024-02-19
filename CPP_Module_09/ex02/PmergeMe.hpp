@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Pmerge.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 15:41:20 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/19 04:46:35 by elakhfif         ###   ########.fr       */
+/*   Created: 2024/02/19 04:13:02 by elakhfif          #+#    #+#             */
+/*   Updated: 2024/02/19 04:22:03 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
-int	main(int ac, char **av){
-	if (ac != 2){
-		std::cerr << "Usage: " << av[0] << " \"[expression]\"" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	RPN::calculator(av[1]);
-	return (EXIT_SUCCESS);
-}
+# include <iostream>
+# include <vector>
 
+#endif

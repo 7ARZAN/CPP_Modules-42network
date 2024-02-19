@@ -6,24 +6,37 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:28:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/19 03:53:34 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/19 04:44:07 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-static bool	is_num(std::string str){
+RPN::~RPN(){}
+
+RPN::RPN(){}
+
+RPN::RPN(const RPN &src){
+	(void)src;
+}
+
+RPN &RPN::operator=(const RPN &src){
+	(void)src;
+	return (*this);
+}
+
+bool	RPN::is_num(std::string str){
 	for (size_t i = 0; i < str.length(); i++)
 		if (!isdigit(str[i]) || str.length() > 1)
 			return (false);
 	return (true);
 }
 
-static bool	is_operator(char c){
+bool	RPN::is_operator(char c){
 	return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-static bool	checkExpression(std::string str){
+bool	RPN::checkExpression(std::string str){
 	std::stack<int> stack;
 	std::string token;
 	size_t i = 0;
@@ -54,7 +67,7 @@ static bool	checkExpression(std::string str){
 	return (true);
 }
 
-void	calculator(std::string str){
+void	RPN::calculator(std::string str){
 	if (!checkExpression(str))
 		return ;
 	std::stack<int> stack;
