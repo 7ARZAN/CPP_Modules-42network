@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotmyRequestForm.hpp                             :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:12:48 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 07:54:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/21 23:23:23 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTMYREQUESTFORM_HPP
-# define ROBOTMYREQUESTFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-class RobotmyRequestForm : public AForm{
+class RobotomyRequestForm : public AForm{
 	private:
 		std::string _target;
-		RobotmyRequestForm();
+		RobotomyRequestForm();
 	public:
-		RobotmyRequestForm(std::string target);
-		RobotmyRequestForm(RobotmyRequestForm const &);
-		RobotmyRequestForm &operator=(RobotmyRequestForm const &);
-		~RobotmyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(RobotomyRequestForm const &);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &);
+		~RobotomyRequestForm();
 		void	execute(Bureaucrat const &executor) const;
 		std::string	getTarget() const;
 };
