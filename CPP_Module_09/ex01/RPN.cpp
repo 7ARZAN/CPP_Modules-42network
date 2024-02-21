@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:28:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/19 04:44:07 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:32:34 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	RPN::calculator(std::string str){
 			}
 			int a = stack.top();
 			stack.pop();
-			int b = stack.top();
+			int b = stack.top(); 
 			stack.pop();
 			if (token[0] == '+')
 				stack.push(b + a);

@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:57:38 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/17 17:27:39 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/21 19:23:56 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,49 @@
 #include <cstdint>
 #include <fstream>
 
-bool	check_file(std::string file){
-	std::ifstream f(file);
-
-	if (f.good()){
-		f.close();
-		return (true);
+bool	third_argument(std::string arg){
+	if (arg.length() > 4){
+		std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl;
+		return (false);
 	}
-	return (false);
+	for (int i = 0; i < arg.length(); i++){
+		if (arg[i] < '0' || arg[i] > '9'){
+			std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl;
+			return (false);
+		}
+	}
+	return (true);
+}
+
+bool	check_date(std::string date);
+void	check_input_data(std::string data){
+	std::string date;
+	std::string price;
+	std::string line;
+	std::ifstream file(data);
+
+	while (std::getline(file, line)){
+		date = line.substr(0, 10);
+		price = line.substr(11, line.length());
+		if (date.length() != 10 || price.length() < 1){
+			std::cout << "ERROR: file has incorrect data" << std::endl;
+			return ;
+		}
+		if (date[4] != '-' || date[7] != '-'){
+			std::cout << "ERROR: file has incorrect data" << std::endl;
+			return ;
+		}
+		if (!check_date(date)){
+			std::cout << "ERROR: file has incorrect data" << std::endl;
+			return ;
+		}
+		for (int i = 0; i < price.length(); i++){
+			if (price[i] < '0' || price[i] > '9'){
+				std::cout << "ERROR: file has incorrect data" << std::endl;
+				return ;
+			}
+		}
+	}
 }
 
 bool	check_date(std::string date){
@@ -65,24 +100,21 @@ bool	check_date(std::string date){
 	return (true);
 }
 
-int	main(int argc, char **argv){
-	if (argc != 2){
-		std::cerr << "Usage: ./BitcoinExchange <file>" << std::endl;
+void	printData(std::string date, std::string price){
+	std::cout << "Date: " << date << " Price: " << price << std::endl;
+}
+
+int	main(int ac, char **av){
+	if (ac != 3){
+		std::cerr << "Usage: " << av[0] << " <input_file>" << " <how_much_b1tc01n>" << std::endl;
 		return (1);
 	}
-	if (!check_file(argv[1])){
-		std::cerr << "Invalid file" << std::endl;
+	if (!third_argument(av[2]))
 		return (1);
-	}
-	std::string date;
-	std::cout << "Enter the date (YYYY-MM-DD): ";
-	std::cin >> date;
-	if (!check_date(date)){
-		std::cerr << "Invalid date" << std::endl;
-		return (1);
-	}
-	// BitcoinExchange exchange(argv[1]);
-	// exchange.get_data(date);
-	// exchange.display();
+	std::ifstream file(av[1]);
+	if (!file.good())
+		return (std::cerr << "ERROR: file does not exist" << std::endl, 1);
+	check_input_data(av[1]);
+	printData("2024-02-21", "1000");
 	return (0);
 }

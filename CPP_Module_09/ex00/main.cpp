@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/20 20:38:09 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:13:42 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 int	main(int ac, char **av){
 	if (ac != 3){
-		std::cerr << "Usage: " << av[0] << " <b1tc01n_file>" << " <how_much_b1tc01n>" << std::endl;
+		std::cerr << "Usage: " << av[0] << " <input_file>" << " <how_much_b1tc01n>" << std::endl;
 		return (1);
 	}
 	std::ifstream file(av[1]);
-	if (!file.is_open()){
-		std::cerr << "ERROR: file not found" << std::endl;
-		return (1);
-	}
+	if (!file.good())
+		return (std::cerr << "ERROR: file does not exist" << std::endl, 1);
 	//			TODO:
 	//check if " av[2] " is positive number between [0 - 1000].
 	//check the file given if he has the correct infos.
