@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:57:38 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/21 19:23:56 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/21 23:20:58 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,11 @@
 #include <fstream>
 
 bool	third_argument(std::string arg){
-	if (arg.length() > 4){
-		std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl;
-		return (false);
-	}
-	for (int i = 0; i < arg.length(); i++){
-		if (arg[i] < '0' || arg[i] > '9'){
-			std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl;
-			return (false);
-		}
-	}
+	if (arg.length() > 4)
+		return (std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl, false);
+	for (int i = 0; i < arg.length(); i++)
+		if (arg[i] < '0' || arg[i] > '9' || arg > "1000")
+			return (std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl, false);
 	return (true);
 }
 
