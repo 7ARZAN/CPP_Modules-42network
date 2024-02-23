@@ -6,16 +6,89 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/19 04:38:41 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/23 22:06:38 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+//#include "PmergeMe.hpp"
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <sstream>
+
+//l is for left index and r is right index of the sub-array of v to be sorted
+void	Pmerge_sort(std::vector<int> &v, int l, int r){
+	if (l < r){
+		int m = l + (r - l) / 2;
+		Pmerge_sort(v, l, m);
+		Pmerge_sort(v, m + 1, r);
+		std::vector<int> L(v.begin() + l, v.begin() + m + 1);
+		std::vector<int> R(v.begin() + m + 1, v.begin() + r + 1);
+		int i = 0;
+		int j = 0;
+		int k = l;
+		while (i < L.size() && j < R.size()){
+			if (L[i] <= R[j]){
+				v[k] = L[i];
+				i++;
+			}
+			else{
+				v[k] = R[j];
+				j++;
+			}
+			k++;
+		}
+		while (i < L.size()){
+			v[k] = L[i];
+			i++;
+			k++;
+		}
+		while (j < R.size()){
+			v[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+}
+
+int Pmerge_sort(char **av, int ac){
+	std::vector<int> v;
+	std::vector<int> v2;
+	std::string str;
+	std::stringstream ss;
+	std::chrono::time_point<std::chrono::system_clock> start, end;
+
+	for (int i = 0; i < ac; i++){
+		str = av[i];
+		if (str.find_first_not_of("0123456789") != std::string::npos)
+			return (std::cerr << "Error: invalid input" << std::endl, 1);
+		v.push_back(std::atoi(av[i]));
+	}
+	v2 = v;
+	std::sort(v2.begin(), v2.end());
+	std::cout << "Unsorted: ";
+	for (int i = 0; i < ac; i++)
+		std::cout << v[i] << " ";
+	std::cout << std::endl;
+	start = std::chrono::system_clock::now();
+	Pmerge_sort(v, 0, ac - 1);
+	end = std::chrono::system_clock::now();
+	std::cout << "Sorted: ";
+	for (int i = 0; i < ac; i++)
+		std::cout << v[i] << " ";
+	std::cout << std::endl;
+	std::cout << "Time used by the merge sort algorithm: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " microseconds" << std::endl;
+	start = std::chrono::system_clock::now();
+	Pmerge_sort(v2, 0, ac - 1);
+	end = std::chrono::system_clock::now();
+	std::cout << "Time used by the std::sort algorithm: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " microseconds" << std::endl;
+	return (0);
+}
 
 int	main(int ac, char **av){
 	if (ac < 2)
 		return (std::cerr << "Usage: " << av[0] << " \"[numbers to sort]\"" << std::endl, 1);
-	//return (Pmerge_sort(av + 1, ac - 1));
+	return (Pmerge_sort(av + 1, ac - 1));
 }
 
 
