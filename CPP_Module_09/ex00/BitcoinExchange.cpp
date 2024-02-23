@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:57:38 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/23 05:25:55 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/02/23 06:22:36 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+
 class	BitcoinExchange{
 public:
 	//BitcoinExchange();
@@ -26,7 +27,6 @@ public:
 	bool	third_argument(std::string arg);
 	double	GetExchangeRate(const std::string &date);
 	bool	ValidateDate(const std::string &date);
-	bool	ValidateValue(double value);
 	void	Process_input(const std::string &filename);
 };
 
@@ -75,18 +75,7 @@ bool	BitcoinExchange::ValidateDate(const std::string &date){
 		if (day > "30")
 			return (false);
 	}
-	else
-		return (false);
 	return (true);
-}
-
-bool	BitcoinExchange::ValidateValue(double value){
-	if (value < 0.0 || value > 1000.0) {
-		std::cerr << "ERROR: Value must be between 0 and 1000 => "
-			  << value << '\n';
-		return false;
-	}
-	return true;
 }
 
 double	BitcoinExchange::GetExchangeRate(const std::string &date){
@@ -105,7 +94,7 @@ void	BitcoinExchange::Process_input(const std::string &filename){
 
 	getline(file, line);
 	if (line != "date | value")
-		std::cerr << "ERROR: first line must be 'date | value' => " << line << '\n';
+		std::cerr << "ERROR: first line must be 'date | value'" << '\n';
 	while (std::getline(file, line)){
 		std::istringstream ss(line);
 		std::string date;
@@ -124,9 +113,6 @@ void	BitcoinExchange::Process_input(const std::string &filename){
 			std::cerr << "ERROR: Invalid date format in line => " << line << '\n';
 			continue;
 		}
-		if (!ValidateValue(value)){
-			continue;
-		}
 		double exchangeRate = GetExchangeRate(date);
 		if (exchangeRate == -1.0){
 			std::cerr << "ERROR: No exchange rate available for date => " << date << '\n';
@@ -142,13 +128,6 @@ int	main(int ac, char **av){
 		return (std::cerr << "Usage: " << av[0] << " <input_file>" << " <how_much_b1tc01n>" << std::endl, 1);
 	if (!BitcoinExchange().third_argument(av[2]))
 		return (1);
-	try{
-		BitcoinExchange exchange;
-		exchange.Process_input(av[1]);
-	}
-	catch(const std::exception &e){
-		std::cerr << e.what() << std::endl;
-		return (1);
-	}
+	BitcoinExchange().Process_input(av[1]);
 	return (0);
 }

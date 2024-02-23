@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/16 13:54:43 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/02/23 06:23:20 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <string>
 # include <map>
 
-class BitcoinExchange
-{
+class BitcoinExchange{
 	public:
 		BitcoinExchange() {};
 		BitcoinExchange(const BitcoinExchange &src) { *this = src; };
