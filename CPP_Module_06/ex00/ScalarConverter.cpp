@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/03/07 15:22:01 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/03/07 19:11:29 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	ScalarConverter::toFloat(){
 		std::cout << this->_str << std::endl;
 	else if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
-	else if (this->_str.find('f') != std::string::npos)
+	else if (this->_str.find('f') != std::string::npos) //this condition should be fixed if nanf or inff is entered else throw exception
 		std::cout << this->_str.substr(0, this->_str.find('f') + 1) << std::endl;
 	else if (ss.fail() || f > INT_MAX || f < INT_MIN)
 		throw ImpossibleException();
@@ -126,7 +126,7 @@ void	ScalarConverter::toDouble(){
 		std::cout << this->_str << std::endl;
 	else if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
-	else if (this->_str.find('f') != std::string::npos)
+	else if (this->_str.find('f') != std::string::npos) //should be fixed here too if nanf or inff is entered else throw exception
 		std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (ss.fail() || d > INT_MAX || d < INT_MIN)
 		throw ImpossibleException();
@@ -137,9 +137,9 @@ void	ScalarConverter::toDouble(){
 bool	ScalarConverter::ispseudoLiteral(std::string str){
 	std::string	pseudoLiterals[8] = {"nan", "nanf", "inf", "inff", "+inf", "+inff", "-inf", "-inff"};
 	for (int i = 0; i < 8; i++)
-		if (str != pseudoLiterals[i])
-			return false;
-	return true;
+		if (str == pseudoLiterals[i] && str.length() == pseudoLiterals[i].length())
+			return true;
+	return false;
 }
 
 const char	*ScalarConverter::NonDisplayableException::what() const throw(){
