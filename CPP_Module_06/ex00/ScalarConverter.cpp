@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/16 13:45:59 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/03/07 01:58:20 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ void	ScalarConverter::toChar(){
 	ss << this->_str;
 	ss >> i;
 	std::cout << "char: ";
-	// if (ispseudoLiteral(this->_str) == true)
-	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && isalpha(c) == true)
 		std::cout << "'" << this->_str << "'" << std::endl;
 	else if (ss.fail() || i > 127 || i < 0)
@@ -88,8 +86,6 @@ void	ScalarConverter::toInt(){
 	ss << this->_str;
 	ss >> i;
 	std::cout << "int: ";
-	// if (ispseudoLiteral(this->_str) == true)
-	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && isalpha(c) == true)
 		std::cout << static_cast<int>(c) << std::endl;
 	else if (ss.fail() || i > 2147483647 || i < -2147483648)
@@ -141,7 +137,7 @@ void	ScalarConverter::toDouble(){
 bool	ScalarConverter::ispseudoLiteral(std::string str){
 	std::string	pseudoLiterals[8] = {"nan", "nanf", "inf", "inff", "+inf", "+inff", "-inf", "-inff"};
 	for (int i = 0; i < 8; i++)
-		if (str == pseudoLiterals[i])
+		if (str == pseudoLiterals[i] && str.length() == pseudoLiterals[i].length())
 			return true;
 	return false;
 }

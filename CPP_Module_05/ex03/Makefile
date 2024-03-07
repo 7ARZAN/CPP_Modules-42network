@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/01/26 21:46:02 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/03/07 00:21:41 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,23 +16,34 @@ SRC = Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotmyRequest
 
 HEADER = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotmyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = build/Bureaucrat.o build/AForm.o build/ShrubberyCreationForm.o build/RobotmyRequestForm.o build/PresidentialPardonForm.o build/Intern.o build/main.o
 
 CXX = clang++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+all: build $(NAME)
+
+build:
+	@mkdir -p build
+	@echo "\033[0;31mIntern\033[0m\033[0;32m: build created\033[0m"
+	
+build/%.o: %.cpp
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "\033[0;31mIntern\033[0m\033[0;32m: $@ created\033[0m"
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@echo "\033[0;31mIntern\033[0m\033[0;32m: $(NAME) created\033[0m"
 
 clean:
-	find . -name "*_shrubbery" -type f -delete
-	rm -rf $(OBJ)
+	@find . -name "*_shrubbery" -type f -delete
+	@rm -rf build
+	@echo "\033[0;31mIntern\033[0m\033[0;32m: build deleted\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[0;31mIntern\033[0m\033[0;32m: $(NAME) deleted\033[0m"
 
 re: fclean all
 
