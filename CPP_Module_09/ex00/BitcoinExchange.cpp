@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:57:38 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/23 06:22:36 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/03/30 13:01:03 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,33 @@
 #include <map>
 
 class	BitcoinExchange{
-public:
-	//BitcoinExchange();
-	//~BitcoinExchange();
-	//BitcoinExchange(const BitcoinExchange &other);
-	//BitcoinExchange &operator=(const BitcoinExchange &other);
-	std::map<std::string, double> data;
-	bool	third_argument(std::string arg);
-	double	GetExchangeRate(const std::string &date);
-	bool	ValidateDate(const std::string &date);
-	void	Process_input(const std::string &filename);
+	public:
+		BitcoinExchange();
+		~BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange &other);
+		BitcoinExchange &operator=(const BitcoinExchange &other);
+		std::map<std::string, double> data;
+		bool	third_argument(std::string arg);
+		double	GetExchangeRate(const std::string &date);
+		bool	ValidateDate(const std::string &date);
+		void	Process_input(const std::string &filename);
 };
+
+BitcoinExchange::BitcoinExchange(){
+}
+
+BitcoinExchange::~BitcoinExchange(){
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other){
+	*this = other;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other){
+	if (this != &other)
+		this->data = other.data;
+	return (*this);
+}
 
 bool	BitcoinExchange::third_argument(std::string arg){
 	for (int i = 0; i < arg.length(); i++)

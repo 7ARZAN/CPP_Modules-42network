@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/21 19:13:42 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/03/30 12:55:01 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av){
 	std::ifstream file(av[1]);
 	if (!file.good())
 		return (std::cerr << "ERROR: file does not exist" << std::endl, 1);
+	BitcoinExchange exchange;
 	//			TODO:
 	//check if " av[2] " is positive number between [0 - 1000].
 	//check the file given if he has the correct infos.
