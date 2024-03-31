@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/03/31 02:32:25 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/03/31 02:45:44 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ScalarConverter::toFloat(){
 	std::cout << "float: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
-	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
+	if ((this->_str.length() == 1 && (isalpha(c) == true || c == ' ')) || this->_str.find('f') != std::string::npos)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
 		//if is not contain f character should add it else print the string
@@ -129,7 +129,7 @@ void	ScalarConverter::toDouble(){
 	std::cout << "double: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
-	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
+	if ((this->_str.length() == 1 && (isalpha(c) == true || c == ' ')) || this->_str.find('f') != std::string::npos)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
 		if (this->_str.compare("inf") == false || this->_str.compare("nan") == false){
@@ -145,7 +145,7 @@ void	ScalarConverter::toDouble(){
 	else if (ss.fail() || d > INT_MAX || d < INT_MIN)
 		throw ImpossibleException();
 	else
-			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
+		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
 }
 
 bool	ScalarConverter::ispseudoLiteral(std::string str){
