@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/03/25 08:54:49 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/03/31 02:32:25 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,12 +132,16 @@ void	ScalarConverter::toDouble(){
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
-		if (this->_str.compare("inf") == false)
-			std::cout << this->_str << std::endl;
+		if (this->_str.compare("inf") == false || this->_str.compare("nan") == false){
+			if (this->_str.compare("nanf") == false)
+				std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
+			else
+				std::cout << this->_str << std::endl;
+		}
 		else if (this->_str.find('f') != std::string::npos)
 			std::cout << this->_str.substr(0, this->_str.find('f') + 1) << std::endl;
 	}
-		//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
+	//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (ss.fail() || d > INT_MAX || d < INT_MIN)
 		throw ImpossibleException();
 	else
