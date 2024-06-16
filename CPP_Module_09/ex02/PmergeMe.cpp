@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/16 05:14:11 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/16 17:05:07 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,6 @@ PmergeMe::pair_vector	PmergeMe::createPairs(const std::vector<int> &list){
 	return pairs;
 }
 
-bool	is_even(int number){
-	return number % 2 == 0;
-}
-
 void	PmergeMe::sortPairs(pair_vector &pairs, std::vector<int> &list){
 	std::vector<int>	result;
 	for (pair_info &pair : pairs){
@@ -69,6 +65,7 @@ void	PmergeMe::sortPairs(pair_vector &pairs, std::vector<int> &list){
 			result = binaryInsertionSort(pair.first, result);
 		if (pair.second != -1)
 			result = binaryInsertionSort(pair.second, result);
+		std::cout << "Result is: " << result.size() << std::endl;
 	}
 	list = result;
 }

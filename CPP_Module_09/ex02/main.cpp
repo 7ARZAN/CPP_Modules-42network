@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/16 05:16:07 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/16 17:05:34 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	main(int ac, char **av){
 		std::cout << number << " ";
 	}
 	std::cout << std::endl;
-	std::cout << "Time used by Ford-Johnson algorithm: " << std::endl;
-	std::cout << "Time used by Merge-Insert algorithm: " << std::endl;
 	return 0;
 }
 
