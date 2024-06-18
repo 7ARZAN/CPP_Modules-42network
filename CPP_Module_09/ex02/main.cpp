@@ -6,38 +6,38 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/16 17:05:34 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/18 17:05:15 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int	main(int ac, char **av){
-	PmergeMe	p;
-	std::vector<int>	list;
-	std::vector<int>	list2;
+	std::vector<int>	mainChain;
+	std::vector<int>	pendingChain;
 
 	if (ac < 2){
 		std::cerr << "Error: No arguments provided" << std::endl;
 		return 1;
 	}
 	for (int i = 1; i < ac; i++){
-		if (std::atoi(av[i]) < 0){
+		if (std::atoi(av[i]) < 0 || std::isdigit(av[i][0]) == 0){
 			std::cerr << "Error: Negative number provided" << std::endl;
 			return 1;
 		}
-		list.push_back(std::atoi(av[i]));
-		list2.push_back(std::atoi(av[i]));
+		mainChain.push_back(std::atoi(av[i]));
+		pendingChain.push_back(std::atoi(av[i]));
 	}
+	PmergeMe	p;
 	std::cout << "Unsorted list: ";
-	for (int &number : list){
-		std::cout << number << " ";
+	for (size_t i = 0; i < mainChain.size(); i++){
+		std::cout << mainChain[i] << " ";
 	}
 	std::cout << std::endl;
-	std::vector<int>	sortedList = p.FordJohnson(list);
+	std::vector<int>	sortedList = p.FordJohnson(mainChain);
 	std::cout << "Sorted list: ";
-	for (int &number : sortedList){
-		std::cout << number << " ";
+	for (size_t i = 0; i < sortedList.size(); i++){
+		std::cout << sortedList[i] << " ";
 	}
 	std::cout << std::endl;
 	return 0;
