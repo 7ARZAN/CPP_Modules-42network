@@ -6,18 +6,18 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:01:05 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:11 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:29:34 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(): _name("default"), _signed(false), _grade_to_sign(150), _grade_to_execute(150){}
+AForm::AForm(): _name("default"), _signed(false), _grade_to_sign(MIN_GRADE), _grade_to_execute(MIN_GRADE){}
 
 AForm::AForm(std::string name, int grade_to_sign, int grade_to_execute): _name(name), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute){
-	if (grade_to_sign < 1 || grade_to_execute < 1)
+	if (grade_to_sign < MAX_GRADE || grade_to_execute < MAX_GRADE)
 		throw AForm::GradeTooHighException();
-	else if (grade_to_sign > 150 || grade_to_execute > 150)
+	else if (grade_to_sign > MIN_GRADE || grade_to_execute > MIN_GRADE)
 		throw AForm::GradeTooLowException();
 }
 
@@ -46,9 +46,9 @@ int	AForm::getGradeToExecute() const{
 void	AForm::beSigned(Bureaucrat const &){
 	if (this->_signed == true)
 		throw AForm::AlreadySignedException();
-	else if (this->_grade_to_sign < 1)
+	else if (this->_grade_to_sign < MAX_GRADE)
 		throw AForm::GradeTooHighException();
-	else if (this->_grade_to_sign > 150)
+	else if (this->_grade_to_sign > MIN_GRADE)
 		throw AForm::GradeTooLowException();
 	else
 		this->_signed = true;
@@ -77,7 +77,7 @@ const char*	AForm::FormNotSignedException::what() const throw(){
 	return "the Form not signed [ false ]";
 }
 
-std::ostream	&operator<<(std::ostream &o, AForm const &rhs){
-	o << " Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
-	return o;
+std::ostream	&operator<<(std::ostream &out, AForm const &rhs){
+	out << " Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
+	return out;
 }

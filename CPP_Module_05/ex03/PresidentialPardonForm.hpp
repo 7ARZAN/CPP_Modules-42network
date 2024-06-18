@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 07:45:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 07:59:13 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:39:00 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include "AForm.hpp"
 # include <iostream>
 
-class	PresidentialPardonForm: public AForm{
+class	PresidentialPardonForm: public AForm
+{
 	private:
-		std::string _target;
+		std::string	_target;
 		PresidentialPardonForm();
 	public:
 		PresidentialPardonForm(std::string);

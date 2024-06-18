@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:08:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:46:38 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:34:37 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbe
 	this->_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src): AForm(src){
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src): AForm(src){
 	*this = src;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
-ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs){
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs){
 	if (this != &rhs)
 		this->_target = rhs._target;
 	return *this;
 }
 
-std::string ShrubberyCreationForm::getTarget() const{
+std::string	ShrubberyCreationForm::getTarget() const{
 	return this->_target;
 }
 

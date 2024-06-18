@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:57:28 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 05:44:44 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:37:57 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 class Bureaucrat;
 # include "Bureaucrat.hpp"
 
-class	AForm{
+class	AForm
+{
 	private:
-		std::string const _name;
-		bool _signed;
-		int const _grade_to_sign;
-		int const _grade_to_execute;
+		std::string const	_name;
+		bool		_signed;
+		int const	_grade_to_sign;
+		int const	_grade_to_execute;
 		AForm();
 	public:
 		AForm(std::string const name, int const grade_to_sign, int const grade_to_execute);
@@ -55,6 +56,6 @@ class	AForm{
 		};
 };
 
-std::ostream	&operator<<(std::ostream &o, AForm const &rhs);
+std::ostream	&operator<<(std::ostream &out, AForm const &rhs);
 
 #endif

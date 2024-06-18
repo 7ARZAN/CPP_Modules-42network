@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:12:48 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 07:54:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:39:06 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-class RobotmyRequestForm : public AForm{
+class RobotmyRequestForm : public AForm
+{
 	private:
-		std::string _target;
+		std::string	_target;
 		RobotmyRequestForm();
 	public:
 		RobotmyRequestForm(std::string target);

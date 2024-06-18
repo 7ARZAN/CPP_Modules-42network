@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 07:45:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:51:30 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:33:07 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 		std::cout << this->_target << " has been pardoned by dandan tarzan." << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &src){
-	o << src.getName() << " form, grade required to sign it " << src.getGradeToSign() << ", grade required to execute it " << src.getGradeToExecute() << ", it is " << (src.getSigned() ? "signed" : "not signed") << std::endl;
-	return (o);
+std::ostream &operator<<(std::ostream &out, PresidentialPardonForm const &src){
+	if (src.getSigned())
+		out << src.getName() << " form, grade required to sign it " << src.getGradeToSign() << ", grade required to execute it " << src.getGradeToExecute() << ", it is signed" << std::endl;
+	else
+		out << src.getName() << " form, grade required to sign it " << src.getGradeToSign() << ", grade required to execute it " << src.getGradeToExecute() << ", it is not signed" << std::endl;
+	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:36:41 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 21:59:13 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:31:34 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Intern::Intern(){}
 
-Intern::Intern(Intern const &i){
-	*this = i;
+Intern::Intern(Intern const &intern){
+	*this = intern;
 }
 
 Intern::~Intern(){}
 
-Intern	&Intern::operator=(Intern const &i){
-	(void)i;
+Intern	&Intern::operator=(Intern const &intern){
+	(void)intern;
 	return *this;
 }
 

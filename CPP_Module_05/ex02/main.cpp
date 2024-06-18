@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/21 23:24:47 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:24:16 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int	main( void )
+int	main(void)
 {
 	Bureaucrat	tarzan("DANDAN", 5);
 	try

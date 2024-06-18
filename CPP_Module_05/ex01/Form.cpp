@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:39 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/30 03:17:27 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:21:07 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 Form::Form(): _name("default"), _signed(false), _grade_to_sign(150), _grade_to_execute(150){}
 
 Form::Form(std::string name, int grade_to_sign, int grade_to_execute): _name(name), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute){
-	if (grade_to_sign < 1 || grade_to_execute < 1)
+	if (grade_to_sign < MAX_GRADE || grade_to_execute < MAX_GRADE)
 		throw Form::GradeTooHighException();
-	else if (grade_to_sign > 150 || grade_to_execute > 150)
+	else if (grade_to_sign > MIN_GRADE || grade_to_execute > MIN_GRADE)
 		throw Form::GradeTooLowException();
 }
 
@@ -46,9 +46,9 @@ int	Form::getGradeToExecute() const{
 void	Form::beSigned(Bureaucrat const &){
 	if (this->_signed == true)
 		throw Form::AlreadySignedException();
-	else if (this->_grade_to_sign < 1)
+	else if (this->_grade_to_sign < MAX_GRADE)
 		throw Form::GradeTooHighException();
-	else if (this->_grade_to_sign > 150)
+	else if (this->_grade_to_sign > MIN_GRADE)
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
@@ -70,14 +70,14 @@ const char*	Form::GradeTooLowException::what() const throw(){
 }
 
 const char*	Form::AlreadySignedException::what() const throw(){
-	return "already exist :3";
+	return "already Form signed";
 }
 
 const char*	Form::FormNotSignedException::what() const throw(){
 	return " the Form not signed";
 }
 
-std::ostream	&operator<<(std::ostream &o, Form const &rhs){
-	o << " Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
-	return o;
+std::ostream	&operator<<(std::ostream &output, Form const &rhs){
+	output << " Form name: " << rhs.getName() << " Grade to sign: " << rhs.getGradeToSign() << " Grade to execute: " << rhs.getGradeToExecute() << " Signed: " << rhs.getSigned() << std::endl;
+	return output;
 }
