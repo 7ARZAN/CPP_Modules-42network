@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/26 22:43:01 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/27 00:00:46 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main( void )
 	Bureaucrat	tarzan(" DANDAN", 2);
 	try
 	{
-		Form	form("chahada dlwafat RIP", 10, 4);
+		Form	form("chahada dlwafat RIP", 10, 0);
 		std::cout << form;
 		tarzan.signForm(form);
 		std::cout << form;
@@ -30,7 +30,7 @@ int	main( void )
 	}
 	try
 	{
-		Form	form("chahadat zawaj", 5, 50);
+		Form	form("chahadat zawaj", 5, 0);
 		std::cout << form;
 		tarzan.signForm(form);
 		std::cout << form;

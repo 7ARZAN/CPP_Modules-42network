@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:05:17 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:16:45 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/27 00:00:12 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	Bureaucrat::decrementGrade(){
 void	Bureaucrat::signForm(Form& form){
 	try{
 		form.beSigned(*this);
-		std::cout << this->_name << " signs " << form.getName() << std::endl;
+		std::cout << this->_name << " signs " << form.getName() << " with grade " << this->_grade << std::endl;
 	}
 	catch (std::exception &e){
 		std::cout << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/26 03:26:47 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/27 00:07:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,25 @@
 // }
 
 int	ft_main(){
-	Bureaucrat	tarzan("OTKAZALI", 19);
+	//Bureaucrat	tarzan("OTKAZALI", 190);
 	Intern		ruki;
 	AForm		*form;
 
-	// try
-	// {
-	// 	form = ruki.makeForm("robotomy requestzz", "home");
-	// 	tarzan.signForm(*form);
-	// 	tarzan.executeForm(*form);
-	// 	delete form;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	form = ruki.makeForm("shrubbery creation", "home");
-	tarzan.signForm(*form);
-	tarzan.executeForm(*form);
+	try
+	{
+		Bureaucrat	tarzan("OTKAZALI", 190);
+		form = ruki.makeForm("robotomy request", "home");
+		tarzan.signForm(*form);
+		tarzan.executeForm(*form);
+		delete form;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	//form = ruki.makeForm("shrubbery creation", "home");
+	//tarzan.signForm(*form);
+	//tarzan.executeForm(*form);
 	delete form;
 	return (0);
 }

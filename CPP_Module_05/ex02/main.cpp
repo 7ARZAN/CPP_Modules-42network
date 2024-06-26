@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:04:59 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:24:16 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/27 00:01:54 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	main(void)
 {
-	Bureaucrat	tarzan("DANDAN", 5);
+	Bureaucrat	tarzan("DANDAN", 150);
 	try
 	{
 		ShrubberyCreationForm	form("home");

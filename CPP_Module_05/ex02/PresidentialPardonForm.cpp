@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 07:45:42 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:51:30 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/26 22:35:15 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::FormNotExecutedException();
 	else
 		std::cout << this->_target << " has been pardoned by dandan tarzan." << std::endl;
 }

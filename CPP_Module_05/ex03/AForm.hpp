@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:57:28 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:38:39 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/26 23:57:26 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ class	AForm
 				virtual const char* what() const throw();
 		};
 		class FormNotSignedException : public std::exception{
+			public:
+				virtual const char* what() const throw();
+		};
+		class FormNotExecutedException : public std::exception{
 			public:
 				virtual const char* what() const throw();
 		};

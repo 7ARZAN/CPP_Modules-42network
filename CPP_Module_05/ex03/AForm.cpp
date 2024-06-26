@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:01:05 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/26 05:37:44 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/26 23:57:06 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	AForm::beSigned(Bureaucrat const &Bureaucrat){
 		throw AForm::AlreadySignedException();
 	else if (this->_grade_to_sign < Bureaucrat.getGrade())
 		throw AForm::GradeTooHighException();
-	else if (this->_grade_to_sign > Bureaucrat.getGrade())
-		throw AForm::GradeTooLowException();
 	else
 		this->_signed = true;
 }
@@ -61,20 +59,24 @@ std::string const	AForm::getName() const{
 		return this->_name;
 }
 
-const char*	AForm::GradeTooHighException::what() const throw(){
+const char	*AForm::GradeTooHighException::what() const throw(){
 	return "the Grade is too high";
 }
 
-const char*	AForm::GradeTooLowException::what() const throw(){
+const char	*AForm::GradeTooLowException::what() const throw(){
 	return "the Grade is too low";
 }
 
-const char*	AForm::AlreadySignedException::what() const throw(){
+const char	*AForm::AlreadySignedException::what() const throw(){
 	return "already exist [ signed ]";
 }
 
-const char*	AForm::FormNotSignedException::what() const throw(){
+const char	*AForm::FormNotSignedException::what() const throw(){
 	return "the Form not signed [ false ]";
+}
+
+const char	*AForm::FormNotExecutedException::what() const throw(){
+	return "the Form not executed [ false ]";
 }
 
 std::ostream	&operator<<(std::ostream &out, AForm const &rhs){

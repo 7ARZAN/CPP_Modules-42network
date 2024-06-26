@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 00:08:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/26 08:46:38 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/26 22:36:01 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::FormNotExecutedException();
 	else{
 		std::ofstream file;
 		file.open(this->_target + "_shrubbery", std::ios::out | std::ios::app);

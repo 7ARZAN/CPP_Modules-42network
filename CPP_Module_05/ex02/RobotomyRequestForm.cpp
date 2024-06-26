@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 06:17:41 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/21 23:24:31 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/26 22:35:41 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::FormNotExecutedException();
 	else{
 		int	i;
 

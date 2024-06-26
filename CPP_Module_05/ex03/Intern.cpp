@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:36:41 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/26 03:26:35 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/27 00:04:50 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ AForm	*Intern::makeForm(std::string form, std::string target){
 			ret = new ShrubberyCreationForm(target);
 			break ;
 		default:
-			throw FormDoesNotExistException();
+			throw Intern::FormDoesNotExistException();
 	}
 	std::cout << "Intern creates " << ret->getName() << std::endl;
 	return ret;
@@ -54,5 +54,5 @@ AForm	*Intern::makeForm(std::string form, std::string target){
 }
 
 const char *Intern::FormDoesNotExistException::what() const throw(){
-	return "Form does not exist";
+	return "Form does not exist.";
 }
