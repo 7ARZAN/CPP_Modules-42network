@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:04:12 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/25 22:14:10 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ PmergeMe::pair_vector	PmergeMe::createPairs(const std::vector<int> &list){
 		else
 			pairs.push_back(std::make_pair(list[i], -1));
 	}
+	for (size_t i = 0; i < pairs.size(); i++){
+		std::cout << "[ " << pairs[i].first << " " << pairs[i].second << " ]" << std::endl;
+	}
 	return pairs;
 }
 
@@ -75,7 +78,7 @@ void	PmergeMe::sortPairs(pair_vector &pairs, std::vector<int> &list){
 		}
 	}
 	list = mainChain;
-	// for (int i = 0; i < list.size(); i++){
+	// for (size_t i = 0; i < list.size(); i++){
 	// 	std::cout << list[i] << " ";
 	// }
 	// std::cout << std::endl;
@@ -86,8 +89,10 @@ std::vector<int>	PmergeMe::FordJohnson(std::vector<int> &list){
 	pair_vector		pairs;
 
 	for (size_t i = 0; i < list.size(); i++){
+		//std::cout << "its number:" << i << '\n';
 		mainChain = binaryInsertionSort(list[i], mainChain);
 		pairs = createPairs(mainChain);
+		//std::cout << "number of pairs: " << pairs.size() << std::endl;
 		sortPairs(pairs, mainChain);
 	}
 	// for (size_t i = 0; i < mainChain.size(); i++){

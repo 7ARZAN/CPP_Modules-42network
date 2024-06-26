@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:36:41 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:31:34 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/26 03:26:35 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ AForm	*Intern::makeForm(std::string form, std::string target){
 
 	i = 0;
 	for (; i < 3; i++)
-	{
 		if (form == forms[i])
 			break ;
-	}
 	switch (i)
 	{
 		case 0:

@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:57:38 by tarzan            #+#    #+#             */
-/*   Updated: 2024/03/30 13:01:03 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/13 10:20:13 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other){
 	if (this != &other)
 		this->data = other.data;
 	return (*this);
-}
-
-bool	BitcoinExchange::third_argument(std::string arg){
-	for (int i = 0; i < arg.length(); i++)
-		if (arg[i] < '0' || arg[i] > '9' || (arg.length() > 3 && arg > "1000"))
-			return (std::cout << "ERROR: The third argument must be a number between 0 and 1000" << std::endl, false);
-	return (true);
 }
 
 bool	BitcoinExchange::ValidateDate(const std::string &date){
@@ -96,12 +89,15 @@ bool	BitcoinExchange::ValidateDate(const std::string &date){
 
 double	BitcoinExchange::GetExchangeRate(const std::string &date){
 	std::map<std::string, double>::iterator it = data.lower_bound(date);
-	if (it->first == date)
-		return (it->second);
+
+	if (it == data.end())
+		return (-1.0);
 	else if (it == data.begin())
 		return (-1.0);
 	else
 		return (--it)->second;
+	if (it->first == date)
+		return (it->second);
 }
 
 void	BitcoinExchange::Process_input(const std::string &filename){
@@ -139,11 +135,10 @@ void	BitcoinExchange::Process_input(const std::string &filename){
 }
 
 int	main(int ac, char **av){
+	BitcoinExchange		exchange;
 
-	if (ac != 3)
-		return (std::cerr << "Usage: " << av[0] << " <input_file>" << " <how_much_b1tc01n>" << std::endl, 1);
-	if (!BitcoinExchange().third_argument(av[2]))
-		return (1);
-	BitcoinExchange().Process_input(av[1]);
-	return (0);
+	if (ac != 2)
+		return (std::cerr << "Usage: " << av[0] << " <input_file> " << std::endl, 1);
+	exchange.Process_input(av[1]);
+	return (EXIT_SUCCESS);
 }

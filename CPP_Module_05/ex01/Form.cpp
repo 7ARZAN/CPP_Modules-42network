@@ -6,13 +6,13 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:39 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:21:07 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/06/26 03:13:10 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(): _name("default"), _signed(false), _grade_to_sign(150), _grade_to_execute(150){}
+Form::Form(): _name("default"), _signed(false), _grade_to_sign(MIN_GRADE), _grade_to_execute(MIN_GRADE){}
 
 Form::Form(std::string name, int grade_to_sign, int grade_to_execute): _name(name), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute){
 	if (grade_to_sign < MAX_GRADE || grade_to_execute < MAX_GRADE)
