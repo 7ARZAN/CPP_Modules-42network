@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:09:39 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/26 03:13:10 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/26 05:33:52 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	Form::getGradeToExecute() const{
 	return this->_grade_to_execute;
 }
 
-void	Form::beSigned(Bureaucrat const &){
+void	Form::beSigned(Bureaucrat const &Bureaucrat){
 	if (this->_signed == true)
 		throw Form::AlreadySignedException();
-	else if (this->_grade_to_sign < MAX_GRADE)
+	else if (this->_grade_to_sign < Bureaucrat.getGrade())
 		throw Form::GradeTooHighException();
-	else if (this->_grade_to_sign > MIN_GRADE)
+	else if (this->_grade_to_sign > Bureaucrat.getGrade())
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
