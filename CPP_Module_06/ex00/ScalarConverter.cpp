@@ -6,15 +6,19 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/03/31 02:45:44 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:37:55 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(std::string str): _str(str){
-	if (str.find('.') != std::string::npos)
-		this->_precision = str.length() - str.find('.') - 1;
+	if (str.find('.') != std::string::npos){
+		if (str.find('.') == str.length() - 1)
+			this->_precision = str.length() - str.find('.');
+		else
+			this->_precision = str.length() - str.find('.') - 1;
+	}
 	else
 		this->_precision = 1;
 }
@@ -104,7 +108,7 @@ void	ScalarConverter::toFloat(){
 	std::cout << "float: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
-	if ((this->_str.length() == 1 && (isalpha(c) == true || c == ' ')) || this->_str.find('f') != std::string::npos)
+	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
 		//if is not contain f character should add it else print the string
@@ -115,6 +119,8 @@ void	ScalarConverter::toFloat(){
 	}
 	else if (ss.fail() || f > INT_MAX || f < INT_MIN)
 		throw ImpossibleException();
+	// else if (this->_str.find('.') == std::string::npos)
+	// 	std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(f) << ".0f" << std::endl;
 	else
 			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << "f" << std::endl;
 }
@@ -129,23 +135,21 @@ void	ScalarConverter::toDouble(){
 	std::cout << "double: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
-	if ((this->_str.length() == 1 && (isalpha(c) == true || c == ' ')) || this->_str.find('f') != std::string::npos)
+	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
-		if (this->_str.compare("inf") == false || this->_str.compare("nan") == false){
-			if (this->_str.compare("nanf") == false)
-				std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
-			else
-				std::cout << this->_str << std::endl;
-		}
+		if (this->_str.compare("inf") == false)
+			std::cout << this->_str << std::endl;
 		else if (this->_str.find('f') != std::string::npos)
 			std::cout << this->_str.substr(0, this->_str.find('f') + 1) << std::endl;
+		else
+			std::cout << this->_str << std::endl;
 	}
-	//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
+		//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (ss.fail() || d > INT_MAX || d < INT_MIN)
 		throw ImpossibleException();
 	else
-		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
+			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
 }
 
 bool	ScalarConverter::ispseudoLiteral(std::string str){
