@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/27 03:37:55 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/06/28 07:50:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ScalarConverter::convert(){
 
 void	ScalarConverter::toChar(){
 	int	i;
-	std::stringstream ss;
+	std::stringstream	ss;
 	char	c = this->_str[0];
 
 	ss << this->_str;
