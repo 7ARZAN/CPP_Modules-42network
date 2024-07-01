@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/28 07:50:48 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/07/01 04:21:42 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ void	ScalarConverter::toChar(){
 	ss >> i;
 	std::cout << "char: ";
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
-		std::cout << "'" << this->_str << "'" << std::endl;
+		std::cout << "'" << static_cast<char>(c) << "'" << std::endl;
+	else if (this->_str.length() == 1 && ispunct(c) == true)
+		std::cout << "'" << static_cast<char>(c) << "'" << std::endl;
 	else if (ss.fail() || i > 127 || i < 0)
 		throw ImpossibleException();
 	else if (i < 32 || i == 127)
@@ -92,6 +94,8 @@ void	ScalarConverter::toInt(){
 	std::cout << "int: ";
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << static_cast<int>(c) << std::endl;
+	else if (this->_str.length() == 1 && ispunct(c) == true)
+		std::cout << static_cast<int>(c) << std::endl;
 	else if (ss.fail() || i > INT_MAX || i < INT_MIN)
 		throw ImpossibleException();
 	else
@@ -109,6 +113,8 @@ void	ScalarConverter::toFloat(){
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
+		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
+	else if (this->_str.length() == 1 && ispunct(c) == true)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
 		//if is not contain f character should add it else print the string
@@ -136,6 +142,8 @@ void	ScalarConverter::toDouble(){
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
+		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
+	else if (this->_str.length() == 1 && ispunct(c) == true)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
 		if (this->_str.compare("inf") == false)
