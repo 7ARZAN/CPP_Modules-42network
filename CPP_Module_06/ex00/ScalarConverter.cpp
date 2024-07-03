@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/07/01 04:21:42 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/07/03 05:00:52 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	ScalarConverter::toFloat(){
 	char	c = this->_str[0];
 
 	ss << this->_str;
-	ss >> f;
+	f = std::atof(this->_str.c_str());
 	std::cout << "float: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
@@ -123,7 +123,7 @@ void	ScalarConverter::toFloat(){
 		else
 			std::cout << this->_str << std::endl;
 	}
-	else if (ss.fail() || f > INT_MAX || f < INT_MIN)
+	else if (this->_str.length() > 1 && std::isalpha(c) == true)
 		throw ImpossibleException();
 	// else if (this->_str.find('.') == std::string::npos)
 	// 	std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(f) << ".0f" << std::endl;
@@ -137,7 +137,7 @@ void	ScalarConverter::toDouble(){
 	char	c = this->_str[0];
 
 	ss << this->_str;
-	ss >> d;
+	d = std::atof(this->_str.c_str());
 	std::cout << "double: ";
 	// if (ispseudoLiteral(this->_str) == true)
 	// 	std::cout << this->_str << std::endl;
@@ -154,7 +154,7 @@ void	ScalarConverter::toDouble(){
 			std::cout << this->_str << std::endl;
 	}
 		//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
-	else if (ss.fail() || d > INT_MAX || d < INT_MIN)
+	else if (this->_str.length() > 1 && std::isalpha(c) == true)
 		throw ImpossibleException();
 	else
 			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(d) << std::endl;
