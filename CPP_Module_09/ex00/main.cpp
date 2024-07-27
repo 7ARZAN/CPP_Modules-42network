@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/03/30 12:55:01 by tarzan           ###   ########.fr       */
+/*   Created: 2024/07/23 12:55:35 by tarzan            #+#    #+#             */
+/*   Updated: 2024/07/26 22:54:04 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 #include <fstream>
 
 int	main(int ac, char **av){
-	if (ac != 3){
-		std::cerr << "Usage: " << av[0] << " <input_file>" << " <how_much_b1tc01n>" << std::endl;
-		return (1);
+	std::string	line;
+	std::ifstream	table;
+	BitcoinExchange	dataBase;
+
+	if (ac != 2){
+		std::cerr << "\033[31m[ERROR]: \033[0m<file_name> is missing" << std::endl;
+		return (EXIT_FAILURE);
 	}
-	std::ifstream file(av[1]);
-	if (!file.good())
-		return (std::cerr << "ERROR: file does not exist" << std::endl, 1);
-	BitcoinExchange exchange;
-	//			TODO:
-	//check if " av[2] " is positive number between [0 - 1000].
-	//check the file given if he has the correct infos.
-	//check if data file is present in your directory.
-	//search for the date given and return it.
-	//error handling [input errors && data file errors].
-	//create function printData() to print the data results.
-	return (0);
+	dataBase.handleTables(av[1]);
+	return (EXIT_SUCCESS);
 }
