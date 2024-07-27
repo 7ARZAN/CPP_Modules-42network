@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/25 22:14:10 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/07/07 08:04:39 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,12 @@ std::vector<int>	PmergeMe::FordJohnson(std::vector<int> &list){
 
 	for (size_t i = 0; i < list.size(); i++){
 		//std::cout << "its number:" << i << '\n';
-		mainChain = binaryInsertionSort(list[i], mainChain);
-		pairs = createPairs(mainChain);
+		if (list.size() < 3)
+		{
+			binaryInsertionSort(list[i], mainChain);
+			FordJohnson(mainChain);
+		}
+		pairs = createPairs(list);
 		//std::cout << "number of pairs: " << pairs.size() << std::endl;
 		sortPairs(pairs, mainChain);
 	}
