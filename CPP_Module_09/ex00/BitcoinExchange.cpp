@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:48:16 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/27 20:59:04 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/07/28 01:15:34 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,55 +26,71 @@ static float stringToFloat(const std::string &value)
 
 static bool	isAllDigits(const std::string &value)
 {
-	size_t	periodsCount;
+	size_t	dotCount = 0;
+	size_t	digitCount = 0;
+	size_t	i = 0;
 
-	periodsCount = 0;
-	for (int i = 0; value[i]; i++){
-		if (value[i] == '.' && value[i + 1] && !periodsCount)
-			periodsCount++;
-		else if (!isdigit(value[i]))
-			return (false);
+	while (i < value.length()){
+		if (value[i] == '.')
+			dotCount++;
+		if (isdigit(value[i]))
+			digitCount++;
+		i++;
 	}
+	if (dotCount > 1 || digitCount != (value.length() - dotCount))
+		return (false);
 	return (true);
 }
 
-static bool	isValidDate(const std::string &date)
-{
-	std::string		year;
-	std::string		month;
-	std::string		day;
-	size_t			firstHyphen = date.find("-");
-	size_t			secondHyphen = date.find("-", firstHyphen + 1);
-	
-	year = date.substr(0, firstHyphen);
-	month = date.substr(firstHyphen + 1, secondHyphen - firstHyphen - 1);
-	day = date.substr(secondHyphen + 1);
-	
+static bool	isValidDate(const std::string &date){
+	std::string	year;
+	std::string	month;
+	std::string	day;
+
+	if (date.length() != 10)
+	{
+		std::cerr << "ERROR: invalid date format.\n";
+		return (false);
+	}
+	year = date.substr(0, 4);
+	month = date.substr(5, 2);
+	day = date.substr(8, 2);
 	if (!isAllDigits(year) || !isAllDigits(month) || !isAllDigits(day))
+	{
+		std::cerr << "ERROR: invalid date format.\n";
 		return (false);
-	if (year.length() != 4)
+	}
+	if (stoi(year) < 2000 || stoi(year) > 2021)
+	{
+		std::cerr << "ERROR: invalid year.\n";
 		return (false);
-	if (month.length() != 2 || (int)stringToFloat(month) < 1 || (int)stringToFloat(month) > 12)
+	}
+	if (stoi(month) < 1 || stoi(month) > 12)
+	{
+		std::cerr << "ERROR: invalid month.\n";
 		return (false);
-	if (day.length() != 2 || (int)stringToFloat(day) < 1 || (int)stringToFloat(day) > 31)
+	}
+	if (stoi(day) < 1 || stoi(day) > 31)
+	{
+		std::cerr << "ERROR: invalid day.\n";
 		return (false);
+	}
 	return (true);
 }
 
 static bool	isValidValue(const std::string &value)
 {
-	float	temp;
-
-	temp = stringToFloat(value);
-
-	if (temp < 0)
+	float	realValue;
+	
+	if (!isAllDigits(value))
 	{
-		std::cerr << "ERROR: not a positive number.\n";
+		std::cerr << "ERROR: invalid value format.\n";
 		return (false);
 	}
-	if (temp > 1000)
+	realValue = stringToFloat(value);
+	if (realValue < 0)
 	{
-		std::cerr << "ERROR: too large of a number.\n";
+		std::cerr << "ERROR: invalid value.\n";
 		return (false);
 	}
 	return (true);
