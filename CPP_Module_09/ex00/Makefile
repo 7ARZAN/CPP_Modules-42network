@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 09:04:48 by elakhfif          #+#    #+#              #
-#    Updated: 2024/07/27 01:45:02 by tarzan           ###   ########.fr        #
+#    Updated: 2024/07/28 06:26:15 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,32 @@ SRC = main.cpp BitcoinExchange.cpp
 
 HEADER = BitcoinExchange.hpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = build/main.o build/BitcoinExchange.o
 
 CXX = clang++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Ofast
 
-all: $(NAME)
+all: build $(NAME)
+
+build/%.o: %.cpp $(HEADER)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "\033[0;31mBureaucrat\033[0m\033[0;32m: $@ created\033[0m"
+
+build: 
+	@if [ ! -d "build/" ]; then mkdir build; fi
+	@echo "\033[0;31mBureaucrat\033[0m\033[0;32m: build directory created\033[0m"
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@echo "\033[0;31mBureaucrat\033[0m\033[0;32m: executable created\033[0m"
 clean:
-	rm -rf $(OBJ)
+	@rm -rf build
+	@echo "\033[0;31mbuild\033[0m\033[0;32m directory deleted\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[0;31mexecutable\033[0m\033[0;32m deleted\033[0m"
 
 re: fclean all
 

@@ -6,17 +6,22 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:48:16 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/28 06:01:49 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/07/28 06:53:37 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <sstream>
-#include <fstream>
-#include <cctype>
-#include <iostream>
-#include <string>
-#include <map>
+
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+
+static void	msg(const std::string &msg, bool status){
+	if (status)
+		std::cout << GREEN << "[SUCCESS]: " << YELLOW << msg << "\n";
+	else if (!status)
+		std::cerr << RED << "[ERROR]: " << YELLOW << msg << "\n";
+}
 
 float	BitcoinExchange::stringToFloat(const std::string &value){
 	float	result;
@@ -66,17 +71,15 @@ bool	BitcoinExchange::isValidDate(const std::string &date){
 }
 
 bool	BitcoinExchange::isValidValue(const std::string &value){
-	float	temp;
+	float	tmp;
 
-	temp = stringToFloat(value);
-	if (temp < 0){
-		std::cerr << "ERROR: not a positive number.\n";
-		return (false);
-	}
-	if (temp > 1000){
-		std::cerr << "ERROR: too large of a number.\n";
-		return (false);
-	}
+	tmp = stringToFloat(value);
+	if (!value.length() || !isAllDigits(value))
+		return (msg("Bad input => " + value, false), false);
+	if (tmp < 0)
+		return (msg("not a positive number.", false), false);
+	if (tmp > 1000)
+		return (msg("really? you have more than 1000 bitcoins?", false), false);
 	return (true);
 
 }
@@ -98,7 +101,7 @@ BitcoinExchange::BitcoinExchange(){
 	std::string	date;
 	
 	if (!data.is_open()){
-		std::cerr << "ERROR: unable to access Database.\n";
+		msg("unable to access file.", false);
 		exit(1);
 	}
 	getline(data, row);
@@ -116,15 +119,13 @@ BitcoinExchange::~BitcoinExchange(){
 
 }
 
-double BitcoinExchange::getBitcoinPrice(const std::string &date){
+double	BitcoinExchange::getBitcoinPrice(const std::string &date){
 	float	result;
 	std::map<std::string, float>::const_iterator it;
 
 	result = 0;
-	if (!isValidDate(date)){
-		std::cerr << "ERROR: Bad input => " << date << "\n";
-		return (-1);
-	}
+	if (!isValidDate(date))
+		return (msg("Bad input => " + date, false), -1);
 	for (it = this->data.begin(); it != data.end(); it++){
 		if (it->first > date)
 			break;
@@ -134,31 +135,31 @@ double BitcoinExchange::getBitcoinPrice(const std::string &date){
 	return (result);
 }
 
-void BitcoinExchange::handleTables(const std::string &path) {
-	float			exchangerate;
-	std::string		date;
-	std::string		value;
-	std::string		row;
+void	BitcoinExchange::handleTables(const std::string &path){
+	float		BitcoinPrice;
+	std::string	date;
+	std::string	value;
+	std::string	row;
 	std::ifstream	data(path.c_str());
 
 	if (!data.is_open()){
-		std::cerr << "ERROR: unable to access file.\n";
+		msg("unable to access file.", false);
 		return ;
 	}
 	getline(data, row);
 	if (row != "date | value"){
-		std::cerr << "ERROR: invalid file format.\n";
+		msg("bad file format.", false);
 		data.close();
 		return ;
 	}
 	while (getline(data, row)){
 		date = trim(row.substr(0, row.find("|")), " ");
 		value = trim(row.substr(row.find("|") + 1), " ");
-		exchangerate = getBitcoinPrice(date);
-		if (exchangerate < 0)
+		BitcoinPrice = getBitcoinPrice(date);
+		if (BitcoinPrice < 0)
 			continue;
 		if (isValidValue(value))
-			std::cout << date << " => " << value << " = " << exchangerate * stringToFloat(value) << "\n";
+			msg(date + " => " + value + " = " + std::to_string(BitcoinPrice * stringToFloat(value)), true);
 	}
 	data.close();
 }
