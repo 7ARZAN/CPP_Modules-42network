@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:39:11 by tarzan            #+#    #+#             */
-/*   Updated: 2024/03/15 21:55:31 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/08/01 21:34:42 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class NotFoundException : public std::exception{
 	virtual const char* what() const throw(){
-		return "failed: value not found";
+		return ("Did not find the value in the container.");
 	}
 };
 
@@ -29,7 +29,7 @@ int	easyfind(T &container, int value){
 
 	it = std::find(container.begin(), container.end(), value);
 	if ( it != container.end())
-		return *it;
+		return (*it);
 	else
 		throw NotFoundException();
 }
