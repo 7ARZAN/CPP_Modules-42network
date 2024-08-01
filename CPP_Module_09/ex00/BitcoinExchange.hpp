@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/23 13:10:13 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/07/28 06:27:19 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <iostream>
 # include <string>
 # include <map>
+# include <fstream>
+# include <sstream>
 
 class BitcoinExchange{
 	private:
-		std::map<std::string, double>	data;
+		std::map<std::string, float>	data;
 
 	public:
 		BitcoinExchange();
@@ -29,6 +31,11 @@ class BitcoinExchange{
 
 		double	getBitcoinPrice(const std::string &date);
 		void	handleTables(const std::string &line);
+		float	stringToFloat(const std::string &value);
+		bool	isAllDigits(const std::string &value);
+		bool	isValidDate(const std::string &date);
+		bool	isValidValue(const std::string &value);
+		std::string	trim(const std::string &str, const std::string &charList);
 };
 
 #endif
