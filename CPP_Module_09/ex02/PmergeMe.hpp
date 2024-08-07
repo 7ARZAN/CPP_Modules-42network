@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:13:02 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/16 04:45:28 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/08/07 05:33:08 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ class	PmergeMe
 
 		pair_vector		createPairs(const std::vector<int> &list);
 		void			sortPairs(pair_vector &pairs, std::vector<int> &list);
-		std::vector<int>	binaryInsertionSort(int number, std::vector<int> &list);
+		std::vector<int>	binaryInsertion(int number, std::vector<int> &list);
 
 	public:
 		PmergeMe();
 		~PmergeMe();
-		std::vector<int>	FordJohnson(std::vector<int> &list);
+
+		std::vector<int>	FordJohnsonAlgorithm(std::vector<int> &list2Sort);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/06/18 17:05:15 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/08/07 05:42:30 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int ac, char **av){
 	std::vector<int>	mainChain;
-	std::vector<int>	pendingChain;
 
 	if (ac < 2){
 		std::cerr << "Error: No arguments provided" << std::endl;
@@ -26,7 +25,6 @@ int	main(int ac, char **av){
 			return 1;
 		}
 		mainChain.push_back(std::atoi(av[i]));
-		pendingChain.push_back(std::atoi(av[i]));
 	}
 	PmergeMe	p;
 	std::cout << "Unsorted list: ";
@@ -34,7 +32,7 @@ int	main(int ac, char **av){
 		std::cout << mainChain[i] << " ";
 	}
 	std::cout << std::endl;
-	std::vector<int>	sortedList = p.FordJohnson(mainChain);
+	std::vector<int>	sortedList = p.FordJohnsonAlgorithm(mainChain);
 	std::cout << "Sorted list: ";
 	for (size_t i = 0; i < sortedList.size(); i++){
 		std::cout << sortedList[i] << " ";
