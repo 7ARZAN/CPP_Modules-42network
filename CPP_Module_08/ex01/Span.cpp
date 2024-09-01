@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:44:58 by tarzan            #+#    #+#             */
-/*   Updated: 2024/03/15 21:59:54 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/09/01 05:40:38 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <vector>
 
 Span::Span(unsigned int n) : _n(n){
-	arr = new int[n];
+	arr = new int[n]; //here we allocate memory for the array of integers
 	index = 0;
 }
 
@@ -27,11 +27,8 @@ Span::~Span(){
 }
 
 Span &Span::operator=(const Span &src) {
-	if (this != &src){
-		this->_n = src._n;
-		this->arr = src.arr;
-		this->index = src.index;
-	}
+	if (this != &src)
+		*this = src;
 	return *this;
 }
 

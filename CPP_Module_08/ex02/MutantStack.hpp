@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 14:50:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/12 09:06:22 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/01 06:31:26 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,46 +29,14 @@ class	MutantStack : public std::stack<T>
 				std::stack<T>::operator=(src);
 			return (*this);
 		};
-		//lets make our iterator class
-		class iterator{
-			public:
-				iterator(typename std::stack<T>::container_type::iterator it) : _it(it) {};
-				iterator(const iterator &src) : _it(src._it) {};
-				~iterator() {};
-				iterator &operator=(const iterator &src){
-					if (this != &src)
-						_it = src._it;
-					return (*this);
-				};
-				iterator &operator++(){
-					_it++;
-					return (*this);
-				};
-				iterator &operator--(){
-					_it--;
-					return (*this);
-				};
-				T &operator*(){
-						return (*_it);
-				};
-				bool operator!=(const iterator &src){
-					if (_it != src._it)
-						return (true);
-					return (false);
-				};
-			private:
-				typename std::stack<T>::container_type::iterator _it;
-		};
-		iterator begin(){
-			if (std::stack<T>::c.size() > 0)
-				return (iterator(std::stack<T>::c.begin()));
-			return (iterator(std::stack<T>::c.end()));
-		};
-		iterator end(){
-			if (std::stack<T>::c.size() > 0)
-				return (iterator(std::stack<T>::c.end()));
-			return (iterator(std::stack<T>::c.end()));
-		};
+
+		typedef typename	std::stack<T, std::deque<int> >::container_type::iterator	iterator;
+		iterator	begin(){
+			return (this->c.begin());
+		}
+		iterator	end(){
+			return (this->c.end());
+		}
 };
 
 #endif

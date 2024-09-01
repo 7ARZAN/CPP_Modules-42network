@@ -6,12 +6,11 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:36:57 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/12 09:04:10 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/01 06:30:33 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-
 
 int	main(){
 	MutantStack<int>	mstack;
