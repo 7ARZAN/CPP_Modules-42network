@@ -6,12 +6,11 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 12:55:35 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/26 22:54:04 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/09/04 23:47:00 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <fstream>
 
 int	main(int ac, char **av){
 	std::string	line;

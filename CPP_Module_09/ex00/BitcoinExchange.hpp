@@ -6,12 +6,17 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:20:43 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/28 06:27:19 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/04 23:47:31 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
+
+
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
 
 # include <iostream>
 # include <string>
@@ -19,7 +24,8 @@
 # include <fstream>
 # include <sstream>
 
-class BitcoinExchange{
+class BitcoinExchange
+{
 	private:
 		std::map<std::string, float>	data;
 

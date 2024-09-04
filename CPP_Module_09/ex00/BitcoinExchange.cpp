@@ -6,15 +6,11 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:48:16 by tarzan            #+#    #+#             */
-/*   Updated: 2024/07/28 06:53:37 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/04 23:47:17 by tarzan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
 
 static void	msg(const std::string &msg, bool status){
 	if (status)
@@ -121,7 +117,7 @@ BitcoinExchange::~BitcoinExchange(){
 
 double	BitcoinExchange::getBitcoinPrice(const std::string &date){
 	float	result;
-	std::map<std::string, float>::const_iterator it;
+	std::map<std::string, float>::const_iterator	it;
 
 	result = 0;
 	if (!isValidDate(date))
