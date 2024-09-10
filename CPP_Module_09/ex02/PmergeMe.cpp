@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 07:47:57 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/10 08:24:20 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,22 +118,4 @@ T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 		binaryInsertion(pairs.at(index).first, mainChain);
 	return (mainChain);
 }
-
-int	main(void){
-	PmergeMe<std::vector<int> >	merger;
-	std::vector<int>			list;
-	std::vector<int>			result;
-
-	list.push_back(5);
-	list.push_back(3);
-	list.push_back(2);
-	list.push_back(4);
-	list.push_back(1);
-	list.push_back(6);
-
-	result = merger.FordJohnsonAlgorithm(list);
-	for (size_t i = 0; i < result.size(); i++)
-		std::cout << result.at(i) << " ";
-	std::cout << std::endl;
-	return (0);
-}
+template	class PmergeMe<std::vector<int> >;
