@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 08:24:20 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:55:16 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typename	PmergeMe<T>::pair_vector	PmergeMe<T>::createPairs(const T& list){
 
 	index = -1;
 	while (++index < list.size()){
-		if (!(index % 2))
+		if (index % 2 == 0)
 			holder.first = list[index];
 		else
 		{
@@ -60,9 +60,6 @@ typename	PmergeMe<T>::pair_vector	PmergeMe<T>::createPairs(const T& list){
 			pairs.push_back(holder);
 		}
 	}
-	// for (size_t i = 0; i < pairs.size(); i++){
-	// 	std::cout << "[ " << pairs[i].first << " " << pairs[i].second << " ]" << std::endl;
-	// }
 	return (pairs);
 }
 
@@ -74,17 +71,14 @@ typename	PmergeMe<T>::pair_vector	PmergeMe<T>::sortPairs(pair_vector pairs, cons
 
 	index = -1;
 	while (++index < list.size()){
-		i = 0;
-		while (i < pairs.size()){
-			if (list.at(index) == pairs.at(i).second){
-				sortedPairs.push_back(pairs.at(i));
+		i = -1;
+		while (++i < pairs.size()){
+			if (list.at(index) == pairs[i].second){
+				sortedPairs.push_back(pairs[i]);
 				pairs.erase(pairs.begin() + i);
 			}
-			i++;
 		}
 	}
-	// for (size_t i = 0; i < sortedPairs.size(); i++)
-	// 	std::cout << "[ " << sortedPairs[i].first << " " << sortedPairs[i].second << " ]" << std::endl;
 	return (sortedPairs);
 }
 
@@ -98,9 +92,9 @@ T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 	pairs = createPairs(list2Sort);
 	index = -1;
 	while (++index < pairs.size()){
-		if (!index)
-			mainChain.push_back(pairs.at(index).first);
-		mainChain.push_back(pairs.at(index).second);
+		if (index == 0)
+			mainChain.push_back(pairs[index].first);
+		mainChain.push_back(pairs[index].second);
 	}
 	if (list2Sort.size() % 2)
 		pendingList.push_back(list2Sort.back());
@@ -115,7 +109,9 @@ T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 		binaryInsertion(pendingList.at(0), mainChain);
 	index = 0;
 	while (++index < pairs.size())
-		binaryInsertion(pairs.at(index).first, mainChain);
+		binaryInsertion(pairs[index].first, mainChain);
 	return (mainChain);
 }
+
 template	class PmergeMe<std::vector<int> >;
+template	class PmergeMe<std::deque<int> >;
