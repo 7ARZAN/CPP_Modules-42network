@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:13:02 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 06:43:00 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/10 07:11:45 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class	PmergeMe
 		typedef std::vector<pair_info>	pair_vector; // vector of pairs [first, second] but template can be changed to any type
 
 		pair_vector	createPairs(const T &list);
-		pair_vector	sortPairs(pair_vector pairs, const T& sortedList);
+		pair_vector	sortPairs(pair_vector pairs, const T& list);
 
 	public:
 		PmergeMe();
 		~PmergeMe();
-		void		binaryInsertion(int number, const T& list2Sort);
+		void		binaryInsertion(int number, T &sortedList);
 		T		FordJohnsonAlgorithm(const T& list2Sort);
 };
 

@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 06:39:28 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/10 07:47:57 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,44 @@ PmergeMe<T>::~PmergeMe(){
 }
 
 template	<class T>
-void	PmergeMe<T>::binaryInsertion(int number, const T& list2Sort){
-	size_t		low;
-	size_t		high;
-	size_t		mid;
+void	PmergeMe<T>::binaryInsertion(int number, T &sortedList){
+	size_t	low;
+	size_t	high;
+	size_t	mid;
 
 	low = 0;
-	high = list2Sort.size() - 1;
-	while (low <= high){
+	high = sortedList.size();
+	while (low < high){
 		mid = (low + high) / 2;
-		if (list2Sort.at(mid) < number)
-			low = mid + 1;
+		if (number < sortedList.at(mid))
+			high = mid;
 		else
-			high = mid - 1;
+			low = mid + 1;
 	}
-	list2Sort.insert(list2Sort.begin() + low, number);
+	sortedList.insert(sortedList.begin() + low, number);
 }
 
 template	<typename T>
 typename	PmergeMe<T>::pair_vector	PmergeMe<T>::createPairs(const T& list){
 	pair_vector	pairs;
+	pair_info	holder;
 	size_t		index;
 
 
-	index = 0;
-	while (index < list.size()){
-		if (index + 1 < list.size())
-			pairs.push_back(std::make_pair(list.at(index), list.at(index + 1)));
+	index = -1;
+	while (++index < list.size()){
+		if (!(index % 2))
+			holder.first = list[index];
 		else
-			pairs.push_back(std::make_pair(list.at(index), -1));
-		index += 2;
+		{
+			if (list[index] < holder.first){
+				holder.second = holder.first;
+				holder.first = list[index];
+			}
+			else
+				holder.second = list[index];
+			pairs.push_back(holder);
+		}
 	}
 	// for (size_t i = 0; i < pairs.size(); i++){
 	// 	std::cout << "[ " << pairs[i].first << " " << pairs[i].second << " ]" << std::endl;
@@ -59,11 +67,73 @@ typename	PmergeMe<T>::pair_vector	PmergeMe<T>::createPairs(const T& list){
 }
 
 template	<typename T>
-typename	PmergeMe<T>::pair_vector	PmergeMe<T>::sortPairs(pair_vector pairs, const T &sortedList){
+typename	PmergeMe<T>::pair_vector	PmergeMe<T>::sortPairs(pair_vector pairs, const T &list){
+	pair_vector	sortedPairs;
+	size_t		index;
+	size_t		i;
 
+	index = -1;
+	while (++index < list.size()){
+		i = 0;
+		while (i < pairs.size()){
+			if (list.at(index) == pairs.at(i).second){
+				sortedPairs.push_back(pairs.at(i));
+				pairs.erase(pairs.begin() + i);
+			}
+			i++;
+		}
+	}
+	// for (size_t i = 0; i < sortedPairs.size(); i++)
+	// 	std::cout << "[ " << sortedPairs[i].first << " " << sortedPairs[i].second << " ]" << std::endl;
+	return (sortedPairs);
 }
 
 template	<typename T>
 T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
+	size_t		index;
+	pair_vector	pairs;
+	T		mainChain;
+	T		pendingList;
 
+	pairs = createPairs(list2Sort);
+	index = -1;
+	while (++index < pairs.size()){
+		if (!index)
+			mainChain.push_back(pairs.at(index).first);
+		mainChain.push_back(pairs.at(index).second);
+	}
+	if (list2Sort.size() % 2)
+		pendingList.push_back(list2Sort.back());
+	if (mainChain.size() < 3){
+		if (pendingList.size())
+			binaryInsertion(pendingList.at(0), mainChain);
+		return (mainChain);
+	}
+	mainChain = FordJohnsonAlgorithm(mainChain);
+	pairs = sortPairs(pairs, mainChain);
+	if (pendingList.size())
+		binaryInsertion(pendingList.at(0), mainChain);
+	index = 0;
+	while (++index < pairs.size())
+		binaryInsertion(pairs.at(index).first, mainChain);
+	return (mainChain);
+}
+
+int	main(void){
+	PmergeMe<std::vector<int> >	merger;
+	std::vector<int>			list;
+	std::vector<int>			result;
+
+	list.push_back(5);
+	list.push_back(3);
+	list.push_back(2);
+	list.push_back(4);
+	list.push_back(1);
+	list.push_back(6);
+
+	result = merger.FordJohnsonAlgorithm(list);
+	for (size_t i = 0; i < result.size(); i++)
+		std::cout << result.at(i) << " ";
+	std::cout << std::endl;
+	return (0);
 }
