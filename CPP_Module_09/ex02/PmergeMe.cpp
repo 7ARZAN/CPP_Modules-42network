@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 21:55:16 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/11 00:43:38 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 			binaryInsertion(pendingList.at(0), mainChain);
 		return (mainChain);
 	}
-	mainChain = FordJohnsonAlgorithm(mainChain);
 	pairs = sortPairs(pairs, mainChain);
+	mainChain = FordJohnsonAlgorithm(mainChain);
 	if (pendingList.size())
 		binaryInsertion(pendingList.at(0), mainChain);
 	index = 0;
