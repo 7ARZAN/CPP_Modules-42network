@@ -6,39 +6,39 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/08/07 05:42:30 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/09/10 06:43:56 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int	main(int ac, char **av){
-	std::vector<int>	mainChain;
-
-	if (ac < 2){
-		std::cerr << "Error: No arguments provided" << std::endl;
-		return 1;
-	}
-	for (int i = 1; i < ac; i++){
-		if (std::atoi(av[i]) < 0 || std::isdigit(av[i][0]) == 0){
-			std::cerr << "Error: Negative number provided" << std::endl;
-			return 1;
-		}
-		mainChain.push_back(std::atoi(av[i]));
-	}
-	PmergeMe	p;
-	std::cout << "Unsorted list: ";
-	for (size_t i = 0; i < mainChain.size(); i++){
-		std::cout << mainChain[i] << " ";
-	}
-	std::cout << std::endl;
-	std::vector<int>	sortedList = p.FordJohnsonAlgorithm(mainChain);
-	std::cout << "Sorted list: ";
-	for (size_t i = 0; i < sortedList.size(); i++){
-		std::cout << sortedList[i] << " ";
-	}
-	std::cout << std::endl;
-	return 0;
+	// std::vector<int>	mainChain;
+	//
+	// if (ac < 2){
+	// 	std::cerr << "Error: No arguments provided" << std::endl;
+	// 	return 1;
+	// }
+	// for (int i = 1; i < ac; i++){
+	// 	if (std::atoi(av[i]) < 0 || std::isdigit(av[i][0]) == 0){
+	// 		std::cerr << "Error: Negative number provided" << std::endl;
+	// 		return 1;
+	// 	}
+	// 	mainChain.push_back(std::atoi(av[i]));
+	// }
+	// PmergeMe	p;
+	// std::cout << "Unsorted list: ";
+	// for (size_t i = 0; i < mainChain.size(); i++){
+	// 	std::cout << mainChain[i] << " ";
+	// }
+	// std::cout << std::endl;
+	// std::vector<int>	sortedList = p.FordJohnsonAlgorithm(mainChain);
+	// std::cout << "Sorted list: ";
+	// for (size_t i = 0; i < sortedList.size(); i++){
+	// 	std::cout << sortedList[i] << " ";
+	// }
+	// std::cout << std::endl;
+	// return 0;
 }
 
 

@@ -6,40 +6,40 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/10 05:15:42 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/09/10 06:39:28 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(){
+template	<typename T>
+PmergeMe<T>::PmergeMe(){
 }
 
-PmergeMe::~PmergeMe(){
+template	<typename T>
+PmergeMe<T>::~PmergeMe(){
 }
 
-std::vector<int>	PmergeMe::binaryInsertion(int number, std::vector<int> &list){
-	std::vector<int>	result;
-	int			low;
-	int			high;
-	int			mid;
+template	<class T>
+void	PmergeMe<T>::binaryInsertion(int number, const T& list2Sort){
+	size_t		low;
+	size_t		high;
+	size_t		mid;
 
 	low = 0;
-	high = list.size() - 1;
+	high = list2Sort.size() - 1;
 	while (low <= high){
 		mid = (low + high) / 2;
-		if (list[mid] < number)
+		if (list2Sort.at(mid) < number)
 			low = mid + 1;
 		else
 			high = mid - 1;
 	}
-	result.insert(result.begin(), list.begin(), list.begin() + low);
-	result.push_back(number);
-	result.insert(result.end(), list.begin() + low, list.end());
-	return (result);
+	list2Sort.insert(list2Sort.begin() + low, number);
 }
 
-PmergeMe::pair_vector	PmergeMe::createPairs(const std::vector<int> &list){
+template	<typename T>
+typename	PmergeMe<T>::pair_vector	PmergeMe<T>::createPairs(const T& list){
 	pair_vector	pairs;
 	size_t		index;
 
@@ -58,46 +58,12 @@ PmergeMe::pair_vector	PmergeMe::createPairs(const std::vector<int> &list){
 	return (pairs);
 }
 
-void	PmergeMe::sortPairs(pair_vector &pairs, std::vector<int> &list){
-	std::vector<int>	mainChain;
-	std::pair<int, int>	pair;
-	size_t		i;
+template	<typename T>
+typename	PmergeMe<T>::pair_vector	PmergeMe<T>::sortPairs(pair_vector pairs, const T &sortedList){
 
-	i = 0;
-	while (i < pairs.size()){
-		pair = pairs.at(i);
-		if (pair.second == -1){
-			mainChain.push_back(pair.first);
-			i++;
-		}
-		else
-		{
-			if (pair.first < pair.second){
-				mainChain.push_back(pair.first);
-				mainChain.push_back(pair.second);
-			}
-			else{
-				mainChain.push_back(pair.second);
-				mainChain.push_back(pair.first);
-			}
-			i++;
-		}
-	}
-	list = mainChain;
-	// for (size_t i = 0; i < list.size(); i++){
-	// 	std::cout << list[i] << " ";
-	// }
-	// std::cout << std::endl;
 }
 
-std::vector<int>	PmergeMe::FordJohnsonAlgorithm(std::vector<int> &list2Sort){
-	std::vector<int>	mainChain;
-	pair_vector		pairs;
+template	<typename T>
+T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 
-	pairs = createPairs(list2Sort);
-	for (size_t i = 0; i < pairs.size(); i++){
-		std::cout << "[ " << pairs[i].first << " " << pairs[i].second << " ]" << std::endl;
-	}
-	sortPairs(pairs, mainChain);
-	return (mainChain);
 }
