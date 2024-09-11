@@ -6,42 +6,53 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:09:19 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/11 00:43:49 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/11 01:53:30 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <ctime>
+
+//getTime() function is used to get the time used by the algorithm.
+template <typename T>
+double	PmergeMe<T>::getTime(){
+	return timer;
+}
 
 int	main(int ac, char **av){
 	std::vector<int>	mainChain;
+	std::deque<int>		dequemainChain;
 
 
 	if (ac < 2){
 		std::cerr << "Error: No arguments provided" << std::endl;
-		return 1;
+		return (EXIT_FAILURE);
 	}
 	for (int i = 1; i < ac; i++){
 		if (std::atoi(av[i]) < 0 || std::isdigit(av[i][0]) == 0){
 			std::cerr << "Error: Negative number provided" << std::endl;
-			return 1;
+			return (EXIT_FAILURE);
 		}
 		mainChain.push_back(std::atoi(av[i]));
+		dequemainChain.push_back(std::atoi(av[i]));
 	}
-	PmergeMe<std::vector<int> >	p;
+	PmergeMe<std::vector<int> >	vec;
+	PmergeMe<std::deque<int> >	deq;
 
-	std::cout << "Unsorted list: ";
+	std::cout << "Before: ";
 	for (size_t i = 0; i < mainChain.size(); i++){
 		std::cout << mainChain[i] << " ";
 	}
 	std::cout << std::endl;
-	std::vector<int>	sortedList = p.FordJohnsonAlgorithm(mainChain);
-	std::cout << "Sorted list: ";
+	std::vector<int>	sortedList = vec.FordJohnsonAlgorithm(mainChain);
+	std::deque<int>		deqsortedList = deq.FordJohnsonAlgorithm(dequemainChain);
+	std::cout << "After: ";
 	for (size_t i = 0; i < sortedList.size(); i++){
 		std::cout << sortedList[i] << " ";
 	}
 	std::cout << std::endl;
-	return 0;
+	std::cout << "Time to process a range of " << mainChain.size() << " elements with std::vector : " << vec.getTime() << " us\n";
+	std::cout << "Time to process a range of " << dequemainChain.size() << " elements with std::deque : " << deq.getTime() << " us\n";
+	return (EXIT_SUCCESS);
 }
 
 

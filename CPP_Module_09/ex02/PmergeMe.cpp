@@ -6,14 +6,16 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/11 00:43:38 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/09/11 01:47:32 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <ctime>
 
 template	<typename T>
 PmergeMe<T>::PmergeMe(){
+	timer = 0;
 }
 
 template	<typename T>
@@ -84,11 +86,14 @@ typename	PmergeMe<T>::pair_vector	PmergeMe<T>::sortPairs(pair_vector pairs, cons
 
 template	<typename T>
 T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
+	clock_t		end;
+	clock_t		start;
 	size_t		index;
 	pair_vector	pairs;
 	T		mainChain;
 	T		pendingList;
 
+	start = clock();
 	pairs = createPairs(list2Sort);
 	index = -1;
 	while (++index < pairs.size()){
@@ -110,6 +115,8 @@ T	PmergeMe<T>::FordJohnsonAlgorithm(const T& list2Sort){
 	index = 0;
 	while (++index < pairs.size())
 		binaryInsertion(pairs[index].first, mainChain);
+	end = clock();
+	timer = (double)(end - start) * 100 / CLOCKS_PER_SEC;
 	return (mainChain);
 }
 
