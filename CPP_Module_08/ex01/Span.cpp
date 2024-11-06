@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:44:58 by tarzan            #+#    #+#             */
-/*   Updated: 2024/09/01 05:40:38 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:48:04 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	Span::addNumber(int number){
 }
 
 int	Span::shortestSpan(){
+	int	min;
 	std::vector<int> v(arr, arr + _n);
 	std::sort(v.begin(), v.end());
-	int min = v[1] - v[0];
+	
+	min = v[1] - v[0];
 	for (unsigned int i = 1; i < _n; i++){
-		if (v[i] - v[i - 1] < min)
-			min = v[i] - v[i - 1];
+		if (v.at(i) - v.at(i - 1) < min)
+			min = v.at(i) - v.at(i - 1);
 	}
 	return min;
 }
@@ -55,6 +57,6 @@ int	Span::shortestSpan(){
 int	Span::longestSpan(){
 	std::vector<int> v(arr, arr + _n);
 	std::sort(v.begin(), v.end());
-	return v[_n - 1] - v[0];
+	return v.at(_n - 1) - v.at(0);
 }
 
