@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:26:32 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/27 10:04:51 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:31:33 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	ScavTrap : public virtual ClapTrap{
 		~ScavTrap();
 		void	attack(std::string const & target);
 		void	guardGate();
+		unsigned int	getEnergyPoints();
 };
 
 #endif
