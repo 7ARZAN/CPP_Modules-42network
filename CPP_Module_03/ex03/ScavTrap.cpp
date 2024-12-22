@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:38:46 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/12/22 15:34:57 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:53:43 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,34 @@ ScavTrap::ScavTrap(){
 	this->_energy_points = 50;
 	this->_hit_points = 100;
 	this->_attack_damage = 20;
-    std::cout << "ScavTrap Default Constructor Called !!" << std::endl;
+	std::cout << "ScavTrap Default Constructor Called !!" << std::endl;
 }
 
-unsigned int	ScavTrap::getEnergyPoints(){
-	return (this->_energy_points);
+ScavTrap::ScavTrap(unsigned int EnergyPoints, unsigned int HitPoints){
+	EnergyPoints = 50;
+	HitPoints = 100;
+	this->_energy_points = EnergyPoints;
+	this->_hit_points = HitPoints;
+	std::cout << "ScavTrap Default Constructor Called !!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const name){
-	std::cout << "ScavTrap Parametric Constructor Called !!" << std::endl;
 	this->_name = name;
 	this->_energy_points = 50;
 	this->_hit_points = 100;
 	this->_attack_damage = 20;
+	std::cout << "ScavTrap Parametric Constructor Called !!" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &f){
+	*this = f;
 	std::cout << "ScavTrap Copy Constructor Called !!" << std::endl;
-		this->_name = f._name;
-		this->_energy_points = 50;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &f){
+	if (this != &f)
+		*this = f;
 	std::cout << "ScavTrap Assignation Operator Called !!" << std::endl;
-	if (this != &f){
-		this->_name = f._name;
-		this->_energy_points = f._energy_points;
-	}
 	return (*this);
 }
 void    ScavTrap::attack(const std::string& target){

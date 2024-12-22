@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 02:28:12 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/12/22 15:34:23 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:52:15 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,18 @@ FragTrap::FragTrap(){
 	std::cout << "FragTrap Default Constructor Called !" << std::endl;
 }
 
-unsigned int	FragTrap::getHitPoints(){
-	return (this->_hit_points);
-}
-
-unsigned int	FragTrap::getAttackDamage(){
-	return (this->_attack_damage);
+FragTrap::FragTrap(unsigned int AttackDamage){
+	AttackDamage = 30;
+	this->_attack_damage = AttackDamage;
+	std::cout << "FragTrap Default Constructor Called !" << std::endl;
 }
 
 FragTrap::FragTrap(std::string const name){
-	std::cout << "FragTrap Copy Constructor Called !" << std::endl;
 	this->_name = name;
 	this->_hit_points = 100;
 	this->_attack_damage = 30;
 	this->_energy_points = 100;
+	std::cout << "FragTrap Copy Constructor Called !" << std::endl;
 }
 
 FragTrap::~FragTrap(){
@@ -41,19 +39,14 @@ FragTrap::~FragTrap(){
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &f){
+	if (this != &f)
+		*this = f;
 	std::cout << "FragTrap Assignation Operator Called !" << std::endl;
-	if (this != &f){
-		this->_name = f._name;
-		this->_attack_damage = f._attack_damage;
-	}
 	return (*this);
 }
 
 FragTrap::FragTrap(FragTrap const &f){
 	std::cout << "FragTrap Copy Constructor Called !" << std::endl;
-	this->_name = f._name;
-	this->_hit_points = 100;
-	this->_attack_damage = 30;
 	*this = f;
 }
 
