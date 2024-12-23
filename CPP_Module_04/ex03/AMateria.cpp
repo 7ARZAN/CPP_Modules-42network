@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 03:56:22 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/05 08:13:42 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/23 13:23:19 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ AMateria::AMateria(std::string const &type){
 	std::cout << "AMateria constructor called" << std::endl;
 }
 
-std::string const &AMateria::getType() const{
+std::string const	&AMateria::getType() const{
 	return this->_type;
 	std::cout << "AMateria getType called" << std::endl;
 }

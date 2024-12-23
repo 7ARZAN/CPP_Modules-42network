@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 04:02:08 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/11 07:15:10 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/23 13:23:51 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void Character::equip(AMateria* m){
 
 void Character::unequip(int idx){
 	if (idx < 0 || idx > 3)
+		return ;
+	if (!this->_inventory[idx])
 		return ;
 	if (_tmp[idx])
 		delete (this->_tmp[idx]);

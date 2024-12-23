@@ -8,12 +8,12 @@
 #include <iostream>
 
 
-	int main()
+int	main()
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    // std::cout << "------" << std::endl;
+    std::cout << "------" << std::endl;
     ICharacter* me = new Character("me");
     AMateria* tmp;
     tmp = src->createMateria("ice");
@@ -38,10 +38,11 @@
     std::cout << "------" << std::endl;
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
+    me->use(0, *bob);
     me->use(1, *bob);
     me->use(2, *bob);
     me->use(3, *bob);
-     me->use(0, *bob);
+    me->use(0, *bob);
     me->use(1, *bob);
     me->unequip(0);
     me->use(0, *bob);
