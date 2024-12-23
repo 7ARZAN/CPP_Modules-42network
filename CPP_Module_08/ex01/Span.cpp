@@ -6,15 +6,20 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:44:58 by tarzan            #+#    #+#             */
-/*   Updated: 2024/11/06 11:48:04 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/23 13:31:00 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <vector>
 
+Span::Span() : _n(0){
+	arr = new int[0];
+	index = 0;
+}
+
 Span::Span(unsigned int n) : _n(n){
-	arr = new int[n]; //here we allocate memory for the array of integers
+	arr = new int[n];
 	index = 0;
 }
 

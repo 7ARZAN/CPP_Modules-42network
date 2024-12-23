@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 02:24:14 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/02/09 12:28:41 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/12/23 13:28:59 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ template	<typename T>
 class Array{
 	private:
 		T		*arr;
-		unsigned int		n;
+		unsigned int	n;
 	public:
-		Array();
+		Array(){
+			this->n = 0;
+			this->arr = new T[0];
+		};
 		Array(unsigned int n){
 			this->n = n;
 			this->arr = new T[n];
