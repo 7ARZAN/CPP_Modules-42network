@@ -6,7 +6,7 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 02:26:22 by elakhfif          #+#    #+#              #
-#    Updated: 2024/03/07 15:31:07 by tarzan           ###   ########.fr        #
+#    Updated: 2024/12/24 18:55:15 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ = build/func.o build/main.o
 
 CXX = clang++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 all: build $(NAME)
 

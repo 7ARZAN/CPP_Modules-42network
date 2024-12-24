@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 01:22:40 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/01/29 01:45:58 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/24 19:04:25 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,43 @@ Base*	generate(void){
 			return new B();
 		case 2:
 			return new C();
+		default:
+			break;
 	}
 	return NULL;
 }
 
 int	random_rand(void){
-	//generate a random number between 1 and 3
 	srand(time(NULL));
 	return rand() % 3;
 }
 
-void	identify_fromPTR(Base *p){
+void	identify(Base *p){
 	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
+		std::cout << "A" << '\n';
 	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
+		std::cout << "B" << '\n';
 	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
+		std::cout << "C" << '\n';
 }
 
-void	identify_fromREF(Base &p){
+void	identify(Base &p){
 	try{
-		A &a = dynamic_cast<A&>(p);
-		std::cout << "A" << std::endl;
-		(void)a;
+		A	&a = dynamic_cast<A&>(p);
+		std::cout << "A" << '\n';
+		(void)	a;
+	}catch(const std::exception& e){
 	}
-	catch(const std::exception& e){}
 	try{
-		B &b = dynamic_cast<B&>(p);
-		std::cout << "B" << std::endl;
-		(void)b;
+		B	&b = dynamic_cast<B&>(p);
+		std::cout << "B" << '\n';
+		(void)	b;
+	}catch(const std::exception& e){
 	}
-	catch(const std::exception& e){}
 	try{
-		C &c = dynamic_cast<C&>(p);
-		std::cout << "C" << std::endl;
-		(void)c;
+		C	&c = dynamic_cast<C&>(p);
+		std::cout << "C" << '\n';
+		(void)	c;
+	}catch(const std::exception& e){
 	}
-	catch(const std::exception& e){}
 }
