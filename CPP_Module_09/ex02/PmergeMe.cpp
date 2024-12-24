@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:38:50 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/09/11 01:47:32 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/24 19:35:18 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 template	<typename T>
 PmergeMe<T>::PmergeMe(){
 	timer = 0;
+	std::cout << "PmergeMe: Hello, Welcome to PmergeMe!" << '\n';
 }
 
 template	<typename T>
 PmergeMe<T>::~PmergeMe(){
+	std::cout << "PmergeMe: GoodBye!" << '\n';
 }
 
 template	<class T>

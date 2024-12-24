@@ -6,15 +6,19 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:28:44 by tarzan            #+#    #+#             */
-/*   Updated: 2024/02/20 16:32:34 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/12/24 19:34:09 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::~RPN(){}
+RPN::~RPN(){
+	std::cout << "Reverse Polish Notation: GoodBye!" << '\n';
+}
 
-RPN::RPN(){}
+RPN::RPN(){
+	std::cout << "Reverse Polish Notation: Hello, Welcome to RPN!" << '\n';
+}
 
 RPN::RPN(const RPN &src){
 	(void)src;
@@ -70,9 +74,11 @@ bool	RPN::checkExpression(std::string str){
 void	RPN::calculator(std::string str){
 	if (!checkExpression(str))
 		return ;
-	std::stack<int> stack;
-	std::string token;
-	size_t i = 0;
+	std::stack<int>	stack;
+	std::string	token;
+	size_t		i;
+
+	i = 0;
 	while (i < str.length()){
 		if (str[i] == ' '){
 			i++;
@@ -80,7 +86,7 @@ void	RPN::calculator(std::string str){
 		}
 		token = "";
 		while (i < str.length() && str[i] != ' '){
-			token += str[i];
+			token += str.at(i);
 			i++;
 		}
 		if (is_num(token))

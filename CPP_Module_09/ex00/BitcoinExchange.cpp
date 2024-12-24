@@ -6,7 +6,7 @@
 /*   By: tarzan <elakhfif@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:48:16 by tarzan            #+#    #+#             */
-/*   Updated: 2024/09/04 23:47:17 by tarzan           ###   ########.fr       */
+/*   Updated: 2024/12/24 19:31:23 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,8 @@ BitcoinExchange::~BitcoinExchange(){
 }
 
 double	BitcoinExchange::getBitcoinPrice(const std::string &date){
-	float	result;
 	std::map<std::string, float>::const_iterator	it;
+	float	result;
 
 	result = 0;
 	if (!isValidDate(date))
@@ -132,11 +132,11 @@ double	BitcoinExchange::getBitcoinPrice(const std::string &date){
 }
 
 void	BitcoinExchange::handleTables(const std::string &path){
-	float		BitcoinPrice;
+	std::ifstream	data(path.c_str());
 	std::string	date;
 	std::string	value;
 	std::string	row;
-	std::ifstream	data(path.c_str());
+	float		BitcoinPrice;
 
 	if (!data.is_open()){
 		msg("unable to access file.", false);
