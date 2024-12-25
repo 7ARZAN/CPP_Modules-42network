@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:53:33 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/07 16:56:18 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/25 17:10:31 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int indexer;
 int trigger;
 
-void	PhoneBook::add_contact(void)
-{
-	std::string buffers[5];
-	std::string prompts[5] = {"First name eh? : ", "Last name eh? : ", "Nickname eh? : ",
+void	PhoneBook::add_contact(void){
+	std::string	buffers[5];
+	std::string	prompts[5] = {"First name eh? : ", "Last name eh? : ", "Nickname eh? : ",
 		"Phone number eh? [only moroccan prefix is accepted (+212) no algerian spies] : ", 
 		"Deepest darkest secret : "};
 	int i = -1;
@@ -27,13 +26,11 @@ void	PhoneBook::add_contact(void)
 		std::cout << prompts[i];
 		std::cout << "\033[0m";
 		std::getline(std::cin, buffers[i]);
-		if (std::cin.eof())
-		{
+		if (std::cin.eof()){
 			std::cout << std::endl;
 			return;
 		}
-		if (i == 3 && ("+212" != buffers[i].substr(0, 4) || buffers[i].length() != 13))
-		{
+		if (i == 3 && ("+212" != buffers[i].substr(0, 4) || buffers[i].length() != 13)){
 			std::cout << "\033[1;31m" << "BRUH!! from ANOTHER PLANET?!" << "\033[0m" << std::endl;
 			i--;
 		}
@@ -47,12 +44,10 @@ void	PhoneBook::add_contact(void)
 	this->contacts[this->index].setnickname(buffers[2]);
 	this->contacts[this->index].setphone_number(buffers[3]);
 	this->contacts[this->index].setdarkest_secret(buffers[4]);
-
 	this->index++;
 	if (this->index < 8 && trigger == 0)
 		indexer++;
-	if (this->index >= 8)
-	{
+	if (this->index >= 8){
 		this->index = 0;
 		indexer = 8;
 		trigger = 1;
@@ -60,11 +55,10 @@ void	PhoneBook::add_contact(void)
 	std::cout << "\033[1;31m" << "[TARZAN]: BRAH, CONTACT ADDED" << "\033[0m" << std::endl;
 }
 
-void	PhoneBook::search_contact(void)
-{
-	int i;
-	int j;
-	std::string input;
+void	PhoneBook::search_contact(void){
+	std::string	input;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -114,24 +108,21 @@ void	PhoneBook::search_contact(void)
 	}
 }
 
-void	PhoneBook::print_contact(void)
-{
-	int i;
+void	PhoneBook::print_contact(void){
+	int	i;
 
-	i = 0;
+	i = -1;
 	if (this->index == 0)
 		return ;
 	std::cout << "\033[1;31m" << "     index|first name| last name|  nickname" << "\033[0m" << std::endl;
-	while (i < this->index)
-	{
+	while (++i < this->index){
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << contacts[i].getfirst_name() << "|";
 		std::cout << std::setw(10) << contacts[i].getlast_name() << "|";
 		std::cout << std::setw(10) << contacts[i].getnickname() << std::endl;
-		i++;
 	}
 }
 
-PhoneBook::PhoneBook () {
+PhoneBook::PhoneBook (){
 	this->index = 0;
 }

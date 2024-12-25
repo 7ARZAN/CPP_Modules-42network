@@ -6,11 +6,11 @@
 #    By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:42:45 by elakhfif          #+#    #+#              #
-#    Updated: 2023/12/02 03:05:42 by elakhfif         ###   ########.fr        #
+#    Updated: 2024/12/25 17:18:56 by elakhfif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = PhoneBook
 
 SRC = PhoneBook.cpp Contact.cpp main.cpp
 
