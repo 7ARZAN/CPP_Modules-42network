@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 03:35:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/11 22:37:58 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/25 17:23:52 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ HumanA::~HumanA(){
 	std::cout << "HumanA destroyed" << std::endl;
 }
 
-void HumanA::attack(){
+void	HumanA::attack(){
 	std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl;
 }

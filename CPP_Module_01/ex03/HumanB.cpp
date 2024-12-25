@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 03:35:47 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/11 22:38:26 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/25 17:24:02 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ HumanB::~HumanB(){
 	std::cout << "HumanB destroyed" << std::endl;
 }
 
-void HumanB::attack(){
+void	HumanB::attack(){
 	if (this->_weapon == NULL){
 		std::cout << "Sergant " << this->_name << " has no weapon WEAK NI**A" << std::endl;
 		return ;
@@ -29,6 +29,6 @@ void HumanB::attack(){
 	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon &weapon){
+void	HumanB::setWeapon(Weapon &weapon){
 	this->_weapon = &weapon;
 }

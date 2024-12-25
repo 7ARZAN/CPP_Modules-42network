@@ -6,13 +6,13 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 09:57:27 by elakhfif          #+#    #+#             */
-/*   Updated: 2023/12/11 22:24:50 by elakhfif         ###   ########.fr       */
+/*   Updated: 2024/12/25 17:22:48 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* zombieHorde( int N, std::string name )
+Zombie*	zombieHorde( int N, std::string name )
 {
 	if (N < 1)
 		return (NULL);
