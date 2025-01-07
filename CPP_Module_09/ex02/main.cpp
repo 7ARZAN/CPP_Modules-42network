@@ -12,7 +12,6 @@
 
 #include "PmergeMe.hpp"
 
-//getTime() function is used to get the time used by the algorithm.
 template <typename T>
 double	PmergeMe<T>::getTime(){
 	return timer;
