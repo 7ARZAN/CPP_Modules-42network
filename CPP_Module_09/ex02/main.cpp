@@ -82,14 +82,4 @@ sequence.
 
 				WARNING:
 • To clarify, yes, you need to use the Ford-Johnson algorithm.
-
-
-				•TODO :
-- try to implement insert-merge sort algorithm.
-- read about ford johnson algorithm.
-- compare the time between the two algorithms.
-- check if the input is a sequence of numbers.
-- check if the input is a sequence of positive numbers.
-- handle the errors and display the error message.
 */
-
