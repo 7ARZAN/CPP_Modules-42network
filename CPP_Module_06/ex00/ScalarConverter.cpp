@@ -6,7 +6,7 @@
 /*   By: elakhfif <elakhfif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 02:19:56 by elakhfif          #+#    #+#             */
-/*   Updated: 2024/12/24 19:10:29 by elakhfif         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:16:08 by elakhfif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ScalarConverter::toChar(){
 	else if (ss.fail() || i > 127 || i < 0)
 		throw ImpossibleException();
 	else if (i < 32 || i == 127)
-		std::cout << "Non displayable" << std::endl;
+		throw NonDisplayableException();
 	else
 		std::cout << static_cast<char>(i) << std::endl;
 }
@@ -110,14 +110,11 @@ void	ScalarConverter::toFloat(){
 	ss << this->_str;
 	f = std::atof(this->_str.c_str());
 	std::cout << "float: ";
-	// if (ispseudoLiteral(this->_str) == true)
-	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
 	else if (this->_str.length() == 1 && ispunct(c) == true)
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(c) << "f" << std::endl;
 	else if (ispseudoLiteral(this->_str) == true){
-		//if is not contain f character should add it else print the string
 		if (this->_str.find('f') == std::string::npos)
 			std::cout << this->_str << "f" << std::endl;
 		else
@@ -125,8 +122,6 @@ void	ScalarConverter::toFloat(){
 	}
 	else if (this->_str.length() > 1 && std::isalpha(c) == true)
 		throw ImpossibleException();
-	// else if (this->_str.find('.') == std::string::npos)
-	// 	std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(f) << ".0f" << std::endl;
 	else
 			std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<float>(f) << "f" << std::endl;
 }
@@ -139,8 +134,6 @@ void	ScalarConverter::toDouble(){
 	ss << this->_str;
 	d = std::atof(this->_str.c_str());
 	std::cout << "double: ";
-	// if (ispseudoLiteral(this->_str) == true)
-	// 	std::cout << this->_str << std::endl;
 	if (this->_str.length() == 1 && (isalpha(c) == true || c == ' '))
 		std::cout << std::fixed << std::setprecision(this->_precision) << static_cast<double>(c) << std::endl;
 	else if (this->_str.length() == 1 && ispunct(c) == true)
@@ -153,7 +146,6 @@ void	ScalarConverter::toDouble(){
 		else
 			std::cout << this->_str << std::endl;
 	}
-		//std::cout << this->_str.substr(0, this->_str.find('f')) << std::endl;
 	else if (this->_str.length() > 1 && std::isalpha(c) == true)
 		throw ImpossibleException();
 	else
