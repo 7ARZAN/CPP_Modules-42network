@@ -15,13 +15,14 @@
 
 # include "Animal.hpp"
 
-class	Cat: public Animal{
+class	Cat: public Animal
+{
 	public:
 		Cat();
 		Cat(Cat const &);
 		Cat &operator=(Cat const &);
-		~Cat(); //destructor should be virtual!
-		void makeSound() const; //should be virtual because we have a polymorphic class (Animal)
+		~Cat(); 
+		void makeSound() const; 
 };
 
 #endif

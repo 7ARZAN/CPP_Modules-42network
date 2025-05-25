@@ -15,16 +15,17 @@
 
 # include <string>
 
-class	Animal{
+class	Animal
+{
 	protected:
 		std::string _type;
 	public:
 		Animal();
 		Animal(Animal const &);
 		Animal &operator=(Animal const &);
-		virtual ~Animal(); //should be virtual because we have a polymorphic class (Animal)
+		virtual ~Animal(); 
 		std::string getType() const;
-		virtual void makeSound() const; //virtual because we have a polymorphic class (Animal)
+		virtual void makeSound() const;
 };
 
 #endif

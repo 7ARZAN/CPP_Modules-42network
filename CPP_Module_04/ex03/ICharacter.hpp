@@ -16,7 +16,8 @@
 # include <string>
 
 class AMateria;
-class	ICharacter{
+class	ICharacter
+{
 	public:
 		virtual ~ICharacter(){}
 		virtual std::string const& getName() const = 0;
